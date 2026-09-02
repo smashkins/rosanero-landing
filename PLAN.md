@@ -199,5 +199,6 @@ Markdown importato direttamente (pattern `src/pages/index.astro:12` di monoidx):
 - [x] Pagine IT ed EN (index, terms, privacy, support, delete-account, 404)
 - [x] Asset: immagini in `public/img`, favicon (segnaposto dal logo jpg); `og.png` da rigenerare quando arriva l'icona definitiva
 - [x] `npm install`, `npm run build`, `npm run check` (0 errori), sitemap 10 URL con hreflang, verifica visiva desktop
-- [ ] Repo GitHub, workflow, primo deploy, Pages settings
-- [ ] Istruzioni DNS consegnate all'utente, verifica post-deploy (§6 punto 5)
+- [x] Repo GitHub https://github.com/smashkins/rosanero-landing (pubblico), workflow, primo deploy riuscito (2026-09-03), Pages con source Actions e cname `rosanero.app` (impostati via API)
+- [ ] DNS: record A/AAAA/CNAME al registrar (a cura dell'utente, vedi §5), poi "Enforce HTTPS" in Settings → Pages e verifica post-deploy (§6 punto 5)
+- [ ] Quando arrivano: icona definitiva (favicon/OG), testi legali IT/EN (`placeholder: false`), percorso in-app eliminazione account, tempi `[n]`

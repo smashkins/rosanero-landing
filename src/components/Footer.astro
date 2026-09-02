@@ -1,0 +1,24 @@
+---
+import { localizedHref, t, type Locale } from '~/i18n';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const s = t(locale);
+const h = (p: string) => localizedHref(p, locale);
+---
+<footer class="footer">
+  <div class="wrap inner">
+    <div class="brand-line">
+      <img src="/img/logo.jpg" alt="Rosanero" width="36" height="36" />
+      <p>{s.footer.copyright}<br />{s.footer.madeBy}</p>
+    </div>
+    <nav aria-label="Legale">
+      <a href={h('/terms/')}>{s.footer.terms}</a>
+      <a href={h('/privacy/')}>{s.footer.privacy}</a>
+      <a href={h('/support/')}>{s.footer.support}</a>
+      <a href={h('/delete-account/')}>{s.footer.deleteAccount}</a>
+    </nav>
+  </div>
+</footer>

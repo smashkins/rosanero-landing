@@ -1,0 +1,252 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #0b0b0d; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: #f4a6c8; }
+    .bebas { font-family: "Bebas Neue", "Oswald", "Arial Narrow", sans-serif; font-weight: 400; letter-spacing: 0.02em; line-height: 0.95; }
+    .lbl { font-family: "DM Sans", "Helvetica Neue", sans-serif; text-transform: uppercase; letter-spacing: 0.16em; font-size: 12px; font-weight: 600; }
+    .pill { display: inline-flex; align-items: center; gap: 10px; font-family: "DM Sans", sans-serif; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; font-size: 12px; padding: 12px 22px; border-radius: 100px; border: 1.5px solid #f4a6c8; color: #f4a6c8; }
+    .badge { display: inline-flex; align-items: center; gap: 12px; padding: 12px 22px 12px 18px; border-radius: 14px; min-width: 190px; box-sizing: border-box; }
+    .badge.fill { background: #f4a6c8; color: #0b0b0d; }
+    .badge.line { border: 1.5px solid #3a3a3e; color: #ffffff; background: rgba(255,255,255,0.02); }
+    .badge .s { display: block; font-family: "DM Sans", sans-serif; font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; opacity: 0.8; }
+    .badge .b { display: block; font-family: "DM Sans", sans-serif; font-size: 18px; font-weight: 700; line-height: 1.1; }
+    .fcard { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; padding: 32px 22px 30px; border-radius: 22px; background: #131316; border: 1px solid #222226; }
+    .fcard svg { width: 38px; height: 38px; color: #f4a6c8; }
+    .fcard h3 { margin: 0; font-family: "DM Sans", sans-serif; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; color: #ffffff; }
+    .fcard p { margin: 0; font-family: "DM Sans", sans-serif; font-size: 13.5px; line-height: 1.5; color: #a3a0a8; }
+    .pcard { border-radius: 18px; background: #16161a; border: 1px solid #26262b; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+    .tab { padding: 8px 16px; border-radius: 100px; font-family: "DM Sans", sans-serif; font-size: 12.5px; font-weight: 600; color: #cfcbd2; background: #1d1d21; }
+    .tab.on { background: #f4a6c8; color: #0b0b0d; }
+    .crest { width: 54px; height: 54px; border-radius: 16px; display: grid; place-items: center; font-family: "Bebas Neue", sans-serif; font-size: 24px; color: #0b0b0d; background: #f4a6c8; }
+    .crest.away { background: #2a2a2f; color: #a3a0a8; border: 1px dashed #4a4a50; font-size: 12px; font-family: "DM Sans", sans-serif; text-transform: uppercase; letter-spacing: 0.08em; }
+    .row { display: flex; align-items: center; gap: 10px; font-family: "DM Sans", sans-serif; font-size: 13px; color: #e8e4ea; white-space: nowrap; }
+    .row .pos { width: 14px; color: #a3a0a8; font-weight: 600; }
+    .row .av { width: 26px; height: 26px; border-radius: 50%; background: #f4a6c8; color: #0b0b0d; display: grid; place-items: center; font-size: 11px; font-weight: 700; }
+    .row .pt { margin-left: auto; font-weight: 700; color: #ffffff; }
+    .tabbar { display: flex; justify-content: space-around; align-items: flex-end; padding-top: 12px; border-top: 1px solid #222226; }
+    .tabbar div { display: flex; flex-direction: column; align-items: center; gap: 5px; font-family: "DM Sans", sans-serif; font-size: 10px; color: #8a8790; }
+    .tabbar svg { width: 20px; height: 20px; }
+    .tabbar .on { color: #f4a6c8; }
+    .phone { border-radius: 58px; background: linear-gradient(160deg, #2a2a2e, #101012); border: 2px solid #3b3b40; padding: 12px; box-shadow: 0 60px 100px -40px rgba(0,0,0,0.9), 0 0 80px -30px rgba(244,166,200,0.45); box-sizing: border-box; }
+    .screen { width: 100%; height: 100%; border-radius: 46px; background: #0d0d10; overflow: hidden; display: flex; flex-direction: column; box-sizing: border-box; }
+    .ev { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #222226; font-family: "DM Sans", sans-serif; font-size: 12px; color: #e8e4ea; }
+    .ev .min { font-weight: 700; color: #f4a6c8; width: 30px; }
+    .ev .cnt { margin-left: auto; color: #8a8790; font-size: 11px; }
+    .callout { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; }
+    .callout svg { width: 30px; height: 30px; color: #f4a6c8; }
+    .callout b { font-family: "DM Sans", sans-serif; font-size: 13px; font-weight: 700; color: #ffffff; line-height: 1.3; }
+    .foot a { font-family: "DM Sans", sans-serif; font-size: 13px; color: #a3a0a8; }
+  </style>
+</helmet>
+
+<div style="width: 1440px; min-height: 2700px; position: relative; overflow: hidden; background: #0b0b0d; color: #ffffff; font-family: 'DM Sans', 'Helvetica Neue', sans-serif; line-height: 1.55;">
+
+  <!-- ATMOSPHERE: stadium at night, pink flares (CSS stand-in for a real photo of the curva) -->
+  <div style="position: absolute; left: 0; top: 0; width: 1440px; height: 1060px; pointer-events: none; overflow: hidden;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(180deg, #0b0b0d 0%, #0e0c10 40%, #1a1018 75%, #0b0b0d 100%);"></div>
+    <div style="position: absolute; left: -120px; bottom: 60px; width: 900px; height: 520px; border-radius: 50%; background: radial-gradient(circle, rgba(240,120,176,0.55), rgba(240,120,176,0.18) 45%, transparent 70%); filter: blur(40px);"></div>
+    <div style="position: absolute; left: 520px; bottom: 120px; width: 700px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(244,166,200,0.35), transparent 65%); filter: blur(50px);"></div>
+    <div style="position: absolute; left: 980px; bottom: 40px; width: 620px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(240,120,176,0.4), transparent 68%); filter: blur(46px);"></div>
+    <div style="position: absolute; left: 260px; bottom: 300px; width: 320px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(255,205,228,0.5), transparent 65%); filter: blur(30px);"></div>
+    <div style="position: absolute; left: 60px; top: 380px; width: 180px; height: 520px; background: linear-gradient(180deg, rgba(255,255,255,0.10), transparent 80%); transform: rotate(18deg); filter: blur(18px);"></div>
+    <div style="position: absolute; left: 1220px; top: 320px; width: 200px; height: 560px; background: linear-gradient(180deg, rgba(255,255,255,0.08), transparent 80%); transform: rotate(-16deg); filter: blur(20px);"></div>
+    <div style="position: absolute; left: 0; bottom: 0; width: 1440px; height: 120px; background-image: radial-gradient(circle at 50% 100%, #0b0b0d 0 16px, transparent 17px), radial-gradient(circle at 50% 100%, #0b0b0d 0 14px, transparent 15px); background-size: 44px 60px, 44px 60px; background-position: 0 0, 22px 26px; opacity: 0.55;"></div>
+    <div style="position: absolute; left: 0; bottom: 0; width: 1440px; height: 320px; background: linear-gradient(180deg, transparent, #0b0b0d 80%);"></div>
+    <div style="position: absolute; inset: 0; opacity: 0.18; background-image: radial-gradient(rgba(255,255,255,0.25) 0.6px, transparent 0.7px); background-size: 3px 3px;"></div>
+  </div>
+
+  <!-- NAV -->
+  <header style="position: relative; display: flex; align-items: center; justify-content: space-between; height: 92px; padding: 0 64px;">
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <img src="rosanero-logo.jpg" alt="Rosanero" style="width: 48px; height: 48px; border-radius: 13px;">
+      <div style="display: flex; flex-direction: column; gap: 2px;">
+        <span class="bebas" style="font-size: 30px; letter-spacing: 0.08em; color: #f4a6c8;">Rosanero</span>
+        <span class="lbl" style="font-size: 10px; color: #cfcbd2;">La casa dei tifosi</span>
+      </div>
+    </div>
+    <nav class="lbl" style="display: flex; gap: 34px; font-size: 12.5px; color: #e8e4ea;">
+      <a href="#" style="color: #f4a6c8; padding-bottom: 6px; border-bottom: 1.5px solid #f4a6c8;">Home</a><a href="#">Funzioni</a><a href="#">News</a><a href="#">Community</a><a href="#">Supporto</a>
+    </nav>
+    <div style="display: flex; align-items: center; gap: 18px;">
+      <span class="lbl" style="display: flex; gap: 8px; font-size: 12px;"><span style="color: #f4a6c8;">IT</span><span style="color: #55525a;">/</span><span style="color: #8a8790;">EN</span></span>
+      <span class="pill">Prossimamente<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"></rect><path d="M11 18h2"></path></svg><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5v17l13-8.5z"></path></svg></span>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section style="position: relative; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; align-items: center; padding: 60px 64px 120px; min-height: 880px; box-sizing: border-box;">
+    <div style="display: flex; flex-direction: column; gap: 26px;">
+      <span class="lbl" style="display: inline-flex; align-items: center; gap: 10px; align-self: flex-start; padding: 9px 18px; border: 1.5px solid #3a3a3e; border-radius: 100px; font-size: 11px; color: #e8e4ea; background: rgba(11,11,13,0.5);"><span style="width: 7px; height: 7px; border-radius: 50%; background: #f4a6c8;"></span>Fan app non ufficiale · iOS e Android</span>
+      <h1 class="bebas" style="margin: 0; font-size: 100px; line-height: 0.92; display: flex; flex-direction: column;">
+        <span>Tutto il Palermo.</span>
+        <span>In una app.</span>
+        <span style="color: #f4a6c8;">Fatta dai tifosi.</span>
+      </h1>
+      <p style="margin: 0; font-size: 19px; line-height: 1.6; color: #e8e4ea; max-width: 520px;">Notizie senza doppioni, la community dei gruppi rosanero, classifica, calendario, rosa e statistiche.<br>Tutto il mondo rosanero, in un'unica app.</p>
+      <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 6px;">
+        <span class="badge fill"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"></rect><path d="M10.5 18h3"></path></svg><span><span class="s">Prossimamente su</span><span class="b">App Store</span></span></span>
+        <span class="badge line"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5v17l13-8.5z"></path></svg><span><span class="s">Prossimamente su</span><span class="b">Google Play</span></span></span>
+      </div>
+      <p style="margin: 6px 0 0; font-size: 13.5px; color: #a3a0a8; max-width: 520px;"><strong style="color: #e8e4ea;">Progetto indipendente dei tifosi.</strong> Rosanero non è affiliata al Palermo F.C. e non usa loghi o contenuti ufficiali.</p>
+    </div>
+
+    <!-- PHONE -->
+    <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+      <div class="phone" style="width: 400px; height: 820px; transform: rotate(-3deg);">
+        <div class="screen" style="padding: 26px 18px 16px; gap: 14px;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <span class="bebas" style="font-size: 26px; letter-spacing: 0.1em; color: #f4a6c8;">Rosanero</span>
+            <div style="display: flex; align-items: center; gap: 12px; color: #e8e4ea;">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"></path><path d="M10 21h4"></path></svg>
+              <span style="width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, #f4a6c8, #7a3a58);"></span>
+            </div>
+          </div>
+          <div style="display: flex; gap: 8px;"><span class="tab on">Per te</span><span class="tab">News</span><span class="tab">Community</span></div>
+
+          <div class="pcard">
+            <div style="display: flex; justify-content: space-between; align-items: baseline;"><span style="font-size: 14px; font-weight: 700;">Prossima partita</span><span style="font-size: 11px; color: #8a8790;">Serie B · [n]ª giornata</span></div>
+            <div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 10px; padding: 6px 0;">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;"><span class="crest">P</span><span class="lbl" style="font-size: 10px;">Palermo</span></div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 2px;"><span class="bebas" style="font-size: 30px;">[Data]</span><span style="font-size: 13px; color: #cfcbd2;">20:30</span></div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;"><span class="crest away">Avv.</span><span class="lbl" style="font-size: 10px; color: #a3a0a8;">[Avversario]</span></div>
+            </div>
+            <div style="text-align: center; font-size: 11px; color: #8a8790;">Stadio Renzo Barbera</div>
+          </div>
+
+          <div class="pcard" style="gap: 8px;">
+            <div style="display: flex; gap: 8px;" class="lbl"><span style="font-size: 10px; color: #f4a6c8;">Mercato</span><span style="font-size: 10px; color: #8a8790;">Principale</span></div>
+            <div style="font-size: 15px; font-weight: 700; line-height: 1.25;">Ufficiale: il nuovo difensore è del Palermo</div>
+            <div style="font-size: 12px; color: #a3a0a8;">Una sola scheda, aggiornata 3 volte oggi.</div>
+          </div>
+
+          <div class="pcard" style="flex-direction: row; align-items: center; justify-content: space-between; background: linear-gradient(120deg, #1f1519, #16161a);">
+            <div style="display: flex; flex-direction: column; gap: 3px;"><span class="lbl" style="font-size: 10px; color: #f4a6c8;">Pronostici</span><span style="font-size: 13px; color: #e8e4ea;">Partecipa e guadagna punti</span></div>
+            <span style="padding: 9px 16px; border-radius: 100px; background: #f4a6c8; color: #0b0b0d; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Gioca ora</span>
+          </div>
+
+          <div class="pcard" style="gap: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline;"><span style="font-size: 14px; font-weight: 700;">Classifica gruppi</span><span style="font-size: 11px; color: #8a8790;">Vedi tutto</span></div>
+            <div class="row"><span class="pos">1</span><span class="av">R</span>Rosanero Doc<span class="pt">4.250 pt</span></div>
+            <div class="row"><span class="pos">2</span><span class="av">C</span>Cuore Rosanero<span class="pt">3.870 pt</span></div>
+            <div class="row"><span class="pos">3</span><span class="av">A</span>Aquile 1900<span class="pt">3.420 pt</span></div>
+          </div>
+
+          <div class="tabbar" style="margin-top: auto;">
+            <div class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg>Home</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h12a2 2 0 0 1 2 2v11a1.5 1.5 0 0 0 3 0V9"></path><path d="M4 5v13a1.5 1.5 0 0 0 1.5 1.5H19"></path><path d="M8 9h5M8 13h5"></path></svg>News</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20a6.5 6.5 0 0 1 13 0"></path><circle cx="17" cy="9" r="2.5"></circle><path d="M16 15a5 5 0 0 1 5.5 5"></path></svg>Community</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M6.5 6.5a8 8 0 0 0 0 11M17.5 6.5a8 8 0 0 1 0 11"></path></svg>Live</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg>Profilo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section style="position: relative; padding: 40px 64px 60px; display: flex; flex-direction: column; gap: 36px;">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center;">
+      <span class="lbl" style="color: #f4a6c8;">Tutto ciò che ti serve</span>
+      <h2 class="bebas" style="margin: 0; font-size: 60px;">Tutto il Palermo, in otto sezioni</h2>
+      <p style="margin: 0; font-size: 16px; color: #a3a0a8; max-width: 620px;">Le prime due sono già in costruzione. Le altre arrivano una alla volta, senza promesse che non possiamo mantenere.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px;">
+      <div class="fcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h12a2 2 0 0 1 2 2v11a1.5 1.5 0 0 0 3 0V9"></path><path d="M4 5v13a1.5 1.5 0 0 0 1.5 1.5H19"></path><path d="M8 9h5M8 13h5"></path></svg><h3>Live News Feed</h3><p>Una notizia, una scheda che si aggiorna a ogni sviluppo. Niente doppioni.</p></div>
+      <div class="fcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20a6.5 6.5 0 0 1 13 0"></path><circle cx="17" cy="9" r="2.5"></circle><path d="M16 15a5 5 0 0 1 5.5 5"></path></svg><h3>Community</h3><p>Gruppi verificati, pronostici, pagelle della tifoseria e matchday evento per evento.</p></div>
+      <div class="fcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11"></path><path d="M4 6h.01M4 12h.01M4 18h.01"></path></svg><h3>Classifica</h3><p>Personalizzabile e ordinabile per i criteri che contano per te.</p></div>
+      <div class="fcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg><h3>Calendario e risultati</h3><p>Prossime partite, orari e risultati in un colpo d'occhio.</p></div>
+      <div class="fcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="9" cy="11" r="2.5"></circle><path d="M5.5 17a3.5 3.5 0 0 1 7 0M15 9h3M15 13h3"></path></svg><h3>Rosa e schede giocatori</h3><p>Ogni giocatore con la sua scheda e le statistiche della stagione.</p></div>
+      <div class="fcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path></svg><h3>Statistiche</h3><p>I numeri della squadra e dei singoli, stagione per stagione.</p></div>
+      <div class="fcard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h14l-3-3M20 17H6l3 3"></path></svg><h3>Calciomercato</h3><p>Trattative, ufficialità e voci, distinte per affidabilità.</p></div>
+      <div class="fcard" style="border-style: dashed;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.5-6-10a6 6 0 0 1 12 0c0 4.5-6 10-6 10z"></path><circle cx="12" cy="11" r="2"></circle></svg><h3>Gamification</h3><p>Tag geolocalizzati, presenze allo stadio e realtà aumentata. <span style="color: #f4a6c8;">In sviluppo.</span></p></div>
+    </div>
+  </section>
+
+  <!-- MATCHDAY PANEL -->
+  <section style="position: relative; margin: 20px 64px 0; padding: 56px 64px; border-radius: 34px; background: #111114; border: 1px solid #222226; display: grid; grid-template-columns: 5fr 7fr; gap: 48px; align-items: center;">
+    <div style="display: flex; flex-direction: column; gap: 22px;">
+      <span class="lbl" style="color: #f4a6c8;">La tua passione, ogni giorno</span>
+      <h2 class="bebas" style="margin: 0; font-size: 58px; display: flex; flex-direction: column;"><span>Il matchday,</span><span style="color: #f4a6c8;">evento per evento.</span></h2>
+      <p style="margin: 0; font-size: 16px; color: #cfcbd2; max-width: 440px;">Un thread per ogni gol, cambio e occasione. Pronostici prima del fischio d'inizio, pagelle della tifoseria dopo. E i gruppi verificati che si sfidano in classifica.</p>
+      <span class="pill" style="align-self: flex-start;"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20a6.5 6.5 0 0 1 13 0"></path><circle cx="17" cy="9" r="2.5"></circle><path d="M16 15a5 5 0 0 1 5.5 5"></path></svg>Scopri la community</span>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 14px; max-width: 460px;">
+        <div class="callout"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M6 4h12v4a6 6 0 0 1-12 0z"></path><path d="M6 6H3v2a3 3 0 0 0 3 3M18 6h3v2a3 3 0 0 1-3 3"></path></svg><b>Pronostici e classifiche</b></div>
+        <div class="callout"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14v16H5z"></path><path d="M9 9h6M9 13h6M9 17h3"></path></svg><b>Pagelle della tifoseria</b></div>
+        <div class="callout"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3.5v5c0 5-3.5 8.5-8 9.5-4.5-1-8-4.5-8-9.5v-5z"></path><path d="M9 12l2 2 4-4"></path></svg><b>Gruppi verificati</b></div>
+      </div>
+    </div>
+
+    <!-- three phones -->
+    <div style="position: relative; height: 560px; display: flex; justify-content: center; align-items: flex-end;">
+      <div class="phone" style="position: absolute; left: 40px; bottom: 30px; width: 240px; height: 480px; padding: 8px; border-radius: 40px; transform: rotate(-6deg); opacity: 0.85;">
+        <div class="screen" style="border-radius: 32px; padding: 22px 14px 14px; gap: 10px;">
+          <span style="font-size: 13px; font-weight: 700; text-align: center;">Matchday</span>
+          <span class="lbl" style="font-size: 9px; color: #f4a6c8; text-align: center;">Palermo — [Avversario] · Live</span>
+          <div class="ev"><span class="min">37'</span>Gol Palermo<span class="cnt">248</span></div>
+          <div class="ev"><span class="min">61'</span>Cambio Palermo<span class="cnt">96</span></div>
+          <div class="ev"><span class="min">78'</span>Occasione<span class="cnt">183</span></div>
+          <div class="ev"><span class="min">85'</span>Ammonizione<span class="cnt">41</span></div>
+        </div>
+      </div>
+      <div class="phone" style="position: absolute; right: 40px; bottom: 30px; width: 240px; height: 480px; padding: 8px; border-radius: 40px; transform: rotate(6deg); opacity: 0.85;">
+        <div class="screen" style="border-radius: 32px; padding: 22px 14px 14px; gap: 10px;">
+          <span style="font-size: 13px; font-weight: 700; text-align: center;">Classifica</span>
+          <div style="display: flex; gap: 6px; justify-content: center;"><span class="tab on" style="font-size: 10px; padding: 5px 12px;">Generale</span><span class="tab" style="font-size: 10px; padding: 5px 12px;">Gruppi</span></div>
+          <div class="row" style="font-size: 12px;"><span class="pos">1</span><span class="av">R</span>Rosanero Doc<span class="pt">4.250</span></div>
+          <div class="row" style="font-size: 12px;"><span class="pos">2</span><span class="av">C</span>Cuore Rosanero<span class="pt">3.870</span></div>
+          <div class="row" style="font-size: 12px;"><span class="pos">3</span><span class="av">A</span>Aquile 1900<span class="pt">3.420</span></div>
+          <div class="row" style="font-size: 12px;"><span class="pos">4</span><span class="av" style="background: #2a2a2f; color: #a3a0a8;">M</span>Club Milano<span class="pt">3.100</span></div>
+        </div>
+      </div>
+      <div class="phone" style="position: relative; width: 270px; height: 540px; padding: 9px; border-radius: 44px;">
+        <div class="screen" style="border-radius: 36px; padding: 24px 16px 14px; gap: 12px;">
+          <div style="display: flex; justify-content: center; align-items: center; gap: 8px;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #f4a6c8;"></span><span class="lbl" style="font-size: 10px; color: #f4a6c8;">Live</span></div>
+          <span style="font-size: 10px; color: #8a8790; text-align: center;">Serie B · [n]ª giornata</span>
+          <div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 8px;">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;"><span class="crest" style="width: 44px; height: 44px; font-size: 20px;">P</span><span class="lbl" style="font-size: 9px;">Palermo</span></div>
+            <div style="display: flex; flex-direction: column; align-items: center;"><span class="bebas" style="font-size: 40px;">1 – 0</span><span style="font-size: 11px; color: #f4a6c8; font-weight: 600;">62'</span></div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;"><span class="crest away" style="width: 44px; height: 44px; font-size: 10px;">Avv.</span><span class="lbl" style="font-size: 9px; color: #a3a0a8;">[Avv.]</span></div>
+          </div>
+          <div style="display: flex; gap: 6px; justify-content: center;"><span class="tab on" style="font-size: 10px; padding: 5px 12px;">Cronaca</span><span class="tab" style="font-size: 10px; padding: 5px 12px;">Statistiche</span><span class="tab" style="font-size: 10px; padding: 5px 12px;">Formazioni</span></div>
+          <div class="ev"><span class="min">62'</span><span><b>Gol!</b> Palermo</span></div>
+          <div class="ev"><span class="min">59'</span>Ammonizione [Avversario]</div>
+          <div class="ev"><span class="min">54'</span>Occasione Palermo</div>
+          <span style="margin-top: auto; padding: 11px; border-radius: 100px; background: #f4a6c8; color: #0b0b0d; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; text-align: center;">Partecipa al thread</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section style="position: relative; margin: 24px 64px 0; padding: 30px 40px; border-radius: 30px; background: #111114; border: 1px solid #222226; display: flex; align-items: center; justify-content: space-between; gap: 32px;">
+    <div style="display: flex; align-items: center; gap: 24px;">
+      <span style="width: 88px; height: 88px; border-radius: 50%; border: 2px solid #f4a6c8; display: grid; place-items: center; overflow: hidden;"><img src="rosanero-logo.jpg" alt="Rosanero" style="width: 64px; height: 64px; border-radius: 16px;"></span>
+      <div class="bebas" style="font-size: 38px; display: flex; flex-direction: column; gap: 2px;"><span>Non perderti nulla.</span><span style="color: #f4a6c8;">Rosanero arriva presto.</span></div>
+    </div>
+    <div style="display: flex; gap: 14px;">
+      <span class="badge fill" style="min-width: 0;"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"></rect><path d="M10.5 18h3"></path></svg><span><span class="s">Prossimamente</span><span class="b" style="font-size: 16px;">App Store</span></span></span>
+      <span class="badge line" style="min-width: 0;"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5v17l13-8.5z"></path></svg><span><span class="s">Prossimamente</span><span class="b" style="font-size: 16px;">Google Play</span></span></span>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot" style="position: relative; margin-top: 40px; padding: 32px 64px 48px; border-top: 1px solid #1c1c20; display: flex; justify-content: space-between; align-items: center; gap: 24px;">
+    <span class="bebas" style="font-size: 30px; letter-spacing: 0.1em; color: #f4a6c8;">Rosanero</span>
+    <p style="margin: 0; font-size: 13px; color: #8a8790; text-align: center;">© 2026 Rosanero · Progetto indipendente dei tifosi, non affiliato al Palermo F.C. · Un'app di monoidx.</p>
+    <div style="display: flex; gap: 22px;"><a href="#">Termini</a><a href="#">Privacy</a><a href="#">Supporto</a><a href="#">Elimina account</a></div>
+  </footer>
+</div>
+</x-dc>
+</body>
+</html>

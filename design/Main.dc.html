@@ -1,0 +1,623 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Saira+Condensed:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #0e0710; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: #fdf2f8; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: "Saira Condensed", "Arial Narrow", sans-serif; text-transform: uppercase; letter-spacing: 0.2em; font-size: 13px; font-weight: 600; color: oklch(0.74 0.18 345); padding: 8px 16px; border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; background: rgba(255,255,255,0.02); }
+    .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: oklch(0.74 0.27 348); box-shadow: 0 0 14px 2px oklch(0.74 0.27 348); }
+    .btn { display: inline-flex; align-items: center; gap: 10px; font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; font-size: 15px; padding: 14px 24px; border-radius: 13px; border: 1px solid rgba(255,255,255,0.1); color: #fdf2f8; background: rgba(255,255,255,0.03); }
+    .btn.primary { background: linear-gradient(100deg, oklch(0.74 0.27 348), oklch(0.85 0.09 350)); color: #180410; border-color: transparent; box-shadow: 0 12px 34px -12px oklch(0.74 0.27 348); }
+    .card { border: 1px solid oklch(0.66 0.23 350 / 0.28); border-radius: 18px; background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); padding: 26px; display: flex; flex-direction: column; gap: 10px; }
+    .card h3 { margin: 0; font-family: Archivo, "Helvetica Neue", sans-serif; font-weight: 800; font-size: 19px; letter-spacing: -0.02em; color: #fdf2f8; }
+    .card p { margin: 0; font-size: 14.5px; line-height: 1.55; color: oklch(0.72 0.035 340); }
+    .chip { width: 46px; height: 46px; border-radius: 13px; display: grid; place-items: center; background: radial-gradient(circle at 30% 25%, oklch(0.66 0.23 350 / 0.35), oklch(0.2 0.08 340 / 0.3)); border: 1px solid oklch(0.66 0.23 350 / 0.28); color: oklch(0.85 0.09 350); }
+    .chip svg { width: 22px; height: 22px; }
+    .tag { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-weight: 800; letter-spacing: 0.12em; font-size: 11px; text-transform: uppercase; padding: 5px 10px; border-radius: 100px; }
+    .tag.gold { color: oklch(0.85 0.09 350); border: 1px solid oklch(0.85 0.09 350 / 0.5); background: oklch(0.85 0.09 350 / 0.1); }
+    .tag.pink { color: oklch(0.74 0.27 348); border: 1px solid oklch(0.74 0.27 348 / 0.5); background: oklch(0.66 0.23 350 / 0.14); }
+    .tk { display: inline-flex; align-items: center; gap: 10px; padding: 0 26px; white-space: nowrap; font-size: 14.5px; color: oklch(0.72 0.035 340); border-right: 1px solid rgba(255,255,255,0.06); }
+    .tk b { color: #fdf2f8; font-weight: 600; }
+    .tk .tg { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-weight: 800; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: oklch(0.85 0.09 350); }
+    .dup { display: flex; align-items: center; gap: 10px; font-size: 13.5px; color: oklch(0.72 0.035 340); padding: 9px 12px; border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; background: rgba(255,255,255,0.015); }
+    .dup .n { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-weight: 700; font-size: 12px; color: oklch(0.58 0.03 340); width: 20px; }
+    .step { display: flex; align-items: center; gap: 10px; font-size: 13px; color: oklch(0.58 0.03 340); }
+    .step .mk { width: 16px; height: 16px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.12); display: grid; place-items: center; font-size: 9px; }
+    .step.done { color: oklch(0.72 0.035 340); } .step.done .mk { background: oklch(0.78 0.16 150 / 0.22); border-color: oklch(0.78 0.16 150 / 0.5); color: oklch(0.78 0.16 150); }
+    .step.now { color: #fdf2f8; font-weight: 600; } .step.now .mk { background: linear-gradient(100deg, oklch(0.74 0.27 348), oklch(0.85 0.09 350)); border-color: transparent; color: #180410; }
+    .foot a { color: oklch(0.72 0.035 340); font-size: 13.5px; }
+    .eyebrow.cyan { color: oklch(0.85 0.09 350); } .eyebrow.cyan .dot { background: oklch(0.85 0.09 350); box-shadow: 0 0 14px 2px oklch(0.85 0.09 350); }
+    .eyebrow.gold { color: oklch(0.85 0.09 350); } .eyebrow.gold .dot { background: oklch(0.85 0.09 350); box-shadow: 0 0 14px 2px oklch(0.85 0.09 350); }
+    .h3 { margin: 0; font-family: Archivo, "Helvetica Neue", sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.025em; line-height: 1.05; }
+    .sub { margin: 0; font-size: 16px; color: oklch(0.72 0.035 340); line-height: 1.6; }
+    .sub b { color: #fdf2f8; font-weight: 600; }
+    .tick { width: 18px; height: 18px; border-radius: 50%; background: oklch(0.82 0.12 200); color: #04141a; display: grid; place-items: center; flex: none; }
+    .tick svg { width: 11px; height: 11px; }
+    .plat { display: inline-flex; align-items: center; gap: 9px; padding: 10px 16px; border-radius: 12px; font-weight: 600; font-size: 14px; border: 1px solid oklch(0.66 0.23 350 / 0.28); background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); color: oklch(0.72 0.035 340); }
+    .plat i { width: 9px; height: 9px; border-radius: 3px; display: block; }
+    .ghead { height: 84px; position: relative; background: radial-gradient(120% 140% at 0% 0%, oklch(0.66 0.23 350 / 0.6), transparent 60%), repeating-linear-gradient(125deg, oklch(0.2 0.08 340 / 0.6) 0 14px, oklch(0.3 0.1 350 / 0.4) 14px 28px); }
+    .glogo { position: absolute; left: 22px; bottom: -24px; width: 56px; height: 56px; border-radius: 15px; border: 2px solid rgba(255,255,255,0.18); background: repeating-linear-gradient(135deg, oklch(0.4 0.15 350) 0 8px, oklch(0.2 0.08 340) 8px 16px); display: grid; place-items: center; font-family: "Saira Condensed", sans-serif; font-weight: 800; font-size: 20px; color: #fff; }
+    .gbody { padding: 36px 22px 22px; display: flex; flex-direction: column; gap: 14px; }
+    .gname { display: flex; align-items: center; gap: 8px; font-family: Archivo, sans-serif; font-weight: 800; font-size: 17px; letter-spacing: -0.01em; }
+    .gmeta { display: flex; gap: 20px; } .gmeta div { font-size: 12px; color: oklch(0.72 0.035 340); display: flex; flex-direction: column; } .gmeta b { font-family: "Saira Condensed", sans-serif; font-size: 20px; color: #fdf2f8; font-weight: 700; line-height: 1.1; }
+    .ftags { display: flex; flex-wrap: wrap; gap: 6px; } .ftags span { font-size: 11px; color: oklch(0.72 0.035 340); border: 1px solid oklch(0.66 0.23 350 / 0.28); border-radius: 100px; padding: 4px 10px; }
+    .lbrow { display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .lbrow:last-child { border-bottom: none; }
+    .lbrank { font-family: "Saira Condensed", sans-serif; font-weight: 800; font-size: 20px; width: 26px; color: oklch(0.58 0.03 340); }
+    .lblogo { width: 36px; height: 36px; border-radius: 10px; background: repeating-linear-gradient(135deg, oklch(0.4 0.15 350) 0 7px, oklch(0.2 0.08 340) 7px 14px); border: 1px solid oklch(0.66 0.23 350 / 0.28); display: grid; place-items: center; font-family: "Saira Condensed", sans-serif; font-weight: 800; font-size: 14px; }
+    .lbname { flex: 1; font-weight: 600; font-size: 14px; } .lbname small { display: block; color: oklch(0.58 0.03 340); font-size: 11.5px; font-weight: 400; }
+    .lbscore { font-family: "Saira Condensed", sans-serif; font-weight: 800; font-size: 22px; color: oklch(0.85 0.09 350); }
+    .rrow { display: flex; align-items: center; gap: 14px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .rrow:last-child { border-bottom: none; }
+    .ravatar { width: 40px; height: 40px; border-radius: 11px; background: repeating-linear-gradient(135deg, oklch(0.4 0.15 350) 0 7px, oklch(0.2 0.08 340) 7px 14px); border: 1px solid oklch(0.66 0.23 350 / 0.28); display: grid; place-items: center; font-family: "Saira Condensed", sans-serif; font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.75); flex: none; }
+    .rinfo { flex: 1; display: flex; flex-direction: column; gap: 7px; } .rinfo h4 { margin: 0; font-size: 14.5px; font-weight: 600; }
+    .rbar { height: 6px; border-radius: 100px; background: rgba(255,255,255,0.08); overflow: clip; } .rbar i { display: block; height: 100%; border-radius: 100px; background: linear-gradient(90deg, oklch(0.74 0.27 348), oklch(0.85 0.09 350)); }
+    .rscore { font-family: "Saira Condensed", sans-serif; font-weight: 800; font-size: 24px; width: 50px; text-align: right; color: oklch(0.78 0.16 150); }
+    .rscore.mid { color: oklch(0.85 0.09 350); }
+    .tabs { display: inline-flex; background: rgba(255,255,255,0.04); border: 1px solid oklch(0.66 0.23 350 / 0.28); border-radius: 12px; padding: 4px; gap: 4px; align-self: flex-start; }
+    .tabs span { font-family: "Saira Condensed", sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; font-size: 12px; color: oklch(0.72 0.035 340); padding: 7px 14px; border-radius: 9px; }
+    .tabs .on { background: linear-gradient(100deg, oklch(0.66 0.23 350), oklch(0.74 0.27 348)); color: #fff; }
+    .thread { display: flex; gap: 14px; align-items: center; padding: 14px 16px; border: 1px solid oklch(0.66 0.23 350 / 0.28); border-radius: 14px; background: linear-gradient(100deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); }
+    .thread .min { font-family: "Saira Condensed", sans-serif; font-weight: 800; font-size: 20px; color: oklch(0.74 0.18 345); width: 44px; }
+    .thread .ico { width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center; border: 1px solid oklch(0.66 0.23 350 / 0.28); color: #fdf2f8; flex: none; } .thread .ico svg { width: 18px; height: 18px; }
+    .thread .ico.goal { background: oklch(0.78 0.16 150 / 0.18); color: oklch(0.78 0.16 150); }
+    .thread .body { flex: 1; } .thread h4 { margin: 0; font-size: 14.5px; } .thread p { margin: 0; font-size: 12.5px; color: oklch(0.72 0.035 340); }
+    .thread .cnt { font-family: "Saira Condensed", sans-serif; font-weight: 700; font-size: 13px; color: oklch(0.85 0.09 350); display: inline-flex; align-items: center; gap: 6px; } .thread .cnt svg { width: 14px; height: 14px; }
+    .evchip { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 100px; border: 1px solid oklch(0.66 0.23 350 / 0.28); background: rgba(255,255,255,0.02); font-size: 13px; font-weight: 600; } .evchip svg { width: 15px; height: 15px; color: oklch(0.74 0.18 345); }
+    .sbar { display: flex; flex-direction: column; gap: 8px; } .sbar .top { display: flex; justify-content: space-between; align-items: baseline; font-size: 14px; font-weight: 600; } .sbar .top b { font-family: "Saira Condensed", sans-serif; font-weight: 800; font-size: 22px; }
+    .sbar .track { height: 10px; border-radius: 100px; background: rgba(255,255,255,0.07); overflow: clip; } .sbar .track i { display: block; height: 100%; border-radius: 100px; }
+    .coll { border-radius: 16px; padding: 2px; background: linear-gradient(160deg, oklch(0.85 0.09 350), oklch(0.74 0.27 348) 60%, oklch(0.85 0.09 350)); }
+    .coll div { border-radius: 14px; padding: 20px 14px; height: 100%; box-sizing: border-box; background: radial-gradient(120% 80% at 50% 0%, oklch(0.3 0.12 350 / 0.5), transparent 60%), linear-gradient(180deg, #1a0a16, #0b0510); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; }
+    .coll svg { width: 30px; height: 30px; color: oklch(0.85 0.09 350); } .coll h4 { margin: 0; font-size: 13.5px; line-height: 1.25; } .coll .xp { font-family: "Saira Condensed", sans-serif; font-weight: 800; font-size: 17px; color: oklch(0.85 0.09 350); }
+    .coll .legacy { font-family: "Saira Condensed", sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: oklch(0.85 0.09 350); border: 1px solid oklch(0.85 0.09 350 / 0.4); padding: 4px 10px; border-radius: 100px; }
+    .benefit { display: flex; gap: 12px; align-items: flex-start; padding: 16px; border: 1px solid oklch(0.66 0.23 350 / 0.28); border-radius: 14px; background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); }
+    .benefit .bi { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; flex: none; background: oklch(0.85 0.09 350 / 0.14); border: 1px solid oklch(0.66 0.23 350 / 0.28); color: oklch(0.85 0.09 350); } .benefit .bi svg { width: 17px; height: 17px; }
+    .benefit h4 { margin: 0 0 3px; font-size: 14.5px; } .benefit p { margin: 0; font-size: 13px; color: oklch(0.72 0.035 340); }
+    .jstep { border: 1px solid oklch(0.66 0.23 350 / 0.28); border-radius: 16px; padding: 18px 14px; background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); display: flex; flex-direction: column; gap: 12px; }
+    .jstep .jn { font-family: "Saira Condensed", sans-serif; font-weight: 800; font-size: 14px; width: 32px; height: 32px; border-radius: 9px; display: grid; place-items: center; color: #180410; background: linear-gradient(100deg, oklch(0.74 0.27 348), oklch(0.85 0.09 350)); }
+    .jstep h4 { margin: 0; font-size: 13.5px; line-height: 1.25; }
+    .pstat { border: 1px solid oklch(0.66 0.23 350 / 0.28); border-radius: 13px; padding: 14px; text-align: center; background: rgba(255,255,255,0.02); display: flex; flex-direction: column; gap: 3px; }
+    .pstat b { font-family: "Saira Condensed", sans-serif; font-weight: 800; font-size: 24px; color: #fdf2f8; line-height: 1; } .pstat span { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.1em; color: oklch(0.58 0.03 340); }
+
+
+
+    .pill-s { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: oklch(0.85 0.09 350); border: 1px solid oklch(0.85 0.09 350 / 0.4); padding: 4px 10px; border-radius: 100px; white-space: nowrap; }
+    .lbl-x { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: oklch(0.72 0.035 340); }
+    .sort { display: flex; gap: 6px; flex-wrap: wrap; }
+    .sort span { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 10px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.1); color: oklch(0.72 0.035 340); }
+    .sort .on { background: linear-gradient(100deg, oklch(0.74 0.27 348), oklch(0.85 0.09 350)); color: #180410; border-color: transparent; }
+    .tbl { display: grid; grid-template-columns: 34px 1fr 44px 52px 56px; gap: 0 10px; align-items: center; padding: 11px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; }
+    .tbl.head { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: oklch(0.58 0.03 340); }
+    .tbl .pos { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-weight: 800; font-size: 16px; color: oklch(0.58 0.03 340); }
+    .tbl .n { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-weight: 700; text-align: right; color: oklch(0.72 0.035 340); }
+    .tbl .pt { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-weight: 800; font-size: 17px; text-align: right; color: #fdf2f8; }
+    .tbl.me { background: linear-gradient(90deg, oklch(0.66 0.23 350 / 0.24), transparent 70%); box-shadow: inset 3px 0 0 oklch(0.74 0.27 348); }
+    .tbl.me .pos, .tbl.me .pt { color: oklch(0.74 0.18 345); }
+    .crest-a { width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; background: #2a1f28; color: oklch(0.72 0.035 340); border: 1px dashed rgba(255,255,255,0.25); font-family: "Saira Condensed", sans-serif; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+    .mrow { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 13.5px; }
+    .mrow .day { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(0.58 0.03 340); width: 34px; flex: none; }
+    .mrow .sc { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-weight: 800; font-size: 16px; margin-left: auto; }
+    .form { width: 22px; height: 22px; border-radius: 6px; display: grid; place-items: center; font-family: "Saira Condensed", sans-serif; font-weight: 800; font-size: 11px; flex: none; }
+    .form.v { background: oklch(0.78 0.16 150 / 0.2); color: oklch(0.78 0.16 150); }
+    .form.n { background: rgba(255,255,255,0.08); color: oklch(0.72 0.035 340); }
+    .form.p { background: oklch(0.6 0.2 20 / 0.22); color: #ff7088; }
+    .av-p { width: 56px; height: 56px; border-radius: 16px; flex: none; display: grid; place-items: center; background: repeating-linear-gradient(135deg, oklch(0.4 0.15 350) 0 8px, oklch(0.2 0.08 340) 8px 16px); border: 1px solid rgba(255,255,255,0.12); font-family: "Saira Condensed", sans-serif; font-weight: 700; font-size: 16px; color: rgba(255,255,255,0.8); }
+    .pl { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 13.5px; }
+    .pl .av { width: 32px; height: 32px; border-radius: 9px; flex: none; display: grid; place-items: center; background: repeating-linear-gradient(135deg, oklch(0.4 0.15 350) 0 6px, oklch(0.2 0.08 340) 6px 12px); font-family: "Saira Condensed", sans-serif; font-size: 11px; color: rgba(255,255,255,0.75); }
+    .pl .role { margin-left: auto; font-size: 12px; color: oklch(0.58 0.03 340); white-space: nowrap; }
+    .stat { display: flex; flex-direction: column; gap: 6px; }
+    .stat .top { display: flex; justify-content: space-between; align-items: baseline; font-size: 13.5px; }
+    .stat .top b { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-weight: 800; font-size: 19px; }
+    .stat .track { height: 8px; border-radius: 100px; background: rgba(255,255,255,0.07); overflow: clip; }
+    .stat .track i { display: block; height: 100%; border-radius: 100px; background: linear-gradient(90deg, oklch(0.74 0.27 348), oklch(0.85 0.09 350)); }
+
+    /* motion:start */
+    .rv, .rv-s, .rv-l { transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+    .rv.pre { opacity: 0; transform: translateY(40px); }
+    .rv-s.pre { opacity: 0; transform: translateY(30px) scale(.92); }
+    .rv-l.pre { opacity: 0; transform: translateX(-40px); }
+    .rbar i, .sbar .track i, .xp-fill { transform-origin: left center; transition: transform 1.2s cubic-bezier(.2,.7,.2,1) .25s; }
+    .pre .rbar i, .pre .sbar .track i, .pre .xp-fill { transform: scaleX(0); }
+    .hero-copy, .hero-img { will-change: opacity, transform; }
+    @media (prefers-reduced-motion: no-preference) {
+      @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+      .ticker-track { animation: ticker 42s linear infinite; }
+      @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+      .live-dot { animation: pulse 1.6s ease-in-out infinite; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .rv.pre, .rv-s.pre, .rv-l.pre { opacity: 1; transform: none; transition: none; }
+      .pre .rbar i, .pre .sbar .track i, .pre .xp-fill { transform: none; }
+    }
+    /* motion:end */
+  </style>
+</helmet>
+
+<div style="width: 1440px; min-height: 2600px; position: relative; overflow: clip; background: #0e0710; color: #fdf2f8; font-family: Manrope, 'Helvetica Neue', sans-serif; line-height: 1.6;">
+  <div style="position: absolute; inset: 0; pointer-events: none; background: radial-gradient(1000px 700px at 12% -4%, oklch(0.66 0.23 350 / 0.36), transparent 60%), radial-gradient(900px 800px at 85% 100%, oklch(0.66 0.23 350 / 0.16), transparent 55%), radial-gradient(1200px 600px at 50% 45%, oklch(0.66 0.23 350 / 0.08), transparent 60%);"></div>
+  <div style="position: absolute; inset: 0; pointer-events: none; opacity: 0.35; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 64px 64px; mask-image: radial-gradient(circle at 50% 20%, black, transparent 75%);"></div>
+
+  <!-- NAV -->
+  <div style="position: sticky; top: 0; z-index: 50; background: rgba(14,7,16,0.82); -webkit-backdrop-filter: blur(18px) saturate(140%); backdrop-filter: blur(18px) saturate(140%);">
+  <header style="position: relative; background: transparent; display: flex; align-items: center; justify-content: space-between; height: 72px; padding: 0 64px; border-bottom: 1px solid rgba(255,255,255,0.05);">
+    <div style="display: flex; align-items: center; gap: 12px; font-family: Archivo, 'Helvetica Neue', sans-serif; font-weight: 900; font-size: 19px; letter-spacing: -0.01em;">
+      <img src="rosanero-logo.jpg" alt="Rosanero" style="width: 40px; height: 40px; border-radius: 11px; box-shadow: 0 0 22px -4px oklch(0.74 0.27 348);">
+      <span>Rosanero</span>
+    </div>
+    <nav style="display: flex; gap: 30px; font-size: 14px; font-weight: 500; color: oklch(0.72 0.035 340);">
+      <a href="#funzioni">Funzioni</a><a href="#news">News</a><a href="#community">Community</a><a href="#classifica">Classifica</a><a href="#supporto">Supporto</a>
+    </nav>
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <div style="display: flex; gap: 2px; font-family: 'Saira Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; padding: 4px;">
+        <span style="padding: 4px 10px; border-radius: 100px; background: rgba(255,255,255,0.1);">IT</span>
+        <span style="padding: 4px 10px; color: oklch(0.58 0.03 340);">EN</span>
+      </div>
+      <span class="btn primary" style="padding: 11px 20px; font-size: 14px;">Prossimamente</span>
+    </div>
+  </header>
+  <div style="position: relative; height: 6px; background: repeating-linear-gradient(-45deg, oklch(0.74 0.27 348) 0 12px, #0e0710 12px 24px); opacity: 0.9;"></div>
+  </div>
+
+  <!-- HERO -->
+  <section style="position: relative; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; padding: 88px 64px 72px;">
+    <div class="hero-copy" style="display: flex; flex-direction: column; gap: 24px;">
+      <span class="rv eyebrow" style="align-self: flex-start;"><span class="dot"></span>Fan app non ufficiale · iOS e Android</span>
+      <h1 class="rv" style="margin: 0; font-family: Archivo, 'Helvetica Neue', sans-serif; font-weight: 900; font-size: 82px; line-height: 1.0; letter-spacing: -0.035em;">Il Palermo, tutto in una app. <span style="background: linear-gradient(100deg, oklch(0.74 0.27 348) 0%, oklch(0.74 0.18 345) 40%, oklch(0.85 0.09 350) 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">Fatta dai tifosi.</span></h1>
+      <p class="rv" style="margin: 0; max-width: 560px; font-size: 20px; color: oklch(0.72 0.035 340);">Notizie senza doppioni, la community dei gruppi rosanero, classifica, calendario, rosa e statistiche. <span style="color: #fdf2f8; font-weight: 600;">Un'unica casa digitale</span> per chi vive il Palermo ogni giorno.</p>
+      <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px;">
+        <span class="btn"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"></rect><path d="M11 18h2"></path></svg>Prossimamente su App Store</span>
+        <span class="btn"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5v17l13-8.5z"></path></svg>Prossimamente su Google Play</span>
+      </div>
+      <div style="display: flex; gap: 12px; align-items: flex-start; max-width: 560px; margin-top: 10px; border: 1px solid oklch(0.85 0.09 350 / 0.4); background: linear-gradient(100deg, oklch(0.85 0.09 350 / 0.1), oklch(0.85 0.09 350 / 0.02)); border-radius: 14px; padding: 14px 18px; font-size: 14px; color: oklch(0.93 0.04 350);">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 3px;"><path d="M12 3l9 4.5v5c0 5-3.5 8-9 9.5C6.5 20.5 3 17.5 3 12.5v-5z"></path></svg>
+        <span><b>Progetto indipendente dei tifosi.</b> Rosanero non è affiliata al Palermo F.C. e non usa loghi o contenuti ufficiali.</span>
+      </div>
+    </div>
+
+    <!-- hero image: iPhone in mano con il logo (foto fornita) -->
+    <div class="hero-img" style="display: flex; justify-content: center; align-items: center; position: relative; min-height: 600px;">
+      <div style="position: absolute; inset: 60px; border-radius: 50%; background: radial-gradient(circle, oklch(0.74 0.27 348), transparent 70%); opacity: 0.3; filter: blur(60px);"></div>
+      <img src="hero-iphone.webp" alt="Rosanero su iPhone" style="position: relative; width: 100%; max-width: 640px; display: block; -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 50%, transparent 100%); mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 50%, transparent 100%);">
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div style="position: relative; display: flex; align-items: center; overflow: clip; border-top: 1px solid oklch(0.66 0.23 350 / 0.25); border-bottom: 1px solid rgba(255,255,255,0.05); background: linear-gradient(180deg, oklch(0.24 0.1 350 / 0.55), #0e0710); padding: 14px 0;">
+    <span style="display: inline-flex; align-items: center; gap: 9px; padding: 0 22px 0 64px; font-family: 'Saira Condensed', 'Arial Narrow', sans-serif; font-weight: 800; letter-spacing: 0.16em; font-size: 13px; text-transform: uppercase; color: oklch(0.74 0.27 348);"><span class="live-dot" style="width: 8px; height: 8px; border-radius: 50%; background: oklch(0.74 0.27 348); box-shadow: 0 0 12px 2px oklch(0.74 0.27 348);"></span>Live</span>
+    <div style="flex: 1; min-width: 0; overflow: clip; -webkit-mask-image: linear-gradient(90deg, transparent, black 4%, black 96%, transparent); mask-image: linear-gradient(90deg, transparent, black 4%, black 96%, transparent);">
+    <div class="ticker-track" style="display: flex; white-space: nowrap; width: max-content;">
+      <span class="tk"><span class="tg">Mercato</span> <b>Ufficiale: nuovo rinforzo in difesa</b></span>
+      <span class="tk"><span class="tg" style="color: oklch(0.74 0.18 345);">Formazione</span> <b>Le scelte per la trasferta</b></span>
+      <span class="tk"><span class="tg" style="color: oklch(0.85 0.09 350);">Società</span> <b>Nuovo partner del club</b></span>
+      <span class="tk"><span class="tg" style="color: oklch(0.78 0.16 150);">Risultati</span> <b>Palermo avanti all'intervallo</b></span>
+      <span class="tk"><span class="tg">Infortuni</span> <b>Rientro previsto tra due settimane</b></span>
+      <span class="tk"><span class="tg">Mercato</span> <b>Ufficiale: nuovo rinforzo in difesa</b></span>
+      <span class="tk"><span class="tg" style="color: oklch(0.74 0.18 345);">Formazione</span> <b>Le scelte per la trasferta</b></span>
+      <span class="tk"><span class="tg" style="color: oklch(0.85 0.09 350);">Società</span> <b>Nuovo partner del club</b></span>
+      <span class="tk"><span class="tg" style="color: oklch(0.78 0.16 150);">Risultati</span> <b>Palermo avanti all'intervallo</b></span>
+      <span class="tk"><span class="tg">Infortuni</span> <b>Rientro previsto tra due settimane</b></span>
+    </div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section id="funzioni" style="scroll-margin-top: 90px; position: relative; padding: 110px 64px 90px; display: flex; flex-direction: column; gap: 48px;">
+    <div style="display: flex; flex-direction: column; gap: 18px; max-width: 760px;">
+      <span class="rv eyebrow" style="align-self: flex-start;"><span class="dot"></span>Cosa c'è dentro</span>
+      <h2 class="rv" style="margin: 0; font-family: Archivo, 'Helvetica Neue', sans-serif; font-weight: 800; font-size: 56px; line-height: 1.02; letter-spacing: -0.03em;">Tutto il Palermo, <span style="background: linear-gradient(100deg, oklch(0.74 0.27 348), oklch(0.85 0.09 350)); -webkit-background-clip: text; background-clip: text; color: transparent;">in otto sezioni</span>.</h2>
+      <p class="rv" style="margin: 0; font-size: 18px; color: oklch(0.72 0.035 340); max-width: 620px;">Le prime due sono già in costruzione. Le altre arrivano una alla volta, senza promesse che non possiamo mantenere.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px;">
+      <div class="rv-s card"><span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h12a2 2 0 0 1 2 2v11a1.5 1.5 0 0 0 3 0V9"></path><path d="M4 5v13a1.5 1.5 0 0 0 1.5 1.5H19"></path><path d="M8 9h5M8 13h5"></path></svg></span><h3>Live News Feed</h3><p>Una notizia, una scheda che si aggiorna a ogni sviluppo. Niente doppioni.</p></div>
+      <div class="rv-s card"><span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20a6.5 6.5 0 0 1 13 0"></path><circle cx="17" cy="9" r="2.5"></circle><path d="M16 15a5 5 0 0 1 5.5 5"></path></svg></span><h3>Community</h3><p>Gruppi verificati, pronostici, pagelle della tifoseria e matchday evento per evento.</p></div>
+      <div class="rv-s card"><span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11"></path><path d="M4 6h.01M4 12h.01M4 18h.01"></path></svg></span><h3>Classifica</h3><p>Personalizzabile e ordinabile per i criteri che contano per te.</p></div>
+      <div class="rv-s card"><span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg></span><h3>Calendario e risultati</h3><p>Prossime partite, orari e risultati in un colpo d'occhio.</p></div>
+      <div class="rv-s card"><span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="9" cy="11" r="2.5"></circle><path d="M5.5 17a3.5 3.5 0 0 1 7 0M15 9h3M15 13h3"></path></svg></span><h3>Rosa e schede giocatori</h3><p>Ogni giocatore con la sua scheda e le statistiche della stagione.</p></div>
+      <div class="rv-s card"><span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path></svg></span><h3>Statistiche</h3><p>I numeri della squadra e dei singoli, stagione per stagione.</p></div>
+      <div class="rv-s card"><span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h14l-3-3M20 17H6l3 3"></path></svg></span><h3>Calciomercato</h3><p>Trattative, ufficialità e voci, distinte per affidabilità.</p></div>
+      <div class="rv-s card" style="border-style: dashed;"><span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.5-6-10a6 6 0 0 1 12 0c0 4.5-6 10-6 10z"></path><circle cx="12" cy="11" r="2"></circle></svg></span><h3>Gamification</h3><p>Tag geolocalizzati, presenze allo stadio e realtà aumentata. <span style="color: oklch(0.85 0.09 350);">In sviluppo.</span></p></div>
+    </div>
+  </section>
+
+  <!-- NEWS DEEP DIVE -->
+  <section id="news" style="scroll-margin-top: 90px; position: relative; padding: 90px 64px 100px; background: linear-gradient(180deg, oklch(0.24 0.1 350 / 0.55), #0e0710); border-top: 1px solid oklch(0.66 0.23 350 / 0.25); display: flex; flex-direction: column; gap: 44px;">
+    <div style="display: flex; flex-direction: column; gap: 18px; max-width: 760px;">
+      <span class="rv eyebrow" style="align-self: flex-start; color: oklch(0.85 0.09 350);"><span class="dot" style="background: oklch(0.85 0.09 350); box-shadow: 0 0 14px 2px oklch(0.85 0.09 350);"></span>Live News Feed</span>
+      <h2 class="rv" style="margin: 0; font-family: Archivo, 'Helvetica Neue', sans-serif; font-weight: 800; font-size: 52px; line-height: 1.02; letter-spacing: -0.03em;">La stessa notizia, <span style="background: linear-gradient(100deg, oklch(0.74 0.27 348), oklch(0.85 0.09 350)); -webkit-background-clip: text; background-clip: text; color: transparent;">moltiplicata per dieci</span>.</h2>
+      <p class="rv" style="margin: 0; font-size: 18px; color: oklch(0.72 0.035 340); max-width: 620px;">Un acquisto, un rinnovo: ti arriva decine di volte con titoli diversi. Rosanero riconosce la storia e la tiene in una sola scheda che si aggiorna.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px;">
+      <div class="rv-s card" style="gap: 9px;">
+        <h3 style="color: oklch(0.72 0.035 340); margin-bottom: 8px;">Prima · il feed di sempre</h3>
+        <div class="rv-l dup"><span class="n">1</span>Ufficiale: il difensore è un nuovo giocatore</div>
+        <div class="rv-l dup"><span class="n">2</span>Il difensore è del Palermo / Ufficiale</div>
+        <div class="rv-l dup"><span class="n">3</span>Chi è il nuovo difensore rosanero</div>
+        <div class="rv-l dup"><span class="n">4</span>Ecco il difensore: le cifre dell'affare</div>
+        <div class="rv-l dup"><span class="n">5</span>Domani le visite mediche</div>
+        <div class="rv-l dup"><span class="n">6</span>Difensore-Palermo, ci siamo</div>
+      </div>
+      <div class="rv-s card" style="border-color: oklch(0.66 0.23 350 / 0.45); box-shadow: 0 24px 50px -28px oklch(0.74 0.27 348);">
+        <h3 style="color: oklch(0.74 0.18 345); margin-bottom: 8px;">Dopo · con il Live News Feed</h3>
+        <div style="border: 1px solid oklch(0.66 0.23 350 / 0.4); background: linear-gradient(100deg, oklch(0.66 0.23 350 / 0.12), transparent); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 8px;">
+          <div style="display: flex; gap: 6px;"><span class="tag gold">Mercato</span><span class="tag pink">Principale</span></div>
+          <div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 18px; letter-spacing: -0.02em;">Ufficiale: il nuovo difensore è del Palermo</div>
+          <div style="font-size: 13.5px; color: oklch(0.72 0.035 340);">Contratto di quattro anni, numero di maglia scelto. Aggiornata 3 volte oggi.</div>
+        </div>
+        <p>Una sola scheda, che apre sempre con l'ultima novità: dalla trattativa alle visite mediche fino all'ufficialità. Riassunto fedele in italiano, solo con i fatti riportati.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLASSIFICA · CALENDARIO · ROSA -->
+  <section id="classifica" style="scroll-margin-top: 90px; position: relative; padding: 100px 64px 70px; border-top: 1px solid oklch(0.66 0.23 350 / 0.25); display: flex; flex-direction: column; gap: 40px;">
+    <div style="display: flex; flex-direction: column; gap: 18px; max-width: 820px;">
+      <span class="rv eyebrow cyan" style="align-self: flex-start;"><span class="dot"></span>Classifica · Calendario · Rosa</span>
+      <h2 class="rv" style="margin: 0; font-family: Archivo, 'Helvetica Neue', sans-serif; font-weight: 800; font-size: 54px; line-height: 1.02; letter-spacing: -0.03em;">Serie B oggi, <span style="background: linear-gradient(100deg, oklch(0.74 0.27 348), oklch(0.85 0.09 350)); -webkit-background-clip: text; background-clip: text; color: transparent;">qualunque sia la categoria domani</span>.</h2>
+      <p class="rv" style="margin: 0; font-size: 18px; color: oklch(0.72 0.035 340); max-width: 640px;">Classifica, calendario, rosa e statistiche seguono il Palermo dovunque giochi. Niente da riconfigurare a fine stagione.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1.25fr 1fr 1fr; gap: 18px; align-items: start;">
+      <!-- classifica -->
+      <div class="rv-s card" style="padding: 0; gap: 0; overflow: clip;">
+        <div style="padding: 18px 20px 14px; border-bottom: 1px solid oklch(0.66 0.23 350 / 0.28); display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; justify-content: space-between; align-items: center;"><h3>Classifica</h3><span class="pill-s">Serie B · [n]ª giornata</span></div>
+          <div class="sort"><span class="on">Punti</span><span>Diff. reti</span><span>Forma</span><span>Casa</span><span>Trasferta</span><span>Ultime 5</span></div>
+        </div>
+        <div class="tbl head"><span>#</span><span>Squadra</span><span class="n">G</span><span class="n">DR</span><span class="n">Pt</span></div>
+        <div class="tbl"><span class="pos">1</span><span>[Squadra]</span><span class="n">12</span><span class="n">+14</span><span class="pt">28</span></div>
+        <div class="tbl"><span class="pos">2</span><span>[Squadra]</span><span class="n">12</span><span class="n">+9</span><span class="pt">25</span></div>
+        <div class="tbl me"><span class="pos">3</span><span style="font-weight: 700; display: inline-flex; align-items: center; gap: 8px;"><img src="rosanero-logo.jpg" alt="" style="width: 20px; height: 20px; border-radius: 6px;">Palermo</span><span class="n">12</span><span class="n">+9</span><span class="pt">24</span></div>
+        <div class="tbl"><span class="pos">4</span><span>[Squadra]</span><span class="n">12</span><span class="n">+6</span><span class="pt">22</span></div>
+        <div class="tbl"><span class="pos">5</span><span>[Squadra]</span><span class="n">12</span><span class="n">+3</span><span class="pt">20</span></div>
+        <div class="tbl"><span class="pos">6</span><span>[Squadra]</span><span class="n">12</span><span class="n">+1</span><span class="pt">19</span></div>
+        <p style="margin: 0; padding: 14px 20px 18px; font-size: 13.5px; color: oklch(0.72 0.035 340);"><b style="color: #fdf2f8; font-weight: 600;">Personalizzabile e ordinabile.</b> Scegli i criteri che contano per te e salva la vista: la ritrovi a ogni giornata.</p>
+      </div>
+
+      <!-- calendario e risultati -->
+      <div class="rv-s card" style="gap: 12px;">
+        <h3>Calendario e risultati</h3>
+        <div style="border: 1px solid oklch(0.66 0.23 350 / 0.4); background: linear-gradient(100deg, oklch(0.66 0.23 350 / 0.12), transparent); border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 10px;">
+          <span class="lbl-x">Prossima partita</span>
+          <div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 8px;">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;"><span class="crest-p"><img src="rosanero-logo.jpg" alt="" style="width: 40px; height: 40px; border-radius: 11px;"></span><span class="lbl-x" style="color: #fdf2f8;">Palermo</span></div>
+            <div style="display: flex; flex-direction: column; align-items: center;"><span style="font-family: 'Saira Condensed', sans-serif; font-weight: 800; font-size: 22px; line-height: 1;">[Data]</span><span style="font-size: 12px; color: oklch(0.72 0.035 340);">20:30</span></div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;"><span class="crest-a">Avv.</span><span class="lbl-x">[Avversario]</span></div>
+          </div>
+          <span style="font-size: 12px; color: oklch(0.58 0.03 340); text-align: center;">Stadio Renzo Barbera</span>
+        </div>
+        <div class="mrow"><span class="day">[n]ª</span>Palermo – [Squadra]<span class="sc">2–1</span><span class="form v">V</span></div>
+        <div class="mrow"><span class="day">[n]ª</span>[Squadra] – Palermo<span class="sc">0–0</span><span class="form n">N</span></div>
+        <div class="mrow"><span class="day">[n]ª</span>Palermo – [Squadra]<span class="sc">1–0</span><span class="form v">V</span></div>
+        <div class="mrow" style="border-bottom: none;"><span class="day">[n]ª</span>[Squadra] – Palermo<span class="sc">2–1</span><span class="form p">P</span></div>
+        <p>Prossime partite, orari e risultati, aggiornati a fine gara. La forma recente a colpo d'occhio.</p>
+      </div>
+
+      <!-- rosa -->
+      <div class="rv-s card" style="gap: 12px;">
+        <h3>Rosa e schede giocatori</h3>
+        <div style="border: 1px solid rgba(255,255,255,0.09); border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 12px; background: rgba(255,255,255,0.02);">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <span class="av-p">[N]</span>
+            <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 16px;">[Nome giocatore]</span><span style="font-size: 12.5px; color: oklch(0.72 0.035 340);">Attaccante · n. [9]</span></div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px;">
+            <div class="pstat" style="padding: 10px 4px;"><b style="font-size: 20px;">12</b><span>Pres.</span></div>
+            <div class="pstat" style="padding: 10px 4px;"><b style="font-size: 20px;">7</b><span>Gol</span></div>
+            <div class="pstat" style="padding: 10px 4px;"><b style="font-size: 20px;">3</b><span>Assist</span></div>
+            <div class="pstat" style="padding: 10px 4px;"><b style="font-size: 20px;">1.020</b><span>Minuti</span></div>
+          </div>
+        </div>
+        <div class="pl"><span class="av">[N]</span>[Nome giocatore]<span class="role">Portiere · n. [1]</span></div>
+        <div class="pl"><span class="av">[N]</span>[Nome giocatore]<span class="role">Difensore · n. [4]</span></div>
+        <div class="pl" style="border-bottom: none;"><span class="av">[N]</span>[Nome giocatore]<span class="role">Centrocampista · n. [8]</span></div>
+        <p>Ogni giocatore con la sua scheda e le statistiche della stagione.</p>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start;">
+      <!-- statistiche -->
+      <div class="rv-s card" style="gap: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;"><h3>Statistiche</h3><span class="pill-s">Stagione [anno]</span></div>
+        <div class="stat"><div class="top"><span>Gol fatti</span><b>21</b></div><div class="track"><i class="xp-fill" style="width: 70%;"></i></div></div>
+        <div class="stat"><div class="top"><span>Gol subiti</span><b>12</b></div><div class="track"><i class="xp-fill" style="width: 40%;"></i></div></div>
+        <div class="stat"><div class="top"><span>Possesso medio</span><b>54%</b></div><div class="track"><i class="xp-fill" style="width: 54%;"></i></div></div>
+        <div class="stat"><div class="top"><span>Tiri a partita</span><b>13</b></div><div class="track"><i class="xp-fill" style="width: 65%;"></i></div></div>
+        <p>I numeri della squadra e dei singoli, stagione per stagione. Confronta con la scorsa e con gli avversari.</p>
+      </div>
+
+      <!-- calciomercato -->
+      <div class="rv-s card" style="gap: 12px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;"><h3>Calciomercato</h3><span class="tag pink">Sessione aperta</span></div>
+        <div class="rv-l thread" style="padding: 12px 14px;"><div class="body"><h4>[Giocatore] è del Palermo</h4><p>Difensore · contratto quadriennale</p></div><span class="tag gold">Ufficiale</span></div>
+        <div class="rv-l thread" style="padding: 12px 14px;"><div class="body"><h4>Palermo su [Giocatore]</h4><p>Centrocampista · trattativa avviata</p></div><span class="tag pink">Trattativa</span></div>
+        <div class="rv-l thread" style="padding: 12px 14px;"><div class="body"><h4>[Giocatore] verso [Squadra]</h4><p>Attaccante · interesse da confermare</p></div><span class="tag" style="color: oklch(0.72 0.035 340); border: 1px solid rgba(255,255,255,0.12);">Voce</span></div>
+        <p>Trattative, ufficialità e voci, distinte per affidabilità. Le stesse schede vive del Live News Feed, filtrate sul mercato.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY: head + problem -->
+  <section id="community" style="scroll-margin-top: 90px; position: relative; padding: 110px 64px 60px; border-top: 1px solid oklch(0.66 0.23 350 / 0.25); display: flex; flex-direction: column; gap: 48px;">
+    <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: end;">
+      <div style="display: flex; flex-direction: column; gap: 18px;">
+        <span class="rv eyebrow cyan" style="align-self: flex-start;"><span class="dot"></span>Community</span>
+        <h2 class="rv" style="margin: 0; font-family: Archivo, 'Helvetica Neue', sans-serif; font-weight: 800; font-size: 56px; line-height: 1.02; letter-spacing: -0.03em;">La casa digitale <span style="background: linear-gradient(100deg, oklch(0.74 0.27 348), oklch(0.85 0.09 350)); -webkit-background-clip: text; background-clip: text; color: transparent;">dei tifosi rosanero</span>.</h2>
+        <p class="rv" style="margin: 0; font-size: 18px; color: oklch(0.72 0.035 340); max-width: 620px;">Non un altro social. Un hub verticale dedicato solo al Palermo, dove gruppi e fan club diventano protagonisti: pronostici, pagelle, matchday e classifiche in un unico posto.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <p class="rv sub" style="font-size: 14.5px;">Oggi la tifoseria è sparsa tra piattaforme generaliste, ognuna con le sue regole e il suo pubblico:</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+          <span class="rv-s plat"><i style="background: #1877f2;"></i>Facebook</span>
+          <span class="rv-s plat"><i style="background: #e1306c;"></i>Instagram</span>
+          <span class="rv-s plat"><i style="background: #29a9eb;"></i>Telegram</span>
+          <span class="rv-s plat"><i style="background: #25d366;"></i>WhatsApp</span>
+          <span class="rv-s plat"><i style="background: #ff9800;"></i>Forum</span>
+        </div>
+        <p class="rv sub" style="font-size: 15px;"><b>Le conversazioni si disperdono.</b> Rosanero le riunisce in un posto solo, con strumenti che i social generalisti non hanno.</p>
+      </div>
+    </div>
+
+    <!-- gruppi verificati -->
+    <div style="display: flex; flex-direction: column; gap: 22px;">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 720px;">
+        <h3 class="rv h3">Ogni fan club diventa ufficiale in app</h3>
+        <p class="rv sub">Ogni gruppo o fan club esistente può avere una presenza verificata: basta che l'admin reale del gruppo si verifichi dentro Rosanero. Logo, feed, moderatori, statistiche e classifiche restano suoi.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px;">
+        <div class="rv-s card" style="padding: 0; gap: 0; overflow: clip;">
+          <div class="ghead"><span class="glogo">R</span></div>
+          <div class="gbody">
+            <div class="gname">Rosanero Doc <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg></span></div>
+            <div class="gmeta"><div><b>38.4k</b>Iscritti</div><div><b>#1</b>Ranking</div><div><b>94</b>Attività</div></div>
+            <div class="ftags"><span>Logo</span><span>Feed</span><span>Admin</span><span>Moderatori</span><span>Statistiche</span><span>Classifiche</span></div>
+          </div>
+        </div>
+        <div class="rv-s card" style="padding: 0; gap: 0; overflow: clip;">
+          <div class="ghead"><span class="glogo">C</span></div>
+          <div class="gbody">
+            <div class="gname">Cuore Rosanero <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg></span></div>
+            <div class="gmeta"><div><b>14.2k</b>Iscritti</div><div><b>#2</b>Ranking</div><div><b>96</b>Attività</div></div>
+            <div class="ftags"><span>Logo</span><span>Feed</span><span>Admin</span><span>Moderatori</span><span>Statistiche</span><span>Classifiche</span></div>
+          </div>
+        </div>
+        <div class="rv-s card" style="padding: 0; gap: 0; overflow: clip;">
+          <div class="ghead"><span class="glogo">M</span></div>
+          <div class="gbody">
+            <div class="gname">Palermo Club Milano <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg></span></div>
+            <div class="gmeta"><div><b>6.8k</b>Iscritti</div><div><b>#3</b>Ranking</div><div><b>89</b>Attività</div></div>
+            <div class="ftags"><span>Logo</span><span>Feed</span><span>Admin</span><span>Moderatori</span><span>Statistiche</span><span>Classifiche</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY: pronostici + classifiche -->
+  <section style="position: relative; padding: 60px 64px; background: linear-gradient(180deg, oklch(0.24 0.1 350 / 0.55), #0e0710); border-top: 1px solid oklch(0.66 0.23 350 / 0.25); display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <span class="rv eyebrow" style="align-self: flex-start;"><span class="dot"></span>Pronostici e classifiche</span>
+      <h3 class="rv h3" style="font-size: 40px;">Prevedi, <span style="background: linear-gradient(100deg, oklch(0.74 0.27 348), oklch(0.85 0.09 350)); -webkit-background-clip: text; background-clip: text; color: transparent;">scala le classifiche</span>.</h3>
+      <p class="rv sub">Prima di ogni partita puoi prevedere risultato, primo marcatore e MVP. I punti alimentano tre classifiche parallele.</p>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div class="rv-l thread" style="padding: 12px 16px;"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4"></circle><path d="M12 3v2M12 19v2M3 12h2M19 12h2"></path></svg></span><div class="body"><h4>Risultato</h4><p>Indovina il punteggio finale del match.</p></div></div>
+        <div class="rv-l thread" style="padding: 12px 16px;"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7l4.5 3.3-1.7 5.4H9.2L7.5 10.3z"></path></svg></span><div class="body"><h4>Primo marcatore</h4><p>Scegli chi segnerà per primo.</p></div></div>
+        <div class="rv-l thread" style="padding: 12px 16px;"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3 6.4 20.2l1.1-6.2L3 9.6l6.2-.9z"></path></svg></span><div class="body"><h4>MVP</h4><p>Vota chi sarà il migliore in campo.</p></div></div>
+      </div>
+      <p class="rv sub" style="font-size: 14.5px;">I punti contano nella <b>classifica individuale</b>, in quella <b>interna al gruppo</b> e nella <b>generale tra gruppi</b>, ponderata: non vincono solo i gruppi più grandi, ma anche i più attivi e precisi.</p>
+    </div>
+    <div class="rv-s card" style="padding: 0; gap: 0; overflow: clip;">
+      <div style="padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.09); display: flex; justify-content: space-between; align-items: center;">
+        <h4 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 800; font-size: 15px;">Classifica generale gruppi</h4>
+        <span style="font-family: 'Saira Condensed', sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: oklch(0.85 0.09 350); border: 1px solid oklch(0.85 0.09 350 / 0.4); padding: 4px 10px; border-radius: 100px;">Stagione [anno]</span>
+      </div>
+      <div class="rv-l lbrow"><span class="lbrank" style="color: oklch(0.85 0.09 350);">1</span><span class="lblogo">R</span><div class="lbname">Rosanero Doc <small>Gruppo verificato</small></div><span class="lbscore">92.4</span></div>
+      <div class="rv-l lbrow"><span class="lbrank" style="color: #dfe3ec;">2</span><span class="lblogo">C</span><div class="lbname">Cuore Rosanero <small>Gruppo verificato</small></div><span class="lbscore">86.1</span></div>
+      <div class="rv-l lbrow"><span class="lbrank" style="color: #e6a877;">3</span><span class="lblogo">M</span><div class="lbname">Palermo Club Milano <small>Gruppo verificato</small></div><span class="lbscore">81.7</span></div>
+      <div class="rv-l lbrow"><span class="lbrank">4</span><span class="lblogo">A</span><div class="lbname">Aquile 1900 <small>Gruppo verificato</small></div><span class="lbscore" style="color: oklch(0.72 0.035 340);">77.9</span></div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY: pagelle + matchday -->
+  <section style="position: relative; padding: 60px 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;">
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <span class="rv eyebrow gold" style="align-self: flex-start;"><span class="dot"></span>Pagelle della tifoseria</span>
+      <h3 class="rv h3" style="font-size: 34px;">Dopo il fischio finale, parla la tifoseria.</h3>
+      <p class="rv sub">Voti a giocatori, allenatore e squadra, più sondaggi su mercato e decisioni chiave. Vedi il dato di tutta la community o filtri per il tuo gruppo.</p>
+      <div class="rv-s card" style="gap: 14px;">
+        <div class="rv tabs"><span class="on">Community</span><span>Il tuo gruppo</span></div>
+        <div class="rv-l rrow"><span class="ravatar">AT</span><div class="rinfo"><h4>Attaccante</h4><div class="rbar"><i style="width: 84%;"></i></div></div><span class="rscore">8.4</span></div>
+        <div class="rv-l rrow"><span class="ravatar">DC</span><div class="rinfo"><h4>Difensore</h4><div class="rbar"><i style="width: 76%;"></i></div></div><span class="rscore">7.6</span></div>
+        <div class="rv-l rrow"><span class="ravatar">AL</span><div class="rinfo"><h4>Allenatore</h4><div class="rbar"><i style="width: 78%;"></i></div></div><span class="rscore">7.8</span></div>
+        <div class="rv-l rrow"><span class="ravatar">SQ</span><div class="rinfo"><h4>Squadra</h4><div class="rbar"><i style="width: 75%;"></i></div></div><span class="rscore mid">7.5</span></div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <span class="rv eyebrow" style="align-self: flex-start;"><span class="dot"></span>Matchday live</span>
+      <h3 class="rv h3" style="font-size: 34px;">La partita, organizzata per eventi.</h3>
+      <p class="rv sub">Una chat unica diventa caotica. Il matchday Rosanero apre <b>un thread automatico per ogni evento</b>: ogni momento ha il suo spazio commentabile.</p>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div class="rv-l thread"><span class="min">37'</span><span class="ico goal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7l4.5 3.3-1.7 5.4H9.2L7.5 10.3z"></path></svg></span><div class="body"><h4>Gol Palermo</h4><p>La rete che sblocca il match</p></div><span class="cnt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"></path></svg>248</span></div>
+        <div class="rv-l thread"><span class="min">61'</span><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h14l-3-3M20 17H6l3 3"></path></svg></span><div class="body"><h4>Cambio Palermo</h4><p>Cambia l'inerzia della gara</p></div><span class="cnt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"></path></svg>96</span></div>
+        <div class="rv-l thread"><span class="min">78'</span><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v8l4 3"></path><circle cx="12" cy="12" r="9"></circle></svg></span><div class="body"><h4>Occasione mancata</h4><p>Il brivido che accende la chat</p></div><span class="cnt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"></path></svg>183</span></div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <span class="rv evchip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7l4.5 3.3-1.7 5.4H9.2L7.5 10.3z"></path></svg>Gol</span>
+        <span class="rv evchip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h14l-3-3M20 17H6l3 3"></path></svg>Cambi</span>
+        <span class="rv evchip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="3" width="10" height="18" rx="1.5"></rect></svg>Ammonizioni</span>
+        <span class="rv evchip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="3"></circle></svg>Occasioni</span>
+        <span class="rv evchip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="13" rx="2"></rect><path d="M8 21h8"></path></svg>VAR</span>
+        <span class="rv evchip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4h12l-2 4 2 4H5"></path></svg>Fine partita</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY: sentiment + collezionabili -->
+  <section style="position: relative; padding: 60px 64px; background: linear-gradient(180deg, oklch(0.24 0.1 350 / 0.55), #0e0710); border-top: 1px solid oklch(0.66 0.23 350 / 0.25); display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 48px; align-items: start;">
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <span class="rv eyebrow cyan" style="align-self: flex-start;"><span class="dot"></span>Sentiment live</span>
+      <h3 class="rv h3" style="font-size: 34px;">L'umore della tifoseria, in tempo reale.</h3>
+      <p class="rv sub">Il battito emotivo della community durante e dopo la partita, generale o filtrato per singolo gruppo.</p>
+      <div class="rv-s card" style="gap: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;"><h4 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 800; font-size: 15px;">Sentiment community</h4><span style="display: inline-flex; align-items: center; gap: 8px; font-family: 'Saira Condensed', sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #ff7088;"><span class="live-dot" style="width: 8px; height: 8px; border-radius: 50%; background: #ff3b5c; box-shadow: 0 0 10px 2px #ff3b5c;"></span>Live</span></div>
+        <div class="sbar"><div class="top"><span>Entusiasmo</span><b>62%</b></div><div class="track"><i style="width: 62%; background: linear-gradient(90deg, oklch(0.78 0.16 150), oklch(0.85 0.09 350));"></i></div></div>
+        <div class="sbar"><div class="top"><span>Attesa</span><b>21%</b></div><div class="track"><i style="width: 21%; background: linear-gradient(90deg, oklch(0.85 0.09 350), oklch(0.74 0.18 345));"></i></div></div>
+        <div class="sbar"><div class="top"><span>Tensione</span><b>17%</b></div><div class="track"><i style="width: 17%; background: linear-gradient(90deg, oklch(0.74 0.27 348), #ff3b5c);"></i></div></div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <span class="rv eyebrow gold" style="align-self: flex-start;"><span class="dot"></span>Collezionabili e XP</span>
+      <h3 class="rv h3" style="font-size: 34px;">La tua passione diventa collezione.</h3>
+      <p class="rv sub">Badge legati a presenze allo stadio, trasferte, abbonamenti, pronostici e attività. Ogni collezionabile dà XP e conta nelle classifiche.</p>
+      <div style="display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 24px; align-items: center;">
+        <div style="position: relative; display: flex; justify-content: center;">
+          <div style="position: absolute; inset: 30px; border-radius: 50%; background: radial-gradient(circle, oklch(0.74 0.27 348), transparent 70%); opacity: 0.32; filter: blur(40px);"></div>
+          <img src="card-iphone.webp" alt="Collezionabile in app" style="position: relative; width: 250px; display: block; filter: drop-shadow(0 30px 50px rgba(0,0,0,0.75));">
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;">
+        <div class="rv-s coll"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18M5 20V9l7-5 7 5v11"></path><path d="M9 20v-6h6v6"></path></svg><h4>Presente allo stadio</h4><span class="xp">+250 XP</span></div></div>
+        <div class="rv-s coll"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h13l4-4M16 12l4 4"></path><path d="M3 5v14"></path></svg><h4>Trasferta rosanero</h4><span class="xp">+400 XP</span></div></div>
+        <div class="rv-s coll"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4"></circle><path d="M12 3v2M12 19v2M3 12h2M19 12h2"></path></svg><h4>Top pronosticatore</h4><span class="xp">+600 XP</span></div></div>
+        <div class="rv-s coll"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18h16M5 18l-1-9 5 3 3-6 3 6 5-3-1 9"></path></svg><h4>Fondatore gruppo</h4><span class="legacy">Legacy badge</span></div></div>
+        <div class="rv-s coll"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"></rect><path d="M3 12h18M8 6v12"></path></svg><h4>Abbonato [stagione]</h4><span class="xp">+350 XP</span></div></div>
+        <div class="rv-s coll"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3.5v5c0 5-3.5 8.5-8 9.5-4.5-1-8-4.5-8-9.5v-5z"></path></svg><h4>Moderatore</h4><span class="xp">+300 XP</span></div></div>
+        <div class="rv-s coll"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M6.5 6.5a8 8 0 0 0 0 11M17.5 6.5a8 8 0 0 1 0 11"></path></svg><h4>Partecipazione matchday</h4><span class="xp">+150 XP</span></div></div>
+        <div class="rv-s coll"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L5 14h6l-1 7 8-11h-6z"></path></svg><h4>Attività community</h4><span class="xp">+200 XP</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY: profilo + admin -->
+  <section style="position: relative; padding: 60px 64px; display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 48px; align-items: start;">
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <span class="rv eyebrow" style="align-self: flex-start;"><span class="dot"></span>Profilo tifoso</span>
+      <h3 class="rv h3" style="font-size: 34px;">Un'identità rosanero che cresce con te.</h3>
+      <p class="rv sub">Livello, XP, collezionabili, gruppo di appartenenza, ranking, pronostici corretti e presenze: ogni azione costruisce la tua storia da tifoso.</p>
+      <div class="rv-s card" style="padding: 0; gap: 0; overflow: clip;">
+        <div style="height: 110px; position: relative; background: radial-gradient(120% 160% at 100% 0%, oklch(0.66 0.23 350 / 0.7), transparent 55%), repeating-linear-gradient(120deg, oklch(0.18 0.07 340 / 0.7) 0 16px, oklch(0.28 0.1 350 / 0.5) 16px 32px);">
+          <div style="position: absolute; right: 20px; top: 18px; text-align: center; display: flex; flex-direction: column;"><span style="font-family: 'Saira Condensed', sans-serif; font-weight: 800; font-size: 34px; line-height: 0.9; color: oklch(0.85 0.09 350);">37</span><span style="font-family: 'Saira Condensed', sans-serif; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.7);">Livello</span></div>
+          <span style="position: absolute; left: 22px; bottom: -30px; width: 76px; height: 76px; border-radius: 20px; border: 3px solid #170914; background: repeating-linear-gradient(135deg, oklch(0.5 0.18 350) 0 9px, oklch(0.22 0.09 340) 9px 18px); display: grid; place-items: center; font-family: 'Saira Condensed', sans-serif; font-weight: 800; font-size: 30px; color: #fff;">E</span>
+        </div>
+        <div style="padding: 42px 22px 22px; display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-family: Archivo, sans-serif; font-weight: 900; font-size: 22px; letter-spacing: -0.02em;">Enzo</span>
+            <span style="display: inline-flex; align-items: center; gap: 7px; color: oklch(0.74 0.18 345); font-size: 13.5px;"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3.5v5c0 5-3.5 8.5-8 9.5-4.5-1-8-4.5-8-9.5v-5z"></path></svg>Aquile 1900 <span class="tick" style="width: 15px; height: 15px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="width: 9px; height: 9px;"><path d="M5 12l5 5 9-10"></path></svg></span></span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <div style="height: 10px; border-radius: 100px; background: rgba(255,255,255,0.08); overflow: clip;"><i class="xp-fill" style="display: block; width: 74%; height: 100%; border-radius: 100px; background: linear-gradient(90deg, oklch(0.74 0.27 348), oklch(0.85 0.09 350));"></i></div>
+            <div style="display: flex; justify-content: space-between; font-family: 'Saira Condensed', sans-serif; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(0.58 0.03 340);"><span>5.480 XP</span><span>Top 3% tifosi</span></div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px;">
+            <div class="rv-s pstat"><b>18</b><span>Collezionabili</span></div>
+            <div class="rv-s pstat"><b>42</b><span>Pronostici</span></div>
+            <div class="rv-s pstat"><b>27</b><span>Presenze</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <span class="rv eyebrow gold" style="align-self: flex-start;"><span class="dot"></span>Per gli admin dei gruppi</span>
+      <h3 class="rv h3" style="font-size: 34px;">Perché portare il tuo gruppo su Rosanero.</h3>
+      <p class="rv sub">Un secondo canale verticale, dedicato solo al Palermo, accanto a quello che già usi. Con strumenti che Facebook non offre, e la tua moderazione intatta.</p>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;">
+        <div class="rv benefit"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M6.5 6.5a8 8 0 0 0 0 11M17.5 6.5a8 8 0 0 1 0 11"></path></svg></span><div><h4>Canale verticale dedicato</h4><p>Un presidio pensato solo per il Palermo, accanto ai social che già usi.</p></div></div>
+        <div class="rv benefit"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg></span><div><h4>Badge verificato</h4><p>La presenza ufficiale del tuo gruppo, riconoscibile e autorevole.</p></div></div>
+        <div class="rv benefit"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4"></circle></svg></span><div><h4>Minore dispersione</h4><p>I tuoi iscritti in un ambiente focalizzato, senza rumore generalista.</p></div></div>
+        <div class="rv benefit"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L5 14h6l-1 7 8-11h-6z"></path></svg></span><div><h4>Engagement esclusivo</h4><p>Pronostici, pagelle e matchday come strumenti per i tuoi iscritti.</p></div></div>
+        <div class="rv benefit"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M6 4h12v4a6 6 0 0 1-12 0z"></path></svg></span><div><h4>Classifiche del gruppo</h4><p>Una competizione interna che tiene viva la community.</p></div></div>
+        <div class="rv benefit"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3.5v5c0 5-3.5 8.5-8 9.5-4.5-1-8-4.5-8-9.5v-5z"></path></svg></span><div><h4>Moderazione autonoma</h4><p>Pieno controllo su admin, moderatori e regole del gruppo.</p></div></div>
+        <div class="rv benefit"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"></path></svg></span><div><h4>Nuovi modi di coinvolgere</h4><p>Strumenti freschi per far partecipare gli iscritti ogni settimana.</p></div></div>
+        <div class="rv benefit"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path></svg></span><div><h4>Rappresentanza</h4><p>Porta il tuo gruppo nella classifica generale tra tutti i fan club.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY: journey -->
+  <section style="position: relative; padding: 60px 64px 90px; background: linear-gradient(180deg, oklch(0.24 0.1 350 / 0.55), #0e0710); border-top: 1px solid oklch(0.66 0.23 350 / 0.25); display: flex; flex-direction: column; gap: 28px;">
+    <div style="display: flex; flex-direction: column; gap: 8px; max-width: 720px;">
+      <span class="rv eyebrow cyan" style="align-self: flex-start;"><span class="dot"></span>Il percorso del tifoso</span>
+      <h3 class="rv h3">Dal primo accesso al ranking del gruppo</h3>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 12px;">
+      <div class="rv-s jstep"><span class="jn">1</span><h4>Scopre i gruppi</h4></div>
+      <div class="rv-s jstep"><span class="jn">2</span><h4>Si iscrive a un gruppo verificato</h4></div>
+      <div class="rv-s jstep"><span class="jn">3</span><h4>Partecipa ai pronostici</h4></div>
+      <div class="rv-s jstep"><span class="jn">4</span><h4>Vive il matchday</h4></div>
+      <div class="rv-s jstep"><span class="jn">5</span><h4>Vota le pagelle</h4></div>
+      <div class="rv-s jstep"><span class="jn">6</span><h4>Guadagna XP e collezionabili</h4></div>
+      <div class="rv-s jstep"><span class="jn">7</span><h4>Contribuisce al ranking del gruppo</h4></div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section style="position: relative; padding: 40px 64px 90px;">
+    <div style="text-align: center; border: 1px solid oklch(0.66 0.23 350 / 0.28); border-radius: 26px; padding: 64px 28px; background: radial-gradient(700px 340px at 50% 0%, oklch(0.66 0.23 350 / 0.22), transparent 65%), linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); display: flex; flex-direction: column; align-items: center; gap: 18px;">
+      <span class="rv eyebrow" style="color: oklch(0.78 0.16 150);"><span class="dot" style="background: oklch(0.78 0.16 150); box-shadow: 0 0 14px 2px oklch(0.78 0.16 150);"></span>Fatta da tifosi, per i tifosi</span>
+      <h2 class="rv" style="margin: 0; font-family: Archivo, 'Helvetica Neue', sans-serif; font-weight: 800; font-size: 54px; line-height: 1.02; letter-spacing: -0.03em; max-width: 16ch;">Meno rumore. <span style="background: linear-gradient(100deg, oklch(0.74 0.27 348), oklch(0.85 0.09 350)); -webkit-background-clip: text; background-clip: text; color: transparent;">Più Palermo.</span></h2>
+      <p class="rv sub" style="max-width: 560px; font-size: 17px;">Rosanero è un progetto indipendente: le funzioni arrivano una alla volta e le raccontiamo qui man mano che sono pronte.</p>
+      <div style="display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: 8px;">
+        <span class="btn primary">Prossimamente su App Store</span>
+        <span class="btn">Prossimamente su Google Play</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot" style="position: relative; border-top: 1px solid oklch(0.66 0.23 350 / 0.25); padding: 44px 64px 56px; display: flex; justify-content: space-between; align-items: center; gap: 24px;">
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <img src="rosanero-logo.jpg" alt="Rosanero" style="width: 36px; height: 36px; border-radius: 10px;">
+      <p style="margin: 0; color: oklch(0.58 0.03 340); font-size: 13.5px; max-width: 560px; line-height: 1.6;">© 2026 Rosanero · Progetto indipendente dei tifosi, non affiliato al Palermo F.C.<br>Un'app di monoidx.</p>
+    </div>
+    <div style="display: flex; gap: 24px;"><a href="#termini">Termini</a><a href="#privacy">Privacy</a><a href="#supporto">Supporto</a><a href="#elimina-account">Elimina account</a></div>
+  </footer>
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  componentDidMount() {
+(function () {
+  var d = document;
+  if (!('IntersectionObserver' in window) || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  var els = Array.prototype.slice.call(d.querySelectorAll('.rv, .rv-s, .rv-l'));
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.remove('pre'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  els.forEach(function (el) {
+    var p = el.parentElement;
+    var i = p ? Array.prototype.indexOf.call(p.children, el) : 0;
+    el.style.transitionDelay = (Math.min(i, 7) * 80) + 'ms';
+    el.classList.add('pre');
+  });
+  void d.body.offsetHeight;
+  els.forEach(function (el) { io.observe(el); });
+  var hc = d.querySelector('.hero-copy'), hi = d.querySelector('.hero-img');
+  if (!hc && !hi) return;
+  var ticking = false;
+  function upd() {
+    ticking = false;
+    var y = window.scrollY || d.documentElement.scrollTop || 0;
+    var p = Math.max(0, Math.min(1, y / 720));
+    if (hc) { hc.style.opacity = String(1 - p); hc.style.transform = 'translateY(' + (-70 * p) + 'px)'; }
+    if (hi) { hi.style.opacity = String(1 - 0.9 * p); hi.style.transform = 'translateY(' + (140 * p) + 'px) scale(' + (1 - 0.08 * p) + ')'; }
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, { passive: true });
+  upd();
+})();
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

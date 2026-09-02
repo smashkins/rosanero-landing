@@ -1,0 +1,33 @@
+---
+import type { UIStrings } from '~/i18n/ui';
+
+interface Props { s: UIStrings }
+const { s } = Astro.props;
+const n = s.news;
+---
+<section id="news" class="section band">
+  <div class="wrap" style="display: flex; flex-direction: column; gap: 44px;">
+    <div class="section-head">
+      <span class="rv eyebrow light"><span class="dot"></span>{n.eyebrow}</span>
+      <h2 class="rv">{n.title} <span class="grad-2">{n.titleAccent}</span>.</h2>
+      <p class="rv">{n.sub}</p>
+    </div>
+    <div class="grid cols-2" style="gap: 26px;">
+      <div class="rv-s card" style="gap: 9px;">
+        <h3 style="color: var(--muted); margin-bottom: 8px;">{n.beforeTitle}</h3>
+        {n.before.map((line, i) => (
+          <div class="rv-l dup"><span class="n">{i + 1}</span>{line}</div>
+        ))}
+      </div>
+      <div class="rv-s card" style="border-color: oklch(0.66 0.23 350 / 0.5); box-shadow: 0 24px 50px -28px var(--pink-neon);">
+        <h3 style="color: var(--pink-soft); margin-bottom: 8px;">{n.afterTitle}</h3>
+        <div class="one">
+          <div class="tags"><span class="tag light">{n.tagA}</span><span class="tag pink">{n.tagB}</span></div>
+          <div class="t">{n.headline}</div>
+          <div class="m">{n.detail}</div>
+        </div>
+        <p>{n.explain}</p>
+      </div>
+    </div>
+  </div>
+</section>

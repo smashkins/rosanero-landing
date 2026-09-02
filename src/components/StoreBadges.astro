@@ -1,0 +1,15 @@
+---
+import Icon from '~/components/Icon.astro';
+import type { UIStrings } from '~/i18n/ui';
+
+interface Props {
+  s: UIStrings;
+  primary?: boolean;
+  class?: string;
+}
+const { s, primary = false, class: className } = Astro.props;
+---
+<div class:list={['hero-actions', className]}>
+  <span class:list={['btn', { primary }]}><Icon name="phone" size={18} />{s.hero.appStore}</span>
+  <span class="btn"><Icon name="play" size={18} />{s.hero.googlePlay}</span>
+</div>

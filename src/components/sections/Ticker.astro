@@ -1,0 +1,17 @@
+---
+import type { UIStrings } from '~/i18n/ui';
+
+interface Props { s: UIStrings }
+const { s } = Astro.props;
+const items = [...s.ticker.items, ...s.ticker.items];
+---
+<div class="ticker" aria-label={s.ticker.live}>
+  <span class="live"><span class="live-dot"></span>{s.ticker.live}</span>
+  <div class="clip">
+    <div class="ticker-track">
+      {items.map((i) => (
+        <span class="tk"><span class:list={['tg', i.tone]}>{i.tag}</span> <b>{i.text}</b></span>
+      ))}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+---
+import Icon from '~/components/Icon.astro';
+import type { UIStrings } from '~/i18n/ui';
+
+interface Props { s: UIStrings }
+const { s } = Astro.props;
+const f = s.features;
+---
+<section id="funzioni" class="section">
+  <div class="wrap" style="display: flex; flex-direction: column; gap: 48px;">
+    <div class="section-head">
+      <span class="rv eyebrow"><span class="dot"></span>{f.eyebrow}</span>
+      <h2 class="rv">{f.title} <span class="grad-2">{f.titleAccent}</span>.</h2>
+      <p class="rv">{f.sub}</p>
+    </div>
+    <div class="grid cols-4">
+      {f.items.map((it) => (
+        <div class="rv-s card compact" style={it.dev ? 'border-style: dashed;' : undefined}>
+          <span class="chip"><Icon name={it.icon} size={22} /></span>
+          <h3>{it.title}</h3>
+          <p>{it.text} {it.dev && <span style="color: var(--pink-light);">{f.inDev}</span>}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

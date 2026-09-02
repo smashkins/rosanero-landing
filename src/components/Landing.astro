@@ -1,0 +1,24 @@
+---
+import Base from '~/layouts/Base.astro';
+import Hero from '~/components/sections/Hero.astro';
+import Ticker from '~/components/sections/Ticker.astro';
+import Features from '~/components/sections/Features.astro';
+import News from '~/components/sections/News.astro';
+import Standings from '~/components/sections/Standings.astro';
+import Community from '~/components/sections/Community.astro';
+import Closing from '~/components/sections/Closing.astro';
+import { t, type Locale } from '~/i18n';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const s = t(locale);
+---
+<Base locale={locale} title={s.meta.title} description={s.meta.description} landing={true}>
+  <Hero s={s} />
+  <Ticker s={s} />
+  <Features s={s} />
+  <News s={s} />
+  <Standings s={s} />
+  <Community s={s} />
+  <Closing s={s} />
+</Base>

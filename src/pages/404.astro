@@ -1,0 +1,13 @@
+---
+import Base from '~/layouts/Base.astro';
+import { t } from '~/i18n';
+const s = t('it');
+---
+<Base locale="it" title={`${s.notFound.title} · Rosanero`} description={s.notFound.text} noindex={true}>
+  <section class="wrap" style="padding: 120px 0 140px; display: flex; flex-direction: column; gap: 20px; max-width: 720px;">
+    <span class="eyebrow"><span class="dot"></span>404</span>
+    <h1 style="font-size: clamp(40px, 5vw, 64px); font-weight: 900;">{s.notFound.title}</h1>
+    <p class="sub" style="font-size: 18px;">{s.notFound.text}</p>
+    <a class="btn primary" href="/" style="align-self: flex-start;">{s.notFound.cta}</a>
+  </section>
+</Base>

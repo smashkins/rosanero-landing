@@ -1,0 +1,85 @@
+---
+import type { UIStrings } from '~/i18n/ui';
+
+interface Props { s: UIStrings }
+const { s } = Astro.props;
+const st = s.standings;
+---
+<section id="classifica" class="section" style="border-top: 1px solid var(--line);">
+  <div class="wrap" style="display: flex; flex-direction: column; gap: 40px;">
+    <div class="section-head">
+      <span class="rv eyebrow light"><span class="dot"></span>{st.eyebrow}</span>
+      <h2 class="rv">{st.title} <span class="grad-2">{st.titleAccent}</span>.</h2>
+      <p class="rv">{st.sub}</p>
+    </div>
+
+    <div class="grid standings-top" style="grid-template-columns: 1.25fr 1fr 1fr; align-items: start;">
+      <div class="rv-s card flush">
+        <div style="padding: 18px 20px 14px; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px;"><h3>{st.table.title}</h3><span class="pill-s">{st.table.round}</span></div>
+          <div class="sort">{st.table.sort.map((c, i) => <span class:list={{ on: i === 0 }}>{c}</span>)}</div>
+        </div>
+        <div class="tbl head">{st.table.head.map((h, i) => <span class:list={{ n: i >= 2 }}>{h}</span>)}</div>
+        {st.table.rows.map((r) => (
+          <div class:list={['tbl', { me: r.me }]}>
+            <span class="pos">{r.pos}</span>
+            <span class="team">{r.me && <img src="/img/logo.jpg" alt="" width="20" height="20" />}{r.team}</span>
+            <span class="n">{r.g}</span>
+            <span class="n">{r.dr}</span>
+            <span class="pt">{r.pt}</span>
+          </div>
+        ))}
+        <p style="padding: 14px 20px 18px;"><b>{st.table.noteStrong}</b> {st.table.note}</p>
+      </div>
+
+      <div class="rv-s card" style="gap: 12px;">
+        <h3>{st.calendar.title}</h3>
+        <div class="next">
+          <span class="lbl">{st.calendar.next}</span>
+          <div class="teams">
+            <div class="side"><img src="/img/logo.jpg" alt="" width="40" height="40" /><span class="lbl" style="color: var(--ink);">{st.calendar.home}</span></div>
+            <div class="when"><b>{st.calendar.date}</b><span>{st.calendar.time}</span></div>
+            <div class="side"><span class="crest-a">{st.calendar.awayShort}</span><span class="lbl">{st.calendar.away}</span></div>
+          </div>
+          <span class="venue">{st.calendar.venue}</span>
+        </div>
+        {st.calendar.results.map((r) => (
+          <div class="mrow"><span class="day">{r.day}</span>{r.match}<span class="sc">{r.score}</span><span class:list={['form', r.form]}>{st.calendar.formLabel[r.form as 'v' | 'n' | 'p']}</span></div>
+        ))}
+        <p>{st.calendar.text}</p>
+      </div>
+
+      <div class="rv-s card" style="gap: 12px;">
+        <h3>{st.squad.title}</h3>
+        <div class="player">
+          <div class="who">
+            <span class="av-p">{st.squad.initials}</span>
+            <div><b>{st.squad.player}</b><span>{st.squad.role}</span></div>
+          </div>
+          <div class="grid cols-4" style="gap: 8px;">
+            {st.squad.stats.map((x) => <div class="pstat" style="padding: 10px 4px;"><b style="font-size: 20px;">{x.v}</b><span>{x.l}</span></div>)}
+          </div>
+        </div>
+        {st.squad.others.map((p) => <div class="pl"><span class="av">{st.squad.initials}</span>{p.name}<span class="role">{p.role}</span></div>)}
+        <p>{st.squad.text}</p>
+      </div>
+    </div>
+
+    <div class="grid cols-2 standings-bottom" style="align-items: start;">
+      <div class="rv-s card" style="gap: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;"><h3>{st.stats.title}</h3><span class="pill-s">{st.stats.season}</span></div>
+        {st.stats.rows.map((r) => (
+          <div class="stat"><div class="top"><span>{r.l}</span><b>{r.v}</b></div><div class="track"><i style={`width: ${r.w}%;`}></i></div></div>
+        ))}
+        <p>{st.stats.text}</p>
+      </div>
+      <div class="rv-s card" style="gap: 12px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;"><h3>{st.market.title}</h3><span class="tag pink">{st.market.open}</span></div>
+        {st.market.items.map((m) => (
+          <div class="rv-l thread" style="padding: 12px 14px;"><div class="body"><h4>{m.title}</h4><p>{m.text}</p></div><span class:list={['tag', m.tone]}>{m.tag}</span></div>
+        ))}
+        <p>{st.market.text}</p>
+      </div>
+    </div>
+  </div>
+</section>

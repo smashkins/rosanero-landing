@@ -1,0 +1,61 @@
+---
+import Icon from '~/components/Icon.astro';
+import LangSwitch from '~/components/LangSwitch.astro';
+import { localizedHref, t, type Locale } from '~/i18n';
+
+interface Props {
+  locale: Locale;
+  /** true on the landing page: section links are plain anchors */
+  landing?: boolean;
+}
+const { locale, landing = false } = Astro.props;
+const s = t(locale);
+const home = localizedHref('/', locale);
+const anchor = (id: string) => (landing ? `#${id}` : `${home}#${id}`);
+const links = [
+  { href: anchor('funzioni'), label: s.nav.features },
+  { href: anchor('news'), label: s.nav.news },
+  { href: anchor('community'), label: s.nav.community },
+  { href: anchor('classifica'), label: s.nav.standings },
+  { href: localizedHref('/support/', locale), label: s.nav.support },
+];
+---
+<div class="topbar">
+  <div class="wrap">
+    <header class="nav">
+      <a class="brand" href={home}>
+        <img src="/img/logo.jpg" alt="Rosanero" width="40" height="40" />
+        <span>Rosanero</span>
+      </a>
+      <nav class="nav-links" aria-label="Sezioni">
+        {links.map((l) => <a href={l.href}>{l.label}</a>)}
+      </nav>
+      <div class="nav-right">
+        <LangSwitch locale={locale} />
+        <span class="nav-cta">{s.nav.soon}</span>
+        <button class="menu-btn" type="button" aria-label={s.nav.menu} aria-expanded="false" aria-controls="nav-drawer" data-menu>
+          <Icon name="menu" size={20} stroke={2} />
+        </button>
+      </div>
+    </header>
+    <nav class="nav-drawer" id="nav-drawer" aria-label={s.nav.menu}>
+      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+    </nav>
+  </div>
+  <div class="stripes"></div>
+</div>
+
+<script is:inline>
+  (function () {
+    var btn = document.querySelector('[data-menu]');
+    var drawer = document.getElementById('nav-drawer');
+    if (!btn || !drawer) return;
+    btn.addEventListener('click', function () {
+      var open = drawer.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    drawer.addEventListener('click', function (e) {
+      if (e.target && e.target.tagName === 'A') { drawer.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+    });
+  })();
+</script>

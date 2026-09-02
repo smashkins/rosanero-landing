@@ -1,0 +1,18 @@
+---
+import { LOCALES, localeName, switchLocalePath, t, type Locale } from '~/i18n';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const pathname = Astro.url.pathname;
+---
+<div class="lang" aria-label={t(locale).nav.langLabel}>
+  {LOCALES.map((l) =>
+    l === locale ? (
+      <span class="on" aria-current="true">{l.toUpperCase()}</span>
+    ) : (
+      <a href={switchLocalePath(pathname, l)} hreflang={l} lang={l} title={localeName[l]}>{l.toUpperCase()}</a>
+    ),
+  )}
+</div>

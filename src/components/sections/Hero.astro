@@ -1,0 +1,24 @@
+---
+import Icon from '~/components/Icon.astro';
+import StoreBadges from '~/components/StoreBadges.astro';
+import type { UIStrings } from '~/i18n/ui';
+
+interface Props { s: UIStrings }
+const { s } = Astro.props;
+---
+<section class="wrap hero">
+  <div class="hero-copy">
+    <span class="rv eyebrow"><span class="dot"></span>{s.hero.eyebrow}</span>
+    <h1 class="rv">{s.hero.title} <span class="grad">{s.hero.titleAccent}</span></h1>
+    <p class="rv lead">{s.hero.leadBefore} <b>{s.hero.leadStrong}</b> {s.hero.leadAfter}</p>
+    <StoreBadges s={s} />
+    <div class="disclaimer">
+      <Icon name="shield" size={18} />
+      <span><b>{s.disclaimer.strong}</b> {s.disclaimer.text}</span>
+    </div>
+  </div>
+  <div class="hero-img">
+    <div class="glow"></div>
+    <img src="/img/hero-iphone.webp" alt={s.hero.imageAlt} width="1000" height="1000" fetchpriority="high" />
+  </div>
+</section>

@@ -1,0 +1,316 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Saira+Condensed:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #0e0710; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: #fdf2f8; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: "Saira Condensed", "Arial Narrow", sans-serif; text-transform: uppercase; letter-spacing: 0.2em; font-size: 13px; font-weight: 600; color: oklch(0.74 0.18 345); padding: 8px 16px; border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; background: rgba(255,255,255,0.02); }
+    .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: oklch(0.74 0.27 348); box-shadow: 0 0 14px 2px oklch(0.74 0.27 348); }
+    .btn { display: inline-flex; align-items: center; gap: 10px; font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; font-size: 15px; padding: 14px 24px; border-radius: 13px; border: 1px solid rgba(255,255,255,0.1); color: #fdf2f8; background: rgba(255,255,255,0.03); }
+    .btn.primary { background: linear-gradient(100deg, oklch(0.74 0.27 348), oklch(0.85 0.09 350)); color: #180410; border-color: transparent; box-shadow: 0 12px 34px -12px oklch(0.74 0.27 348); }
+    .card { border: 1px solid oklch(0.66 0.23 350 / 0.28); border-radius: 18px; background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); padding: 26px; display: flex; flex-direction: column; gap: 10px; }
+    .card h3 { margin: 0; font-family: Archivo, "Helvetica Neue", sans-serif; font-weight: 800; font-size: 19px; letter-spacing: -0.02em; color: #fdf2f8; }
+    .card p { margin: 0; font-size: 14.5px; line-height: 1.55; color: oklch(0.72 0.035 340); }
+    .chip { width: 46px; height: 46px; border-radius: 13px; display: grid; place-items: center; background: radial-gradient(circle at 30% 25%, oklch(0.66 0.23 350 / 0.35), oklch(0.2 0.08 340 / 0.3)); border: 1px solid oklch(0.66 0.23 350 / 0.28); color: oklch(0.85 0.09 350); }
+    .chip svg { width: 22px; height: 22px; }
+    .tag { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-weight: 800; letter-spacing: 0.12em; font-size: 11px; text-transform: uppercase; padding: 5px 10px; border-radius: 100px; }
+    .tag.gold { color: oklch(0.85 0.09 350); border: 1px solid oklch(0.85 0.09 350 / 0.5); background: oklch(0.85 0.09 350 / 0.1); }
+    .tag.pink { color: oklch(0.74 0.27 348); border: 1px solid oklch(0.74 0.27 348 / 0.5); background: oklch(0.66 0.23 350 / 0.14); }
+    .tk { display: inline-flex; align-items: center; gap: 10px; padding: 0 26px; white-space: nowrap; font-size: 14.5px; color: oklch(0.72 0.035 340); border-right: 1px solid rgba(255,255,255,0.06); }
+    .tk b { color: #fdf2f8; font-weight: 600; }
+    .tk .tg { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-weight: 800; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: oklch(0.85 0.09 350); }
+    .dup { display: flex; align-items: center; gap: 10px; font-size: 13.5px; color: oklch(0.72 0.035 340); padding: 9px 12px; border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; background: rgba(255,255,255,0.015); }
+    .dup .n { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-weight: 700; font-size: 12px; color: oklch(0.58 0.03 340); width: 20px; }
+    .step { display: flex; align-items: center; gap: 10px; font-size: 13px; color: oklch(0.58 0.03 340); }
+    .step .mk { width: 16px; height: 16px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.12); display: grid; place-items: center; font-size: 9px; }
+    .step.done { color: oklch(0.72 0.035 340); } .step.done .mk { background: oklch(0.78 0.16 150 / 0.22); border-color: oklch(0.78 0.16 150 / 0.5); color: oklch(0.78 0.16 150); }
+    .step.now { color: #fdf2f8; font-weight: 600; } .step.now .mk { background: linear-gradient(100deg, oklch(0.74 0.27 348), oklch(0.85 0.09 350)); border-color: transparent; color: #180410; }
+    .foot a { color: oklch(0.72 0.035 340); font-size: 13.5px; }
+    .eyebrow.cyan { color: oklch(0.85 0.09 350); } .eyebrow.cyan .dot { background: oklch(0.85 0.09 350); box-shadow: 0 0 14px 2px oklch(0.85 0.09 350); }
+    .eyebrow.gold { color: oklch(0.85 0.09 350); } .eyebrow.gold .dot { background: oklch(0.85 0.09 350); box-shadow: 0 0 14px 2px oklch(0.85 0.09 350); }
+    .h3 { margin: 0; font-family: Archivo, "Helvetica Neue", sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.025em; line-height: 1.05; }
+    .sub { margin: 0; font-size: 16px; color: oklch(0.72 0.035 340); line-height: 1.6; }
+    .sub b { color: #fdf2f8; font-weight: 600; }
+    .tick { width: 18px; height: 18px; border-radius: 50%; background: oklch(0.82 0.12 200); color: #04141a; display: grid; place-items: center; flex: none; }
+    .tick svg { width: 11px; height: 11px; }
+    .plat { display: inline-flex; align-items: center; gap: 9px; padding: 10px 16px; border-radius: 12px; font-weight: 600; font-size: 14px; border: 1px solid oklch(0.66 0.23 350 / 0.28); background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); color: oklch(0.72 0.035 340); }
+    .plat i { width: 9px; height: 9px; border-radius: 3px; display: block; }
+    .ghead { height: 84px; position: relative; background: radial-gradient(120% 140% at 0% 0%, oklch(0.66 0.23 350 / 0.6), transparent 60%), repeating-linear-gradient(125deg, oklch(0.2 0.08 340 / 0.6) 0 14px, oklch(0.3 0.1 350 / 0.4) 14px 28px); }
+    .glogo { position: absolute; left: 22px; bottom: -24px; width: 56px; height: 56px; border-radius: 15px; border: 2px solid rgba(255,255,255,0.18); background: repeating-linear-gradient(135deg, oklch(0.4 0.15 350) 0 8px, oklch(0.2 0.08 340) 8px 16px); display: grid; place-items: center; font-family: "Saira Condensed", sans-serif; font-weight: 800; font-size: 20px; color: #fff; }
+    .gbody { padding: 36px 22px 22px; display: flex; flex-direction: column; gap: 14px; }
+    .gname { display: flex; align-items: center; gap: 8px; font-family: Archivo, sans-serif; font-weight: 800; font-size: 17px; letter-spacing: -0.01em; }
+    .gmeta { display: flex; gap: 20px; } .gmeta div { font-size: 12px; color: oklch(0.72 0.035 340); display: flex; flex-direction: column; } .gmeta b { font-family: "Saira Condensed", sans-serif; font-size: 20px; color: #fdf2f8; font-weight: 700; line-height: 1.1; }
+    .ftags { display: flex; flex-wrap: wrap; gap: 6px; } .ftags span { font-size: 11px; color: oklch(0.72 0.035 340); border: 1px solid oklch(0.66 0.23 350 / 0.28); border-radius: 100px; padding: 4px 10px; }
+    .lbrow { display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .lbrow:last-child { border-bottom: none; }
+    .lbrank { font-family: "Saira Condensed", sans-serif; font-weight: 800; font-size: 20px; width: 26px; color: oklch(0.58 0.03 340); }
+    .lblogo { width: 36px; height: 36px; border-radius: 10px; background: repeating-linear-gradient(135deg, oklch(0.4 0.15 350) 0 7px, oklch(0.2 0.08 340) 7px 14px); border: 1px solid oklch(0.66 0.23 350 / 0.28); display: grid; place-items: center; font-family: "Saira Condensed", sans-serif; font-weight: 800; font-size: 14px; }
+    .lbname { flex: 1; font-weight: 600; font-size: 14px; } .lbname small { display: block; color: oklch(0.58 0.03 340); font-size: 11.5px; font-weight: 400; }
+    .lbscore { font-family: "Saira Condensed", sans-serif; font-weight: 800; font-size: 22px; color: oklch(0.85 0.09 350); }
+    .rrow { display: flex; align-items: center; gap: 14px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .rrow:last-child { border-bottom: none; }
+    .ravatar { width: 40px; height: 40px; border-radius: 11px; background: repeating-linear-gradient(135deg, oklch(0.4 0.15 350) 0 7px, oklch(0.2 0.08 340) 7px 14px); border: 1px solid oklch(0.66 0.23 350 / 0.28); display: grid; place-items: center; font-family: "Saira Condensed", sans-serif; font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.75); flex: none; }
+    .rinfo { flex: 1; display: flex; flex-direction: column; gap: 7px; } .rinfo h4 { margin: 0; font-size: 14.5px; font-weight: 600; }
+    .rbar { height: 6px; border-radius: 100px; background: rgba(255,255,255,0.08); overflow: clip; } .rbar i { display: block; height: 100%; border-radius: 100px; background: linear-gradient(90deg, oklch(0.74 0.27 348), oklch(0.85 0.09 350)); }
+    .rscore { font-family: "Saira Condensed", sans-serif; font-weight: 800; font-size: 24px; width: 50px; text-align: right; color: oklch(0.78 0.16 150); }
+    .rscore.mid { color: oklch(0.85 0.09 350); }
+    .tabs { display: inline-flex; background: rgba(255,255,255,0.04); border: 1px solid oklch(0.66 0.23 350 / 0.28); border-radius: 12px; padding: 4px; gap: 4px; align-self: flex-start; }
+    .tabs span { font-family: "Saira Condensed", sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; font-size: 12px; color: oklch(0.72 0.035 340); padding: 7px 14px; border-radius: 9px; }
+    .tabs .on { background: linear-gradient(100deg, oklch(0.66 0.23 350), oklch(0.74 0.27 348)); color: #fff; }
+    .thread { display: flex; gap: 14px; align-items: center; padding: 14px 16px; border: 1px solid oklch(0.66 0.23 350 / 0.28); border-radius: 14px; background: linear-gradient(100deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); }
+    .thread .min { font-family: "Saira Condensed", sans-serif; font-weight: 800; font-size: 20px; color: oklch(0.74 0.18 345); width: 44px; }
+    .thread .ico { width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center; border: 1px solid oklch(0.66 0.23 350 / 0.28); color: #fdf2f8; flex: none; } .thread .ico svg { width: 18px; height: 18px; }
+    .thread .ico.goal { background: oklch(0.78 0.16 150 / 0.18); color: oklch(0.78 0.16 150); }
+    .thread .body { flex: 1; } .thread h4 { margin: 0; font-size: 14.5px; } .thread p { margin: 0; font-size: 12.5px; color: oklch(0.72 0.035 340); }
+    .thread .cnt { font-family: "Saira Condensed", sans-serif; font-weight: 700; font-size: 13px; color: oklch(0.85 0.09 350); display: inline-flex; align-items: center; gap: 6px; } .thread .cnt svg { width: 14px; height: 14px; }
+    .evchip { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 100px; border: 1px solid oklch(0.66 0.23 350 / 0.28); background: rgba(255,255,255,0.02); font-size: 13px; font-weight: 600; } .evchip svg { width: 15px; height: 15px; color: oklch(0.74 0.18 345); }
+    .sbar { display: flex; flex-direction: column; gap: 8px; } .sbar .top { display: flex; justify-content: space-between; align-items: baseline; font-size: 14px; font-weight: 600; } .sbar .top b { font-family: "Saira Condensed", sans-serif; font-weight: 800; font-size: 22px; }
+    .sbar .track { height: 10px; border-radius: 100px; background: rgba(255,255,255,0.07); overflow: clip; } .sbar .track i { display: block; height: 100%; border-radius: 100px; }
+    .coll { border-radius: 16px; padding: 2px; background: linear-gradient(160deg, oklch(0.85 0.09 350), oklch(0.74 0.27 348) 60%, oklch(0.85 0.09 350)); }
+    .coll div { border-radius: 14px; padding: 20px 14px; height: 100%; box-sizing: border-box; background: radial-gradient(120% 80% at 50% 0%, oklch(0.3 0.12 350 / 0.5), transparent 60%), linear-gradient(180deg, #1a0a16, #0b0510); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; }
+    .coll svg { width: 30px; height: 30px; color: oklch(0.85 0.09 350); } .coll h4 { margin: 0; font-size: 13.5px; line-height: 1.25; } .coll .xp { font-family: "Saira Condensed", sans-serif; font-weight: 800; font-size: 17px; color: oklch(0.85 0.09 350); }
+    .coll .legacy { font-family: "Saira Condensed", sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: oklch(0.85 0.09 350); border: 1px solid oklch(0.85 0.09 350 / 0.4); padding: 4px 10px; border-radius: 100px; }
+    .benefit { display: flex; gap: 12px; align-items: flex-start; padding: 16px; border: 1px solid oklch(0.66 0.23 350 / 0.28); border-radius: 14px; background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); }
+    .benefit .bi { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; flex: none; background: oklch(0.85 0.09 350 / 0.14); border: 1px solid oklch(0.66 0.23 350 / 0.28); color: oklch(0.85 0.09 350); } .benefit .bi svg { width: 17px; height: 17px; }
+    .benefit h4 { margin: 0 0 3px; font-size: 14.5px; } .benefit p { margin: 0; font-size: 13px; color: oklch(0.72 0.035 340); }
+    .jstep { border: 1px solid oklch(0.66 0.23 350 / 0.28); border-radius: 16px; padding: 18px 14px; background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); display: flex; flex-direction: column; gap: 12px; }
+    .jstep .jn { font-family: "Saira Condensed", sans-serif; font-weight: 800; font-size: 14px; width: 32px; height: 32px; border-radius: 9px; display: grid; place-items: center; color: #180410; background: linear-gradient(100deg, oklch(0.74 0.27 348), oklch(0.85 0.09 350)); }
+    .jstep h4 { margin: 0; font-size: 13.5px; line-height: 1.25; }
+    .pstat { border: 1px solid oklch(0.66 0.23 350 / 0.28); border-radius: 13px; padding: 14px; text-align: center; background: rgba(255,255,255,0.02); display: flex; flex-direction: column; gap: 3px; }
+    .pstat b { font-family: "Saira Condensed", sans-serif; font-weight: 800; font-size: 24px; color: #fdf2f8; line-height: 1; } .pstat span { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.1em; color: oklch(0.58 0.03 340); }
+
+
+
+    .pill-s { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: oklch(0.85 0.09 350); border: 1px solid oklch(0.85 0.09 350 / 0.4); padding: 4px 10px; border-radius: 100px; white-space: nowrap; }
+    .lbl-x { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: oklch(0.72 0.035 340); }
+    .sort { display: flex; gap: 6px; flex-wrap: wrap; }
+    .sort span { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 10px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.1); color: oklch(0.72 0.035 340); }
+    .sort .on { background: linear-gradient(100deg, oklch(0.74 0.27 348), oklch(0.85 0.09 350)); color: #180410; border-color: transparent; }
+    .tbl { display: grid; grid-template-columns: 34px 1fr 44px 52px 56px; gap: 0 10px; align-items: center; padding: 11px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; }
+    .tbl.head { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: oklch(0.58 0.03 340); }
+    .tbl .pos { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-weight: 800; font-size: 16px; color: oklch(0.58 0.03 340); }
+    .tbl .n { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-weight: 700; text-align: right; color: oklch(0.72 0.035 340); }
+    .tbl .pt { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-weight: 800; font-size: 17px; text-align: right; color: #fdf2f8; }
+    .tbl.me { background: linear-gradient(90deg, oklch(0.66 0.23 350 / 0.24), transparent 70%); box-shadow: inset 3px 0 0 oklch(0.74 0.27 348); }
+    .tbl.me .pos, .tbl.me .pt { color: oklch(0.74 0.18 345); }
+    .crest-a { width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; background: #2a1f28; color: oklch(0.72 0.035 340); border: 1px dashed rgba(255,255,255,0.25); font-family: "Saira Condensed", sans-serif; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+    .mrow { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 13.5px; }
+    .mrow .day { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(0.58 0.03 340); width: 34px; flex: none; }
+    .mrow .sc { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-weight: 800; font-size: 16px; margin-left: auto; }
+    .form { width: 22px; height: 22px; border-radius: 6px; display: grid; place-items: center; font-family: "Saira Condensed", sans-serif; font-weight: 800; font-size: 11px; flex: none; }
+    .form.v { background: oklch(0.78 0.16 150 / 0.2); color: oklch(0.78 0.16 150); }
+    .form.n { background: rgba(255,255,255,0.08); color: oklch(0.72 0.035 340); }
+    .form.p { background: oklch(0.6 0.2 20 / 0.22); color: #ff7088; }
+    .av-p { width: 56px; height: 56px; border-radius: 16px; flex: none; display: grid; place-items: center; background: repeating-linear-gradient(135deg, oklch(0.4 0.15 350) 0 8px, oklch(0.2 0.08 340) 8px 16px); border: 1px solid rgba(255,255,255,0.12); font-family: "Saira Condensed", sans-serif; font-weight: 700; font-size: 16px; color: rgba(255,255,255,0.8); }
+    .pl { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 13.5px; }
+    .pl .av { width: 32px; height: 32px; border-radius: 9px; flex: none; display: grid; place-items: center; background: repeating-linear-gradient(135deg, oklch(0.4 0.15 350) 0 6px, oklch(0.2 0.08 340) 6px 12px); font-family: "Saira Condensed", sans-serif; font-size: 11px; color: rgba(255,255,255,0.75); }
+    .pl .role { margin-left: auto; font-size: 12px; color: oklch(0.58 0.03 340); white-space: nowrap; }
+    .stat { display: flex; flex-direction: column; gap: 6px; }
+    .stat .top { display: flex; justify-content: space-between; align-items: baseline; font-size: 13.5px; }
+    .stat .top b { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-weight: 800; font-size: 19px; }
+    .stat .track { height: 8px; border-radius: 100px; background: rgba(255,255,255,0.07); overflow: clip; }
+    .stat .track i { display: block; height: 100%; border-radius: 100px; background: linear-gradient(90deg, oklch(0.74 0.27 348), oklch(0.85 0.09 350)); }
+
+    /* motion:start */
+    .rv, .rv-s, .rv-l { transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+    .rv.pre { opacity: 0; transform: translateY(40px); }
+    .rv-s.pre { opacity: 0; transform: translateY(30px) scale(.92); }
+    .rv-l.pre { opacity: 0; transform: translateX(-40px); }
+    .rbar i, .sbar .track i, .xp-fill { transform-origin: left center; transition: transform 1.2s cubic-bezier(.2,.7,.2,1) .25s; }
+    .pre .rbar i, .pre .sbar .track i, .pre .xp-fill { transform: scaleX(0); }
+    .hero-copy, .hero-img { will-change: opacity, transform; }
+    @media (prefers-reduced-motion: no-preference) {
+      @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+      .ticker-track { animation: ticker 42s linear infinite; }
+      @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+      .live-dot { animation: pulse 1.6s ease-in-out infinite; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .rv.pre, .rv-s.pre, .rv-l.pre { opacity: 1; transform: none; transition: none; }
+      .pre .rbar i, .pre .sbar .track i, .pre .xp-fill { transform: none; }
+    }
+    /* motion:end */
+
+    .lbl-side { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: oklch(0.58 0.03 340); margin-bottom: 6px; }
+    .side-link { font-size: 14.5px; color: oklch(0.72 0.035 340); padding: 6px 0 6px 12px; border-left: 2px solid transparent; }
+    .side-link.on { color: #fdf2f8; border-left-color: oklch(0.74 0.27 348); }
+    .side-link.sm { font-size: 13.5px; padding: 4px 0 4px 12px; }
+    .legal { display: flex; flex-direction: column; gap: 12px; }
+    .legal h1 { margin: 8px 0 0; font-family: Archivo, "Helvetica Neue", sans-serif; font-weight: 900; font-size: 54px; letter-spacing: -0.035em; line-height: 1.0; }
+    .legal .meta { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; color: oklch(0.72 0.035 340); padding: 14px 0 12px; border-bottom: 1px solid oklch(0.66 0.23 350 / 0.28); }
+    .legal .meta b { color: #fdf2f8; font-weight: 600; }
+    .legal .placeholder { display: flex; gap: 12px; align-items: flex-start; border: 1px solid oklch(0.83 0.13 88 / 0.5); background: oklch(0.83 0.13 88 / 0.1); border-radius: 12px; padding: 14px 16px; font-size: 14.5px; color: oklch(0.9 0.08 88); margin: 8px 0 12px; line-height: 1.55; }
+    .legal h2 { margin: 26px 0 2px; font-family: Archivo, "Helvetica Neue", sans-serif; font-weight: 800; font-size: 26px; letter-spacing: -0.02em; }
+    .legal p, .legal li { font-size: 16.5px; line-height: 1.7; color: oklch(0.86 0.02 340); margin: 0; }
+    .legal ul { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; }
+    .legal a { color: oklch(0.74 0.18 345); text-decoration: underline; text-underline-offset: 3px; }
+    .legal .contact { flex-direction: row; align-items: center; gap: 18px; margin-top: 8px; }
+    .legal .contact .chip { margin: 0; flex: none; }
+    .legal .contact p { font-size: 15px; }
+    .legal .note { font-size: 13.5px; color: oklch(0.58 0.03 340); margin-top: 22px; }
+    .mail { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-weight: 700; font-size: 19px; letter-spacing: 0.02em; color: oklch(0.74 0.27 348); }
+    .link { color: oklch(0.74 0.18 345); font-weight: 600; font-size: 14.5px; text-decoration: underline; text-underline-offset: 3px; }
+    .list { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; font-size: 14.5px; color: oklch(0.72 0.035 340); line-height: 1.55; }
+    .thread .jn { font-family: "Saira Condensed", "Arial Narrow", sans-serif; font-weight: 800; font-size: 15px; width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; color: #180410; background: linear-gradient(100deg, oklch(0.74 0.27 348), oklch(0.85 0.09 350)); flex: none; }
+  </style>
+</helmet>
+
+<div style="width: 1440px; min-height: 1900px; position: relative; overflow: clip; background: #0e0710; color: #fdf2f8; font-family: Manrope, 'Helvetica Neue', sans-serif; line-height: 1.6;">
+  <div style="position: absolute; inset: 0; pointer-events: none; background: radial-gradient(1000px 700px at 12% -4%, oklch(0.66 0.23 350 / 0.36), transparent 60%), radial-gradient(900px 800px at 85% 100%, oklch(0.66 0.23 350 / 0.16), transparent 55%), radial-gradient(1200px 600px at 50% 45%, oklch(0.66 0.23 350 / 0.08), transparent 60%);"></div>
+  <div style="position: absolute; inset: 0; pointer-events: none; opacity: 0.35; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 64px 64px; mask-image: radial-gradient(circle at 50% 20%, black, transparent 75%);"></div>
+
+  <!-- NAV -->
+  <div style="position: sticky; top: 0; z-index: 50; background: rgba(14,7,16,0.82); -webkit-backdrop-filter: blur(18px) saturate(140%); backdrop-filter: blur(18px) saturate(140%);">
+  <header style="position: relative; background: transparent; display: flex; align-items: center; justify-content: space-between; height: 72px; padding: 0 64px; border-bottom: 1px solid rgba(255,255,255,0.05);">
+    <div style="display: flex; align-items: center; gap: 12px; font-family: Archivo, 'Helvetica Neue', sans-serif; font-weight: 900; font-size: 19px; letter-spacing: -0.01em;">
+      <img src="rosanero-logo.jpg" alt="Rosanero" style="width: 40px; height: 40px; border-radius: 11px; box-shadow: 0 0 22px -4px oklch(0.74 0.27 348);">
+      <span>Rosanero</span>
+    </div>
+    <nav style="display: flex; gap: 30px; font-size: 14px; font-weight: 500; color: oklch(0.72 0.035 340);">
+      <a href="#funzioni">Funzioni</a><a href="#news">News</a><a href="#community">Community</a><a href="#classifica">Classifica</a><a href="#supporto">Supporto</a>
+    </nav>
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <div style="display: flex; gap: 2px; font-family: 'Saira Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; padding: 4px;">
+        <span style="padding: 4px 10px; border-radius: 100px; background: rgba(255,255,255,0.1);">IT</span>
+        <span style="padding: 4px 10px; color: oklch(0.58 0.03 340);">EN</span>
+      </div>
+      <span class="btn primary" style="padding: 11px 20px; font-size: 14px;">Prossimamente</span>
+    </div>
+  </header>
+  <div style="position: relative; height: 6px; background: repeating-linear-gradient(-45deg, oklch(0.74 0.27 348) 0 12px, #0e0710 12px 24px); opacity: 0.9;"></div>
+  </div>
+
+
+  <!-- LEGAL PAGE -->
+  <section style="position: relative; padding: 64px 64px 110px; display: grid; grid-template-columns: 260px minmax(0, 760px); gap: 72px; justify-content: start;">
+    <aside style="display: flex; flex-direction: column; gap: 28px; position: sticky; top: 100px; align-self: start;">
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <span class="lbl-side">Legale</span>
+        <a href="#termini" class="side-link">Termini e condizioni</a>
+        <a href="#privacy" class="side-link on">Informativa sulla privacy</a>
+        <a href="#supporto" class="side-link">Supporto</a>
+        <a href="#elimina-account" class="side-link">Eliminazione account</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <span class="lbl-side">In questa pagina</span>
+        <a href="#sez-1" class="side-link sm">1. Titolare del trattamento</a>
+        <a href="#sez-2" class="side-link sm">2. Dati raccolti</a>
+        <a href="#sez-3" class="side-link sm">3. Finalità e base giuridica</a>
+        <a href="#sez-4" class="side-link sm">4. Conservazione</a>
+        <a href="#sez-5" class="side-link sm">5. Condivisione con terzi</a>
+        <a href="#sez-6" class="side-link sm">6. I tuoi diritti</a>
+        <a href="#sez-7" class="side-link sm">7. Contatti</a>
+      </div>
+      <div style="display: flex; gap: 2px; font-family: 'Saira Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; padding: 4px; align-self: flex-start;">
+        <span style="padding: 4px 10px; border-radius: 100px; background: rgba(255,255,255,0.1);">IT</span>
+        <span style="padding: 4px 10px; color: oklch(0.58 0.03 340);">EN</span>
+      </div>
+    </aside>
+
+    <article class="legal">
+      <span class="eyebrow" style="align-self: flex-start;"><span class="dot"></span>Legale · Privacy</span>
+      <h1>Informativa sulla privacy</h1>
+      <div class="meta">
+        <span><b>Ultimo aggiornamento:</b> [DATA]</span>
+        <span><b>Si applica a:</b> app Rosanero per iOS e Android e al sito rosanero.app</span>
+      </div>
+      <div class="placeholder">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px;"><path d="M12 9v4M12 17h.01"></path><path d="M10.3 3.9L2.5 17.5A2 2 0 0 0 4.2 20.5h15.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"></path></svg>
+        <span><b>[SEGNAPOSTO]</b> Questa pagina mostra solo l'impaginazione. Il testo definitivo, in italiano e in inglese, verrà incollato qui. Finché il segnaposto è attivo la pagina non viene indicizzata dai motori di ricerca.</span>
+      </div>
+
+      <h2 id="sez-1" style="scroll-margin-top: 100px;">1. Titolare del trattamento</h2>
+      <p>[Nome del titolare, indirizzo e contatti]. Per qualsiasi domanda relativa a questa informativa puoi scrivere a <a href="mailto:support@rosanero.app">support@rosanero.app</a>.</p>
+
+      <h2 id="sez-2" style="scroll-margin-top: 100px;">2. Dati raccolti</h2>
+      <p>[Descrizione delle categorie di dati trattati dall'app.]</p>
+      <ul>
+        <li>[Dati dell'account, ad esempio quelli forniti da Sign in with Apple o Google]</li>
+        <li>[Dati d'uso e preferenze]</li>
+        <li>[Dati tecnici del dispositivo]</li>
+      </ul>
+
+      <h2 id="sez-3" style="scroll-margin-top: 100px;">3. Finalità e base giuridica</h2>
+      <p>[Per quali scopi trattiamo i dati e su quale base giuridica, ad esempio esecuzione del contratto, legittimo interesse o consenso.]</p>
+
+      <h2 id="sez-4" style="scroll-margin-top: 100px;">4. Conservazione</h2>
+      <p>[Per quanto tempo conserviamo i dati e con quali criteri.]</p>
+
+      <h2 id="sez-5" style="scroll-margin-top: 100px;">5. Condivisione con terzi</h2>
+      <p>[Quali fornitori trattano dati per nostro conto e dove sono stabiliti.]</p>
+
+      <h2 id="sez-6" style="scroll-margin-top: 100px;">6. I tuoi diritti</h2>
+      <p>[Accesso, rettifica, cancellazione, limitazione, portabilità, opposizione e reclamo all'autorità di controllo.] Puoi eliminare il tuo account direttamente dall'app oppure seguendo le istruzioni nella pagina <a href="#elimina-account">Eliminazione account</a>.</p>
+
+      <h2 id="sez-7" style="scroll-margin-top: 100px;">7. Contatti</h2>
+      <div class="card contact">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></span>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <h3 style="font-size: 18px;">Domande sui tuoi dati?</h3>
+          <p>Scrivi a <a href="mailto:support@rosanero.app">support@rosanero.app</a>. Rispondiamo entro [n] giorni lavorativi.</p>
+        </div>
+      </div>
+
+      <p class="note">Rosanero è un progetto indipendente dei tifosi, non affiliato al Palermo F.C.</p>
+    </article>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot" style="position: relative; border-top: 1px solid oklch(0.66 0.23 350 / 0.25); padding: 44px 64px 56px; display: flex; justify-content: space-between; align-items: center; gap: 24px;">
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <img src="rosanero-logo.jpg" alt="Rosanero" style="width: 36px; height: 36px; border-radius: 10px;">
+      <p style="margin: 0; color: oklch(0.58 0.03 340); font-size: 13.5px; max-width: 560px; line-height: 1.6;">© 2026 Rosanero · Progetto indipendente dei tifosi, non affiliato al Palermo F.C.<br>Un'app di monoidx.</p>
+    </div>
+    <div style="display: flex; gap: 24px;"><a href="#termini">Termini</a><a href="#privacy">Privacy</a><a href="#supporto">Supporto</a><a href="#elimina-account">Elimina account</a></div>
+  </footer>
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  componentDidMount() {
+(function () {
+  var d = document;
+  if (!('IntersectionObserver' in window) || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  var els = Array.prototype.slice.call(d.querySelectorAll('.rv, .rv-s, .rv-l'));
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.remove('pre'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  els.forEach(function (el) {
+    var p = el.parentElement;
+    var i = p ? Array.prototype.indexOf.call(p.children, el) : 0;
+    el.style.transitionDelay = (Math.min(i, 7) * 80) + 'ms';
+    el.classList.add('pre');
+  });
+  void d.body.offsetHeight;
+  els.forEach(function (el) { io.observe(el); });
+  var hc = d.querySelector('.hero-copy'), hi = d.querySelector('.hero-img');
+  if (!hc && !hi) return;
+  var ticking = false;
+  function upd() {
+    ticking = false;
+    var y = window.scrollY || d.documentElement.scrollTop || 0;
+    var p = Math.max(0, Math.min(1, y / 720));
+    if (hc) { hc.style.opacity = String(1 - p); hc.style.transform = 'translateY(' + (-70 * p) + 'px)'; }
+    if (hi) { hi.style.opacity = String(1 - 0.9 * p); hi.style.transform = 'translateY(' + (140 * p) + 'px) scale(' + (1 - 0.08 * p) + ')'; }
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, { passive: true });
+  upd();
+})();
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

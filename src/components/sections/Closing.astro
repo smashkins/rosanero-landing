@@ -1,0 +1,20 @@
+---
+import StoreBadges from '~/components/StoreBadges.astro';
+import type { UIStrings } from '~/i18n/ui';
+
+interface Props { s: UIStrings }
+const { s } = Astro.props;
+---
+<section class="section" style="padding: 40px 0 90px;">
+  <div class="wrap">
+    <div class="rv-s closing">
+      <span class="eyebrow green"><span class="dot"></span>{s.closing.eyebrow}</span>
+      <h2>{s.closing.title} <span class="grad-2">{s.closing.titleAccent}</span></h2>
+      <p>{s.closing.sub}</p>
+      <StoreBadges s={s} primary={true} class="center" />
+    </div>
+  </div>
+</section>
+<style>
+  .center { justify-content: center; }
+</style>

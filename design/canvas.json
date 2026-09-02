@@ -1,0 +1,136 @@
+{
+  "pages": [
+    {
+      "id": "page-1",
+      "name": "Landing"
+    },
+    {
+      "id": "page-2",
+      "name": "Direzioni"
+    }
+  ],
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "title": "Landing · desktop (A2)",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 9200,
+      "expand": "fill",
+      "page": "page-1"
+    },
+    {
+      "file": "NotteRosanero.dc.html",
+      "title": "A · Notte rosanero",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 7550,
+      "page": "page-2"
+    },
+    {
+      "file": "Cronaca.dc.html",
+      "title": "B · Cronaca",
+      "x": 1600,
+      "y": 0,
+      "w": 1440,
+      "h": 3000,
+      "page": "page-2"
+    },
+    {
+      "file": "Curva.dc.html",
+      "title": "C · Curva",
+      "x": 3200,
+      "y": 0,
+      "w": 1440,
+      "h": 2650,
+      "page": "page-2"
+    },
+    {
+      "file": "Fumogeni.dc.html",
+      "title": "D · Fumogeni",
+      "x": 4800,
+      "y": 0,
+      "w": 1440,
+      "h": 2900,
+      "page": "page-2"
+    },
+    {
+      "file": "Mobile.dc.html",
+      "title": "Landing · mobile",
+      "x": 1600,
+      "y": 0,
+      "w": 390,
+      "h": 13300,
+      "expand": "fill",
+      "page": "page-1"
+    },
+    {
+      "file": "Legal.dc.html",
+      "title": "Pagina legale · Privacy",
+      "x": 2150,
+      "y": 0,
+      "w": 1440,
+      "h": 1900,
+      "expand": "fill",
+      "page": "page-1"
+    },
+    {
+      "file": "Support.dc.html",
+      "title": "Supporto ed eliminazione account",
+      "x": 3750,
+      "y": 0,
+      "w": 1440,
+      "h": 2300,
+      "expand": "fill",
+      "page": "page-1"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "note-main",
+      "x": 0,
+      "y": -220,
+      "w": 640,
+      "page": "page-1",
+      "text": "Direzione scelta: A2 · Notte rosanero · più rosa.\nQuesta è la landing desktop di riferimento. Accanto: versione mobile, template pagina legale, pagina supporto ed eliminazione account.\nEspandi un'artboard e scorri per vedere gli effetti di movimento: reveal sfalsati, barre che si riempiono, parallasse della hero, ticker."
+    },
+    {
+      "id": "note-a",
+      "x": 0,
+      "y": -220,
+      "w": 640,
+      "page": "page-2",
+      "text": "A · Notte rosanero\nVersione di riserva di A2, senza il rosa aggiuntivo e senza foto.\nContinuità con i concept: dark, rosa neon + oro, Archivo / Saira Condensed / Manrope."
+    },
+    {
+      "id": "note-b",
+      "x": 1600,
+      "y": -220,
+      "w": 640,
+      "page": "page-2",
+      "text": "B · Cronaca\nEditoriale sportivo chiaro: carta calda, rosa Palermo + quasi-nero a blocchi, Anton / Source Serif 4 / Barlow Condensed.\nNon scelta."
+    },
+    {
+      "id": "note-c",
+      "x": 3200,
+      "y": -220,
+      "w": 640,
+      "page": "page-2",
+      "text": "C · Curva\nBrutalista: rosa/nero ad alto contrasto, nessun gradiente, Space Grotesk + IBM Plex Mono.\nNon scelta."
+    },
+    {
+      "id": "note-d",
+      "x": 4800,
+      "y": -220,
+      "w": 640,
+      "page": "page-2",
+      "text": "D · Fumogeni\nDalla referenza: hero fotografica della curva, telefono grande, Bebas Neue / DM Sans.\nNon scelta."
+    }
+  ],
+  "launch": {
+    "view": "canvas",
+    "page": "page-1"
+  }
+}

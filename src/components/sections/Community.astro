@@ -1,0 +1,190 @@
+---
+import Icon from '~/components/Icon.astro';
+import type { UIStrings } from '~/i18n/ui';
+
+interface Props { s: UIStrings }
+const { s } = Astro.props;
+const c = s.community;
+---
+<!-- intro + gruppi -->
+<section id="community" class="section" style="border-top: 1px solid var(--line); padding-bottom: 60px;">
+  <div class="wrap" style="display: flex; flex-direction: column; gap: 48px;">
+    <div class="grid community-head" style="grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: end;">
+      <div class="section-head">
+        <span class="rv eyebrow"><span class="dot"></span>{c.eyebrow}</span>
+        <h2 class="rv">{c.title} <span class="grad-2">{c.titleAccent}</span>.</h2>
+        <p class="rv">{c.sub}</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <p class="rv sub" style="font-size: 14.5px;">{c.spreadIntro}</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+          {c.platforms.map((p) => <span class="rv-s plat"><i style={`background: ${p.color};`}></i>{p.name}</span>)}
+        </div>
+        <p class="rv sub" style="font-size: 15px;"><b>{c.spreadStrong}</b> {c.spreadText}</p>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 22px;">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 720px;">
+        <h3 class="rv h3">{c.groups.title}</h3>
+        <p class="rv sub">{c.groups.sub}</p>
+      </div>
+      <div class="grid cols-3">
+        {c.groups.cards.map((g) => (
+          <div class="rv-s card flush">
+            <div class="ghead"><span class="glogo">{g.initial}</span></div>
+            <div class="gbody">
+              <div class="gname">{g.name} <span class="tick"><Icon name="check" size={11} stroke={3.5} /></span></div>
+              <div class="gmeta"><div><b>{g.members}</b>{c.groups.members}</div><div><b>{g.rank}</b>{c.groups.rank}</div><div><b>{g.activity}</b>{c.groups.activity}</div></div>
+              <div class="ftags">{c.groups.tags.map((t) => <span>{t}</span>)}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- pronostici + classifiche -->
+<section class="section band tight">
+  <div class="wrap split" style="align-items: center;">
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <span class="rv eyebrow"><span class="dot"></span>{c.predictions.eyebrow}</span>
+      <h3 class="rv h3" style="font-size: 40px;">{c.predictions.title} <span class="grad-2">{c.predictions.titleAccent}</span>.</h3>
+      <p class="rv sub">{c.predictions.sub}</p>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        {c.predictions.items.map((it) => (
+          <div class="rv-l thread" style="padding: 12px 16px;"><span class="ico"><Icon name={it.icon} size={18} /></span><div class="body"><h4>{it.title}</h4><p>{it.text}</p></div></div>
+        ))}
+      </div>
+      <p class="rv sub" style="font-size: 14.5px;">{c.predictions.noteBefore} <b>{c.predictions.note1}</b>{c.predictions.noteMid1} <b>{c.predictions.note2}</b> {c.predictions.noteMid2} <b>{c.predictions.note3}</b>{c.predictions.noteAfter}</p>
+    </div>
+    <div class="rv-s card flush">
+      <div class="lbhead"><h4>{c.predictions.boardTitle}</h4><span class="pill-s">{c.predictions.season}</span></div>
+      {c.predictions.board.map((b, i) => (
+        <div class="rv-l lbrow">
+          <span class:list={['lbrank', b.medal]}>{i + 1}</span>
+          <span class="lblogo">{b.initial}</span>
+          <div class="lbname">{b.name} <small>{c.predictions.verified}</small></div>
+          <span class:list={['lbscore', { dim: !b.medal }]}>{b.score}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- pagelle + matchday -->
+<section class="section tight">
+  <div class="wrap split">
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <span class="rv eyebrow light"><span class="dot"></span>{c.ratings.eyebrow}</span>
+      <h3 class="rv h3" style="font-size: 34px;">{c.ratings.title}</h3>
+      <p class="rv sub">{c.ratings.sub}</p>
+      <div class="rv-s card" style="gap: 14px;">
+        <div class="tabs">{c.ratings.tabs.map((t, i) => <span class:list={{ on: i === 0 }}>{t}</span>)}</div>
+        {c.ratings.rows.map((r) => (
+          <div class="rv-l rrow"><span class="ravatar">{r.initials}</span><div class="rinfo"><h4>{r.name}</h4><div class="rbar"><i style={`width: ${r.w}%;`}></i></div></div><span class:list={['rscore', { mid: r.mid }]}>{r.score}</span></div>
+        ))}
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <span class="rv eyebrow"><span class="dot"></span>{c.matchday.eyebrow}</span>
+      <h3 class="rv h3" style="font-size: 34px;">{c.matchday.title}</h3>
+      <p class="rv sub">{c.matchday.subBefore} <b>{c.matchday.subStrong}</b>{c.matchday.subAfter}</p>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        {c.matchday.threads.map((th) => (
+          <div class="rv-l thread"><span class="min">{th.min}</span><span class:list={['ico', { goal: th.goal }]}><Icon name={th.icon} size={18} /></span><div class="body"><h4>{th.title}</h4><p>{th.text}</p></div><span class="cnt"><Icon name="comment" size={14} stroke={2} />{th.count}</span></div>
+        ))}
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        {c.matchday.events.map((e) => <span class="rv evchip"><Icon name={e.icon} size={15} stroke={2} />{e.label}</span>)}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- sentiment + collezionabili -->
+<section class="section band tight">
+  <div class="wrap split coll-row" style="grid-template-columns: 0.8fr 1.2fr;">
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <span class="rv eyebrow light"><span class="dot"></span>{c.sentiment.eyebrow}</span>
+      <h3 class="rv h3" style="font-size: 34px;">{c.sentiment.title}</h3>
+      <p class="rv sub">{c.sentiment.sub}</p>
+      <div class="rv-s card" style="gap: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;"><h4 style="font-size: 15px;">{c.sentiment.cardTitle}</h4><span style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-cond); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #ff7088;"><span class="live-dot" style="background: var(--red); box-shadow: 0 0 10px 2px var(--red);"></span>{c.sentiment.live}</span></div>
+        {c.sentiment.rows.map((r) => (
+          <div class:list={['sbar', r.tone]}><div class="top"><span>{r.l}</span><b>{r.v}</b></div><div class="track"><i style={`width: ${r.w}%;`}></i></div></div>
+        ))}
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <span class="rv eyebrow light"><span class="dot"></span>{c.collectibles.eyebrow}</span>
+      <h3 class="rv h3" style="font-size: 34px;">{c.collectibles.title}</h3>
+      <p class="rv sub">{c.collectibles.sub}</p>
+      <div class="grid coll-row" style="grid-template-columns: 250px minmax(0, 1fr); gap: 24px; align-items: center;">
+        <div class="card-phone">
+          <div class="glow"></div>
+          <img src="/img/card-iphone.webp" alt={c.collectibles.imageAlt} width="491" height="1000" loading="lazy" />
+        </div>
+        <div class="grid cols-2" style="gap: 12px;">
+          {c.collectibles.items.map((it) => (
+            <div class="rv-s coll"><div><Icon name={it.icon} size={30} /><h4>{it.title}</h4>{it.xp ? <span class="xp">{it.xp}</span> : <span class="legacy">{c.collectibles.legacy}</span>}</div></div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- profilo + admin -->
+<section class="section tight">
+  <div class="wrap split" style="grid-template-columns: 0.85fr 1.15fr;">
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <span class="rv eyebrow"><span class="dot"></span>{c.profile.eyebrow}</span>
+      <h3 class="rv h3" style="font-size: 34px;">{c.profile.title}</h3>
+      <p class="rv sub">{c.profile.sub}</p>
+      <div class="rv-s card flush">
+        <div class="profile-banner">
+          <div class="profile-level"><b>{c.profile.levelValue}</b><span>{c.profile.level}</span></div>
+          <span class="profile-avatar">{c.profile.initial}</span>
+        </div>
+        <div class="profile-body">
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <span class="profile-name">{c.profile.name}</span>
+            <span class="profile-group"><Icon name="shield" size={14} stroke={2} />{c.profile.group} <span class="tick" style="width: 15px; height: 15px;"><Icon name="check" size={9} stroke={3.5} /></span></span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <div class="xp-track"><i style={`width: ${c.profile.xpWidth}%;`}></i></div>
+            <div class="xp-meta"><span>{c.profile.xp}</span><span>{c.profile.top}</span></div>
+          </div>
+          <div class="grid cols-3" style="gap: 10px;">
+            {c.profile.stats.map((x) => <div class="rv-s pstat"><b>{x.v}</b><span>{x.l}</span></div>)}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <span class="rv eyebrow light"><span class="dot"></span>{c.admin.eyebrow}</span>
+      <h3 class="rv h3" style="font-size: 34px;">{c.admin.title}</h3>
+      <p class="rv sub">{c.admin.sub}</p>
+      <div class="grid cols-2" style="gap: 12px;">
+        {c.admin.items.map((b) => (
+          <div class="rv benefit"><span class="bi"><Icon name={b.icon} size={17} stroke={2} /></span><div><h4>{b.title}</h4><p>{b.text}</p></div></div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- percorso -->
+<section class="section band tight" style="padding-bottom: 90px;">
+  <div class="wrap" style="display: flex; flex-direction: column; gap: 28px;">
+    <div style="display: flex; flex-direction: column; gap: 8px; max-width: 720px;">
+      <span class="rv eyebrow light"><span class="dot"></span>{c.journey.eyebrow}</span>
+      <h3 class="rv h3">{c.journey.title}</h3>
+    </div>
+    <div class="grid cols-7">
+      {c.journey.steps.map((step, i) => <div class="rv-s jstep"><span class="jn">{i + 1}</span><h4>{step}</h4></div>)}
+    </div>
+  </div>
+</section>

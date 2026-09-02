@@ -1,0 +1,14 @@
+---
+import Legal from '~/layouts/Legal.astro';
+import { Content, frontmatter } from '~/data/legal/en/terms.md';
+---
+<Legal
+  locale="en"
+  page="terms"
+  title={frontmatter.title}
+  description={frontmatter.description}
+  eyebrow={frontmatter.eyebrow}
+  updated={frontmatter.updated}
+  placeholder={frontmatter.placeholder}
+  toc={frontmatter.toc}
+><Content /></Legal>

@@ -1,0 +1,51 @@
+---
+import { switchLocalePath, t, type Locale } from '~/i18n';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  noindex?: boolean;
+}
+const { locale, title, description, noindex = false } = Astro.props;
+const site = Astro.site ?? new URL('https://rosanero.app');
+const pathname = Astro.url.pathname;
+const canonical = new URL(pathname, site).toString();
+const alt = {
+  it: new URL(switchLocalePath(pathname, 'it'), site).toString(),
+  en: new URL(switchLocalePath(pathname, 'en'), site).toString(),
+};
+const ogImage = new URL('/og.jpg', site).toString();
+const strings = t(locale);
+---
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{title}</title>
+<meta name="description" content={description} />
+{noindex && <meta name="robots" content="noindex" />}
+<link rel="canonical" href={canonical} />
+<link rel="alternate" hreflang="it" href={alt.it} />
+<link rel="alternate" hreflang="en" href={alt.en} />
+<link rel="alternate" hreflang="x-default" href={alt.it} />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={strings.meta.siteName} />
+<meta property="og:locale" content={strings.meta.ogLocale} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImage} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+<meta name="theme-color" content="#0e0710" />
+<meta name="color-scheme" content="dark" />
+<link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Saira+Condensed:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+/>

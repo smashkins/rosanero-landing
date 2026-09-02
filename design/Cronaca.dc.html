@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #f6efe3; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: #d63b7e; }
+    .lbl { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 600; font-size: 13px; }
+    .display { font-family: Anton, Impact, "Arial Narrow Bold", sans-serif; text-transform: uppercase; font-weight: 400; letter-spacing: 0.01em; line-height: 0.92; }
+    .serif { font-family: "Source Serif 4", Georgia, "Times New Roman", serif; }
+    .pill { display: inline-flex; align-items: center; gap: 10px; font-family: "Barlow Condensed", "Arial Narrow", sans-serif; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; font-size: 15px; padding: 12px 20px; border: 2px solid #1b1317; color: #1b1317; background: transparent; }
+    .pill.solid { background: #1b1317; color: #f6efe3; }
+    .cell { display: flex; flex-direction: column; gap: 10px; padding: 26px 22px 30px 0; border-top: 3px solid #1b1317; }
+    .cell .num { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.14em; color: #d63b7e; }
+    .cell h3 { margin: 0; font-family: Anton, Impact, sans-serif; text-transform: uppercase; font-weight: 400; font-size: 27px; line-height: 1; color: #1b1317; }
+    .cell p { margin: 0; font-family: "Source Serif 4", Georgia, serif; font-size: 16px; line-height: 1.5; color: #4d4046; }
+    .hl { display: flex; gap: 12px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid #cbbfae; font-family: "Source Serif 4", Georgia, serif; font-size: 17px; color: #4d4046; }
+    .hl .n { font-family: "Barlow Condensed", sans-serif; font-weight: 700; font-size: 13px; color: #9a8c93; width: 22px; letter-spacing: 0.1em; }
+    .ul { display: inline-flex; align-items: center; gap: 18px; font-family: "Barlow Condensed", "Arial Narrow", sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; font-size: 16px; color: #f6efe3; white-space: nowrap; }
+    .ul .dia { width: 8px; height: 8px; background: #d63b7e; transform: rotate(45deg); }
+    .stripes { height: 18px; background: repeating-linear-gradient(-45deg, #d63b7e 0 14px, #1b1317 14px 28px); }
+  </style>
+</helmet>
+
+<div style="width: 1440px; min-height: 2600px; background: #f6efe3; color: #1b1317; font-family: 'Source Serif 4', Georgia, serif; line-height: 1.5; display: flex; flex-direction: column;">
+
+  <!-- TOP BAR -->
+  <div class="lbl" style="display: flex; justify-content: space-between; align-items: center; background: #1b1317; color: #f6efe3; padding: 9px 64px; font-size: 12px;">
+    <span>Fan app non ufficiale · iOS e Android</span>
+    <span style="color: #f3a3c7;">Prossimamente su App Store e Google Play</span>
+    <span style="display: flex; gap: 12px;"><span style="border-bottom: 2px solid #d63b7e;">IT</span><span style="color: #9a8c93;">EN</span></span>
+  </div>
+
+  <!-- MASTHEAD -->
+  <header style="display: flex; align-items: center; justify-content: space-between; padding: 18px 64px; border-bottom: 3px solid #1b1317;">
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <img src="rosanero-logo.jpg" alt="Rosanero" style="width: 46px; height: 46px; border-radius: 12px;">
+      <span class="display" style="font-size: 32px; letter-spacing: 0.06em;">Rosanero</span>
+    </div>
+    <nav class="lbl" style="display: flex; gap: 32px; font-size: 16px; font-weight: 600;">
+      <a href="#">Funzioni</a><a href="#">News</a><a href="#">Community</a><a href="#">Classifica</a><a href="#">Supporto</a>
+    </nav>
+    <span class="pill solid">Prossimamente</span>
+  </header>
+
+  <!-- HERO -->
+  <section style="padding: 56px 64px 64px; display: flex; flex-direction: column; gap: 40px;">
+    <h1 class="display" style="margin: 0; font-size: 176px; max-width: 1310px;">Il Palermo, tutto in <span style="color: #d63b7e;">una app.</span></h1>
+    <div style="display: grid; grid-template-columns: 7fr 5fr; gap: 64px; align-items: start; border-top: 1px solid #1b1317; padding-top: 36px;">
+      <div style="display: flex; flex-direction: column; gap: 28px;">
+        <p class="serif" style="margin: 0; font-size: 26px; line-height: 1.35; max-width: 640px;"><em>Fatta dai tifosi.</em> Notizie senza doppioni, la community dei gruppi rosanero, classifica, calendario, rosa e statistiche. Un'unica casa digitale per chi vive il Palermo ogni giorno.</p>
+        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+          <span class="pill"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"></rect><path d="M11 18h2"></path></svg>Prossimamente su App Store</span>
+          <span class="pill"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5v17l13-8.5z"></path></svg>Prossimamente su Google Play</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 3px solid #1b1317; border-bottom: 1px solid #1b1317; max-width: 640px;">
+          <div style="padding: 16px 16px 16px 0; border-right: 1px solid #cbbfae; display: flex; flex-direction: column; gap: 4px;"><span class="display" style="font-size: 40px; color: #d63b7e;">1</span><span class="lbl" style="color: #4d4046;">Scheda per notizia</span></div>
+          <div style="padding: 16px; border-right: 1px solid #cbbfae; display: flex; flex-direction: column; gap: 4px;"><span class="display" style="font-size: 40px; color: #d63b7e;">8</span><span class="lbl" style="color: #4d4046;">Sezioni</span></div>
+          <div style="padding: 16px 0 16px 16px; display: flex; flex-direction: column; gap: 4px;"><span class="display" style="font-size: 40px; color: #d63b7e;">2</span><span class="lbl" style="color: #4d4046;">Lingue · IT / EN</span></div>
+        </div>
+        <p class="serif" style="margin: 0; font-size: 15px; color: #4d4046; max-width: 640px;"><strong>Progetto indipendente dei tifosi.</strong> Rosanero non è affiliata al Palermo F.C. e non usa loghi o contenuti ufficiali.</p>
+      </div>
+
+      <!-- phone mock -->
+      <div style="display: flex; justify-content: center; padding-top: 6px;">
+        <div style="width: 300px; height: 600px; background: #1b1317; border: 3px solid #1b1317; box-shadow: 14px 14px 0 #d63b7e; display: flex; flex-direction: column; gap: 12px; padding: 54px 16px 16px; box-sizing: border-box; color: #f6efe3;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <span class="display" style="font-size: 20px; letter-spacing: 0.06em;">Rosanero</span>
+            <span class="lbl" style="font-size: 11px; color: #f3a3c7;">Ultime</span>
+          </div>
+          <div style="height: 8px; background: repeating-linear-gradient(-45deg, #d63b7e 0 8px, #1b1317 8px 16px);"></div>
+          <div style="background: #f6efe3; color: #1b1317; padding: 16px; display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; gap: 10px;" class="lbl"><span style="color: #d63b7e;">Mercato</span><span style="color: #9a8c93;">Principale</span></div>
+            <div class="display" style="font-size: 24px;">Ufficiale: il nuovo difensore è del Palermo</div>
+            <div class="serif" style="font-size: 13px; color: #4d4046;">Contratto di quattro anni, numero di maglia scelto. Aggiornata 3 volte oggi.</div>
+            <div style="border-top: 1px solid #cbbfae; padding-top: 8px; display: flex; flex-direction: column; gap: 5px; font-size: 12px;" class="lbl">
+              <span style="color: #9a8c93;">Trattativa avviata</span><span style="color: #9a8c93;">Visite mediche</span><span style="color: #d63b7e;">Ufficiale · ultimo sviluppo</span>
+            </div>
+          </div>
+          <div style="background: #2a1f25; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px;">
+            <span class="lbl" style="font-size: 11px; color: #f3a3c7;">Classifica</span>
+            <div style="display: flex; justify-content: space-between; font-size: 14px;"><span><span class="display" style="font-size: 18px; margin-right: 8px; color: #d63b7e;">3</span>Palermo</span><span class="display" style="font-size: 18px;">21</span></div>
+            <div style="display: flex; justify-content: space-between; font-size: 14px; color: #9a8c93;"><span><span class="display" style="font-size: 18px; margin-right: 8px;">4</span>[Squadra]</span><span class="display" style="font-size: 18px;">19</span></div>
+          </div>
+          <div class="lbl" style="margin-top: auto; display: flex; justify-content: space-between; padding-top: 10px; border-top: 1px solid #4d4046; font-size: 10px; color: #9a8c93;">
+            <span style="color: #f6efe3;">Home</span><span>News</span><span>Community</span><span>Classifica</span><span>Rosa</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stripes"></div>
+
+  <!-- ULTIME BAND -->
+  <div style="display: flex; align-items: center; gap: 28px; background: #1b1317; padding: 14px 64px; overflow: hidden;">
+    <span class="lbl" style="color: #d63b7e; font-weight: 700; font-size: 14px;">Ultime</span>
+    <div style="display: flex; gap: 18px; overflow: hidden;">
+      <span class="ul"><span class="dia"></span>Ufficiale: nuovo rinforzo in difesa</span>
+      <span class="ul"><span class="dia"></span>Le scelte per la trasferta</span>
+      <span class="ul"><span class="dia"></span>Nuovo partner del club</span>
+      <span class="ul"><span class="dia"></span>Palermo avanti all'intervallo</span>
+      <span class="ul"><span class="dia"></span>Rientro previsto tra due settimane</span>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section style="padding: 96px 64px 80px; display: flex; flex-direction: column; gap: 40px;">
+    <div style="display: grid; grid-template-columns: 5fr 7fr; gap: 64px; align-items: end;">
+      <h2 class="display" style="margin: 0; font-size: 88px;">Le sezioni</h2>
+      <p class="serif" style="margin: 0; font-size: 20px; color: #4d4046; max-width: 560px;">Le prime due sono già in costruzione. Le altre arrivano una alla volta, senza promesse che non possiamo mantenere.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 28px;">
+      <div class="cell"><span class="num">01</span><h3>Live News Feed</h3><p>Una notizia, una scheda che si aggiorna a ogni sviluppo. Niente doppioni.</p></div>
+      <div class="cell"><span class="num">02</span><h3>Community</h3><p>Gruppi verificati, pronostici, pagelle della tifoseria e matchday evento per evento.</p></div>
+      <div class="cell"><span class="num">03</span><h3>Classifica</h3><p>Personalizzabile e ordinabile per i criteri che contano per te.</p></div>
+      <div class="cell"><span class="num">04</span><h3>Calendario e risultati</h3><p>Prossime partite, orari e risultati in un colpo d'occhio.</p></div>
+      <div class="cell"><span class="num">05</span><h3>Rosa e schede giocatori</h3><p>Ogni giocatore con la sua scheda e le statistiche della stagione.</p></div>
+      <div class="cell"><span class="num">06</span><h3>Statistiche</h3><p>I numeri della squadra e dei singoli, stagione per stagione.</p></div>
+      <div class="cell"><span class="num">07</span><h3>Calciomercato</h3><p>Trattative, ufficialità e voci, distinte per affidabilità.</p></div>
+      <div class="cell" style="border-top-style: dashed;"><span class="num">08 · In sviluppo</span><h3>Gamification</h3><p>Tag geolocalizzati, presenze allo stadio e realtà aumentata.</p></div>
+    </div>
+  </section>
+
+  <!-- NEWS DEEP DIVE -->
+  <section style="padding: 80px 64px 96px; background: #ede3d2; border-top: 3px solid #1b1317; display: flex; flex-direction: column; gap: 40px;">
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 900px;">
+      <span class="lbl" style="color: #d63b7e; font-weight: 700;">Live News Feed</span>
+      <h2 class="display" style="margin: 0; font-size: 72px;">La stessa notizia, moltiplicata per dieci.</h2>
+      <p class="serif" style="margin: 0; font-size: 20px; color: #4d4046; max-width: 640px;">Un acquisto, un rinnovo: ti arriva decine di volte con titoli diversi. Rosanero riconosce la storia e la tiene in una sola scheda che si aggiorna.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; align-items: start;">
+      <div style="display: flex; flex-direction: column;">
+        <span class="lbl" style="padding-bottom: 12px; border-bottom: 3px solid #1b1317; color: #4d4046;">Prima · il feed di sempre</span>
+        <div class="hl"><span class="n">01</span>Ufficiale: il difensore è un nuovo giocatore</div>
+        <div class="hl"><span class="n">02</span>Il difensore è del Palermo / Ufficiale</div>
+        <div class="hl"><span class="n">03</span>Chi è il nuovo difensore rosanero</div>
+        <div class="hl"><span class="n">04</span>Ecco il difensore: le cifre dell'affare</div>
+        <div class="hl"><span class="n">05</span>Domani le visite mediche</div>
+        <div class="hl"><span class="n">06</span>Difensore-Palermo, ci siamo</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 18px;">
+        <span class="lbl" style="padding-bottom: 12px; border-bottom: 3px solid #d63b7e; color: #d63b7e;">Dopo · con il Live News Feed</span>
+        <div style="background: #f7d9e5; border: 2px solid #1b1317; box-shadow: 10px 10px 0 #1b1317; padding: 26px; display: flex; flex-direction: column; gap: 10px;">
+          <div class="lbl" style="display: flex; gap: 12px;"><span style="color: #d63b7e;">Mercato</span><span style="color: #4d4046;">Principale</span><span style="color: #4d4046;">Aggiornata 3 volte oggi</span></div>
+          <div class="display" style="font-size: 34px;">Ufficiale: il nuovo difensore è del Palermo</div>
+          <p class="serif" style="margin: 0; font-size: 16px; color: #4d4046;">Contratto di quattro anni, numero di maglia scelto.</p>
+        </div>
+        <p class="serif" style="margin: 0; font-size: 17px; color: #4d4046;">Una sola scheda, che apre sempre con l'ultima novità: dalla trattativa alle visite mediche fino all'ufficialità. Riassunto fedele in italiano, solo con i fatti riportati.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="margin-top: auto; background: #1b1317; color: #f6efe3; padding: 40px 64px 52px; display: flex; justify-content: space-between; align-items: center; gap: 24px;">
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <img src="rosanero-logo.jpg" alt="Rosanero" style="width: 40px; height: 40px; border-radius: 10px;">
+      <p class="serif" style="margin: 0; font-size: 14px; color: #cbbfae; max-width: 560px;">© 2026 Rosanero · Progetto indipendente dei tifosi, non affiliato al Palermo F.C.<br>Un'app di monoidx.</p>
+    </div>
+    <div class="lbl" style="display: flex; gap: 26px; font-size: 14px;"><a href="#">Termini</a><a href="#">Privacy</a><a href="#">Supporto</a><a href="#">Elimina account</a></div>
+  </footer>
+</div>
+</x-dc>
+</body>
+</html>

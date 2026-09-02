@@ -1,0 +1,36 @@
+---
+// Reveal on enter (IntersectionObserver) + hero parallax. Rispetta
+// prefers-reduced-motion. Senza JavaScript la pagina resta statica e completa.
+---
+<script is:inline>
+  (function () {
+    var d = document;
+    if (!('IntersectionObserver' in window) || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+    var els = Array.prototype.slice.call(d.querySelectorAll('.rv, .rv-s, .rv-l'));
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.remove('pre'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    els.forEach(function (el) {
+      var p = el.parentElement;
+      var i = p ? Array.prototype.indexOf.call(p.children, el) : 0;
+      el.style.transitionDelay = (Math.min(i, 7) * 80) + 'ms';
+      el.classList.add('pre');
+    });
+    void d.body.offsetHeight;
+    els.forEach(function (el) { io.observe(el); });
+    var hc = d.querySelector('.hero-copy'), hi = d.querySelector('.hero-img');
+    if (!hc && !hi) return;
+    var ticking = false;
+    function upd() {
+      ticking = false;
+      var y = window.scrollY || d.documentElement.scrollTop || 0;
+      var p = Math.max(0, Math.min(1, y / 720));
+      if (hc) { hc.style.opacity = String(1 - p); hc.style.transform = 'translateY(' + (-70 * p) + 'px)'; }
+      if (hi) { hi.style.opacity = String(1 - 0.9 * p); hi.style.transform = 'translateY(' + (140 * p) + 'px) scale(' + (1 - 0.08 * p) + ')'; }
+    }
+    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, { passive: true });
+    upd();
+  })();
+</script>

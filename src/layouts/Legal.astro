@@ -1,0 +1,65 @@
+---
+import Base from '~/layouts/Base.astro';
+import Icon from '~/components/Icon.astro';
+import { localizedHref, t, type Locale } from '~/i18n';
+
+type PageKey = 'terms' | 'privacy' | 'support' | 'delete-account';
+
+interface Props {
+  locale: Locale;
+  page: PageKey;
+  title: string;
+  description: string;
+  eyebrow?: string;
+  updated?: string;
+  placeholder?: boolean;
+  toc?: { id: string; label: string }[];
+}
+const { locale, page, title, description, eyebrow, updated, placeholder = false, toc = [] } = Astro.props;
+const s = t(locale);
+const h = (p: string) => localizedHref(p, locale);
+const pages: { key: PageKey; href: string; label: string }[] = [
+  { key: 'terms', href: h('/terms/'), label: s.legal.terms },
+  { key: 'privacy', href: h('/privacy/'), label: s.legal.privacy },
+  { key: 'support', href: h('/support/'), label: s.legal.support },
+  { key: 'delete-account', href: h('/delete-account/'), label: s.legal.deleteAccount },
+];
+const updatedLabel = updated
+  ? new Date(updated).toLocaleDateString(locale === 'it' ? 'it-IT' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
+  : '[DATA]';
+---
+<Base locale={locale} title={`${title} · Rosanero`} description={description} noindex={placeholder}>
+  <div class="wrap legal-grid">
+    <aside class="legal-aside">
+      <div class="group">
+        <span class="lbl-side">{s.legal.sideLegal}</span>
+        {pages.map((p) => (
+          <a href={p.href} class:list={['side-link', { on: p.key === page }]} aria-current={p.key === page ? 'page' : undefined}>{p.label}</a>
+        ))}
+      </div>
+      {toc.length > 0 && (
+        <div class="group">
+          <span class="lbl-side">{s.legal.sideOnPage}</span>
+          {toc.map((i) => <a href={`#${i.id}`} class="side-link sm">{i.label}</a>)}
+        </div>
+      )}
+    </aside>
+
+    <article class="legal">
+      {eyebrow && <span class="eyebrow"><span class="dot"></span>{eyebrow}</span>}
+      <h1>{title}</h1>
+      <div class="meta">
+        <span><b>{s.legal.updated}</b> {updatedLabel}</span>
+        <span><b>{s.legal.appliesTo}</b> {s.legal.appliesToText}</span>
+      </div>
+      {placeholder && (
+        <div class="placeholder">
+          <Icon name="warning" size={20} stroke={2} />
+          <span><b>{s.legal.placeholderStrong}</b> {s.legal.placeholderText}</span>
+        </div>
+      )}
+      <slot />
+      <p class="note">{s.legal.note}</p>
+    </article>
+  </div>
+</Base>

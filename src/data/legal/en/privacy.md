@@ -3,7 +3,7 @@ title: Privacy Policy
 description: What personal data the Rosanero app processes, why, and what rights you have.
 eyebrow: Legal · Privacy
 updated: 2026-09-03
-placeholder: true
+placeholder: false
 toc:
   - { id: sez-1, label: "1. Data controller" }
   - { id: sez-2, label: "2. Use without an account" }
@@ -25,7 +25,7 @@ The [Italian version](/privacy/) of this policy prevails in case of any discrepa
 
 <h2 id="sez-1">1. Data controller</h2>
 
-The data controller is **Vincenzo Stira**, Via Tal Dei Tali 100, Roma. For any request concerning your data: [support@rosanero.app](mailto:support@rosanero.app).
+The data controller is **Vincenzo Stira**, who can be contacted at [support@rosanero.app](mailto:support@rosanero.app) for any request concerning your data.
 
 No Data Protection Officer has been appointed, as the conditions requiring one do not apply.
 

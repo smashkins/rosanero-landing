@@ -3,7 +3,7 @@ title: Informativa sulla privacy
 description: Quali dati personali tratta l'app Rosanero, perché, e quali diritti hai.
 eyebrow: Legale · Privacy
 updated: 2026-09-03
-placeholder: true
+placeholder: false
 toc:
   - { id: sez-1, label: "1. Titolare del trattamento" }
   - { id: sez-2, label: "2. Uso senza account" }
@@ -23,7 +23,7 @@ Rosanero è un'applicazione **non ufficiale** dedicata ai tifosi del Palermo F.C
 
 <h2 id="sez-1">1. Titolare del trattamento</h2>
 
-Il titolare del trattamento è **Vincenzo Stira**, Via Tal Dei Tali 100, Roma. Per qualsiasi richiesta relativa ai tuoi dati: [support@rosanero.app](mailto:support@rosanero.app).
+Il titolare del trattamento è **Vincenzo Stira**, contattabile all'indirizzo email [support@rosanero.app](mailto:support@rosanero.app), a cui puoi rivolgere qualsiasi richiesta relativa ai tuoi dati.
 
 Non è stato nominato un responsabile della protezione dei dati (DPO), non ricorrendone i presupposti di legge.
 

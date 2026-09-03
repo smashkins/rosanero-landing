@@ -3,7 +3,7 @@ title: Terms of Service
 description: The terms of use of the Rosanero app.
 eyebrow: Legal · Terms
 updated: 2026-09-03
-placeholder: true
+placeholder: false
 toc:
   - { id: sez-1, label: "1. Who we are, and what we are not" }
   - { id: sez-2, label: "2. Acceptance" }

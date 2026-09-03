@@ -3,7 +3,7 @@ title: Termini di servizio
 description: Le condizioni d'uso dell'app Rosanero.
 eyebrow: Legale · Termini
 updated: 2026-09-03
-placeholder: true
+placeholder: false
 toc:
   - { id: sez-1, label: "1. Chi siamo, e cosa non siamo" }
   - { id: sez-2, label: "2. Accettazione" }

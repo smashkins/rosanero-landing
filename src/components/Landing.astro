@@ -7,18 +7,20 @@ import News from '~/components/sections/News.astro';
 import Standings from '~/components/sections/Standings.astro';
 import Community from '~/components/sections/Community.astro';
 import Closing from '~/components/sections/Closing.astro';
-import { t, type Locale } from '~/i18n';
+import { localizedHref, t, type Locale } from '~/i18n';
+import { betaOpen } from '~/data/beta';
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const s = t(locale);
+const beta = betaOpen ? localizedHref('/beta/', locale) : undefined;
 ---
 <Base locale={locale} title={s.meta.title} description={s.meta.description} landing={true}>
-  <Hero s={s} />
+  <Hero s={s} beta={beta} />
   <Ticker s={s} />
   <Features s={s} />
   <News s={s} />
   <Standings s={s} />
   <Community s={s} />
-  <Closing s={s} />
+  <Closing s={s} beta={beta} />
 </Base>

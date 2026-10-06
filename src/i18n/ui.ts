@@ -15,7 +15,7 @@ export type IconName =
   | 'news' | 'users' | 'list' | 'calendar' | 'idcard' | 'chart' | 'swap' | 'pin'
   | 'phone' | 'play' | 'shield' | 'check' | 'target' | 'ball' | 'star' | 'clock'
   | 'comment' | 'card' | 'flag' | 'monitor' | 'stadium' | 'plane' | 'trophy'
-  | 'ticket' | 'broadcast' | 'bolt' | 'globe' | 'menu' | 'mail' | 'trash' | 'warning';
+  | 'ticket' | 'broadcast' | 'bolt' | 'globe' | 'menu' | 'mail' | 'trash' | 'warning' | 'arrow';
 
 const it = {
   meta: {
@@ -32,6 +32,8 @@ const it = {
     standings: 'Classifica',
     support: 'Supporto',
     soon: 'Prossimamente',
+    beta: 'Beta aperta',
+    betaLink: 'Beta pubblica',
     menu: 'Menu',
     langLabel: 'Lingua',
   },
@@ -45,6 +47,7 @@ const it = {
     appStore: 'Prossimamente su App Store',
     googlePlay: 'Prossimamente su Google Play',
     imageAlt: 'Rosanero su iPhone',
+    betaCta: 'Entra nella beta',
   },
   disclaimer: {
     strong: 'Progetto indipendente dei tifosi.',
@@ -369,6 +372,141 @@ const it = {
     note: 'Rosanero è un progetto indipendente dei tifosi, non affiliato al Palermo F.C.',
     backHome: 'Torna alla home',
   },
+  beta: {
+    metaTitle: 'Beta pubblica · Rosanero',
+    metaDescription:
+      "Prova Rosanero prima dell'uscita: lascia la tua email e ti invitiamo alla beta su TestFlight (iPhone) o Google Play (Android). Gratis, per tutti i tifosi.",
+    eyebrowOpen: 'Beta pubblica · Iscrizioni aperte',
+    eyebrowClosed: 'Beta pubblica · Iscrizioni chiuse',
+    title: 'Entra prima del',
+    titleAccent: "fischio d'inizio.",
+    lead: "Rosanero è quasi pronta. Provala in anteprima, dicci cosa non va e aiutaci a costruirla: la beta è gratuita e aperta a tutti i tifosi.",
+    form: {
+      platformLegend: 'Il tuo telefono',
+      platforms: {
+        ios: { name: 'iPhone', via: 'TestFlight' },
+        android: { name: 'Android', via: 'Google Play' },
+      },
+      soon: 'Presto',
+      emailLabel: 'La tua email',
+      emailPlaceholder: 'nome@email.it',
+      hintJoin: {
+        ios: "Usa la mail che leggi dall'iPhone: l'invito di Apple si apre da lì.",
+        android: 'Serve la mail del tuo account Google, di solito Gmail.',
+      },
+      hintNotify: {
+        ios: 'La beta iPhone è al completo per ora: lascia la mail e ti avvisiamo alla prossima apertura.',
+        android: 'La beta Android non è ancora partita: lascia la mail e ti avvisiamo appena apre.',
+      },
+      submitJoin: 'Voglio entrare',
+      submitNotify: 'Avvisami',
+      sending: 'Invio in corso',
+      consentBefore: "Ho letto l'",
+      consentLink: 'informativa privacy',
+      consentAfter: ' e accetto di essere contattato per la beta.',
+      reassurance: 'Una mail sola, solo per la beta. Niente spam, niente newsletter.',
+      noscript: "Per iscriverti serve JavaScript. In alternativa scrivici a support@rosanero.app con oggetto «Beta».",
+    },
+    errors: {
+      email: "Controlla l'indirizzo: sembra incompleto.",
+      consent: 'Spunta il consenso per poterti invitare.',
+      rate: 'Troppi tentativi ravvicinati. Riprova tra qualche minuto.',
+      network: 'Connessione non riuscita. Controlla la rete e riprova.',
+      server: 'Qualcosa è andato storto dalla nostra parte. Riprova tra poco o scrivici a support@rosanero.app.',
+    },
+    success: {
+      joinTitle: 'Sei dentro.',
+      joinText: {
+        ios: "Ti aggiungiamo a mano su TestFlight: l'invito arriva da Apple nei prossimi giorni. Se non lo vedi, controlla lo spam.",
+        android: "Ti aggiungiamo al test di Google Play e ti scriviamo con il link per installare l'app.",
+      },
+      notifyTitle: 'Ti teniamo il posto.',
+      notifyText: {
+        ios: 'Appena la beta iPhone riapre ti scriviamo. Una mail, niente di più.',
+        android: 'Appena la beta Android parte ti scriviamo. Una mail, niente di più.',
+      },
+      again: 'Iscrivi un altro indirizzo',
+    },
+    pass: {
+      aria: 'Il tuo Beta Pass',
+      kind: 'Beta Pass',
+      season: 'Stagione 26/27',
+      word1: 'Beta',
+      word2: 'Pubblica',
+      sector: 'Settore',
+      sectorValue: 'Tester',
+      gate: 'Ingresso',
+      row: 'Fila',
+      seat: 'Posto',
+      holder: 'Titolare',
+      holderEmpty: 'la-tua@email.it',
+      validFor: 'Accesso anticipato',
+      personal: 'Non cedibile',
+      stampJoin: 'Convalidato',
+      stampNotify: 'In lista',
+      stampClosed: 'Tutto esaurito',
+    },
+    closed: {
+      title: 'Iscrizioni chiuse,',
+      titleAccent: 'per ora.',
+      text: "La beta è al completo. Riapriamo presto: tieni d'occhio la home di Rosanero per sapere quando.",
+      cta: 'Torna alla home',
+    },
+    steps: {
+      eyebrow: 'Come funziona',
+      title: 'Tre passi,',
+      titleAccent: 'poi sei in campo',
+      items: [
+        { icon: 'mail' as IconName, title: 'Lasci la mail', text: "Scegli il telefono e scrivi l'indirizzo a cui vuoi ricevere l'invito. Bastano dieci secondi." },
+        { icon: 'ticket' as IconName, title: "Ricevi l'invito", text: 'Ti aggiungiamo a mano, a gruppi. Su iPhone arriva una mail da TestFlight; su Android il link al test di Google Play.' },
+        { icon: 'comment' as IconName, title: 'Installi e ci dici la tua', text: "Usi l'app davvero e ci segnali bug e idee. Su iPhone basta uno screenshot inviato da TestFlight." },
+      ],
+    },
+    expect: {
+      get: {
+        title: 'Cosa trovi',
+        items: [
+          'Il Live News Feed, senza doppioni',
+          'Classifica, calendario e rosa sempre aggiornati',
+          'Le nuove funzioni prima di tutti, a ogni aggiornamento',
+        ],
+      },
+      ask: {
+        title: 'Cosa ti chiediamo',
+        items: [
+          'Usala davvero, nei giorni di partita e in quelli normali',
+          'Segnala quello che non va e quello che manca',
+          "Un po' di pazienza: è una beta, qualcosa si romperà",
+        ],
+      },
+      req: {
+        title: 'Requisiti',
+        items: [
+          { icon: 'phone' as IconName, strong: 'iPhone', text: "con iOS 26 o successivo e l'app TestFlight, gratuita sull'App Store." },
+          { icon: 'play' as IconName, strong: 'Android', text: '13 o successivo, con un account Google.' },
+        ],
+      },
+    },
+    faq: {
+      eyebrow: 'Domande',
+      title: 'Prima di',
+      titleAccent: 'entrare',
+      sub: 'Le risposte veloci. Per tutto il resto scrivici a support@rosanero.app.',
+      items: [
+        { q: 'È gratis?', a: 'Sì. La beta è gratuita, e lo è anche TestFlight. Nessun pagamento, nessun abbonamento.' },
+        { q: "Quando arriva l'invito?", a: 'Aggiungiamo i tester a mano, a gruppi: di solito entro pochi giorni. Su iPhone la mail arriva da TestFlight (Apple); se non la vedi, controlla lo spam.' },
+        { q: "Che cos'è TestFlight?", a: "È l'app di Apple per provare le app prima dell'uscita sull'App Store. La scarichi gratis dall'App Store e l'invito la apre da solo." },
+        { q: 'Posso uscire quando voglio?', a: 'Sì. Su iPhone apri TestFlight, scegli Rosanero e interrompi il test. Oppure scrivici e ti togliamo dalla lista.' },
+        { q: 'E su Android?', a: 'La beta Android passa dal test chiuso di Google Play. Scegli Android nel modulo: ti aggiungiamo appena possibile e ti mandiamo il link per installare l\'app.', aClosed: 'La beta Android parte più avanti, con il test chiuso di Google Play. Scegli Android nel modulo e ti avvisiamo appena apre.' },
+        { q: 'Cosa fate con la mia email?', a: "La usiamo solo per invitarti alla beta e scriverti durante il test: mai newsletter, mai pubblicità. Puoi chiederci di cancellarla quando vuoi.", more: "I dettagli sono nell'" },
+      ],
+    },
+    final: {
+      title: 'Ci vediamo',
+      titleAccent: 'in campo.',
+      cta: 'Prendi il tuo pass',
+    },
+  },
   notFound: {
     title: 'Pagina non trovata',
     text: 'Il link che hai seguito non porta da nessuna parte. Forse la pagina è stata spostata.',
@@ -393,6 +531,8 @@ const en: UIStrings = {
     standings: 'Standings',
     support: 'Support',
     soon: 'Coming soon',
+    beta: 'Beta open',
+    betaLink: 'Public beta',
     menu: 'Menu',
     langLabel: 'Language',
   },
@@ -406,6 +546,7 @@ const en: UIStrings = {
     appStore: 'Coming soon on the App Store',
     googlePlay: 'Coming soon on Google Play',
     imageAlt: 'Rosanero on iPhone',
+    betaCta: 'Join the beta',
   },
   disclaimer: {
     strong: 'An independent fan project.',
@@ -729,6 +870,141 @@ const en: UIStrings = {
     placeholderText: 'Provisional text, pending legal review: some details about the controller are still to be filled in. While this notice is active the page is not indexed by search engines.',
     note: 'Rosanero is an independent fan project, not affiliated with Palermo F.C.',
     backHome: 'Back to home',
+  },
+  beta: {
+    metaTitle: 'Public beta · Rosanero',
+    metaDescription:
+      'Try Rosanero before launch: leave your email and we will invite you to the beta on TestFlight (iPhone) or Google Play (Android). Free, for every fan.',
+    eyebrowOpen: 'Public beta · Sign-ups open',
+    eyebrowClosed: 'Public beta · Sign-ups closed',
+    title: 'Get in before',
+    titleAccent: 'kick-off.',
+    lead: 'Rosanero is almost ready. Try it early, tell us what breaks and help us build it: the beta is free and open to every fan.',
+    form: {
+      platformLegend: 'Your phone',
+      platforms: {
+        ios: { name: 'iPhone', via: 'TestFlight' },
+        android: { name: 'Android', via: 'Google Play' },
+      },
+      soon: 'Soon',
+      emailLabel: 'Your email',
+      emailPlaceholder: 'name@email.com',
+      hintJoin: {
+        ios: 'Use the address you read on your iPhone: the Apple invite opens from there.',
+        android: 'Use the email of your Google account, usually Gmail.',
+      },
+      hintNotify: {
+        ios: 'The iPhone beta is full for now: leave your email and we will tell you when it reopens.',
+        android: 'The Android beta has not started yet: leave your email and we will tell you when it opens.',
+      },
+      submitJoin: 'Count me in',
+      submitNotify: 'Notify me',
+      sending: 'Sending',
+      consentBefore: 'I have read the ',
+      consentLink: 'privacy policy',
+      consentAfter: ' and agree to be contacted about the beta.',
+      reassurance: 'One email, only about the beta. No spam, no newsletter.',
+      noscript: 'Signing up needs JavaScript. Otherwise email support@rosanero.app with the subject “Beta”.',
+    },
+    errors: {
+      email: 'Check the address: it looks incomplete.',
+      consent: 'Tick the consent box so we can invite you.',
+      rate: 'Too many attempts in a row. Try again in a few minutes.',
+      network: 'Could not connect. Check your network and try again.',
+      server: 'Something went wrong on our side. Try again shortly or email support@rosanero.app.',
+    },
+    success: {
+      joinTitle: "You're in.",
+      joinText: {
+        ios: 'We add testers by hand on TestFlight: the invite from Apple arrives in the next few days. If you cannot see it, check your spam folder.',
+        android: 'We will add you to the Google Play test and email you the link to install the app.',
+      },
+      notifyTitle: 'We saved you a seat.',
+      notifyText: {
+        ios: 'We will email you as soon as the iPhone beta reopens. One email, nothing more.',
+        android: 'We will email you as soon as the Android beta starts. One email, nothing more.',
+      },
+      again: 'Sign up another address',
+    },
+    pass: {
+      aria: 'Your Beta Pass',
+      kind: 'Beta Pass',
+      season: 'Season 26/27',
+      word1: 'Beta',
+      word2: 'Public',
+      sector: 'Sector',
+      sectorValue: 'Tester',
+      gate: 'Gate',
+      row: 'Row',
+      seat: 'Seat',
+      holder: 'Holder',
+      holderEmpty: 'your@email.com',
+      validFor: 'Early access',
+      personal: 'Non-transferable',
+      stampJoin: 'Validated',
+      stampNotify: 'On the list',
+      stampClosed: 'Sold out',
+    },
+    closed: {
+      title: 'Sign-ups are closed,',
+      titleAccent: 'for now.',
+      text: 'The beta is full. We will reopen soon: keep an eye on the Rosanero home page to find out when.',
+      cta: 'Back to home',
+    },
+    steps: {
+      eyebrow: 'How it works',
+      title: 'Three steps,',
+      titleAccent: "then you're on the pitch",
+      items: [
+        { icon: 'mail' as IconName, title: 'Leave your email', text: 'Pick your phone and type the address where you want the invite. Ten seconds, tops.' },
+        { icon: 'ticket' as IconName, title: 'Get the invite', text: 'We add testers by hand, in batches. On iPhone you get an email from TestFlight; on Android, the link to the Google Play test.' },
+        { icon: 'comment' as IconName, title: 'Install and tell us', text: 'Use the app for real and send us bugs and ideas. On iPhone a screenshot sent from TestFlight is enough.' },
+      ],
+    },
+    expect: {
+      get: {
+        title: 'What you get',
+        items: [
+          'The Live News Feed, with no duplicates',
+          'Standings, fixtures and squad, always up to date',
+          'New features before anyone else, with every update',
+        ],
+      },
+      ask: {
+        title: 'What we ask',
+        items: [
+          'Use it for real, on match days and every other day',
+          'Report what is broken and what is missing',
+          'A little patience: it is a beta, things will break',
+        ],
+      },
+      req: {
+        title: 'Requirements',
+        items: [
+          { icon: 'phone' as IconName, strong: 'iPhone', text: 'on iOS 26 or later, with the TestFlight app, free on the App Store.' },
+          { icon: 'play' as IconName, strong: 'Android', text: '13 or later, with a Google account.' },
+        ],
+      },
+    },
+    faq: {
+      eyebrow: 'Questions',
+      title: 'Before you',
+      titleAccent: 'get in',
+      sub: 'The quick answers. For anything else, email support@rosanero.app.',
+      items: [
+        { q: 'Is it free?', a: 'Yes. The beta is free, and so is TestFlight. No payment, no subscription.' },
+        { q: 'When does the invite arrive?', a: 'We add testers by hand, in batches: usually within a few days. On iPhone the email comes from TestFlight (Apple); if you cannot see it, check your spam folder.' },
+        { q: 'What is TestFlight?', a: 'It is the Apple app for trying apps before they reach the App Store. Download it for free from the App Store and the invite opens it for you.' },
+        { q: 'Can I leave whenever I want?', a: 'Yes. On iPhone open TestFlight, pick Rosanero and stop testing. Or email us and we will take you off the list.' },
+        { q: 'What about Android?', a: 'The Android beta runs on the Google Play closed test. Pick Android in the form: we will add you as soon as we can and email you the install link.', aClosed: 'The Android beta starts later, on the Google Play closed test. Pick Android in the form and we will tell you when it opens.' },
+        { q: 'What do you do with my email?', a: 'We only use it to invite you to the beta and to write to you during the test: never newsletters, never ads. You can ask us to delete it at any time.', more: 'The details are in the ' },
+      ],
+    },
+    final: {
+      title: 'See you',
+      titleAccent: 'on the pitch.',
+      cta: 'Get your pass',
+    },
   },
   notFound: {
     title: 'Page not found',

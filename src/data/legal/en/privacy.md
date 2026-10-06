@@ -2,7 +2,7 @@
 title: Privacy Policy
 description: What personal data the Rosanero app processes, why, and what rights you have.
 eyebrow: Legal · Privacy
-updated: 2026-09-03
+updated: 2026-10-06
 placeholder: false
 toc:
   - { id: sez-1, label: "1. Data controller" }
@@ -59,6 +59,10 @@ Distributed builds (TestFlight and App Store) include Google's **Firebase Analyt
 
 If you send feedback from the app, what you write is transmitted to the **FeedbackThread** service together with an identifier for your account, so that we can reply. Do not put data in that channel that you do not want processed.
 
+### 3.5 Signing up for the beta on the website
+
+If you sign up for the public beta on the website's [Public beta](/en/beta/) page, we process the **email address** you enter, the **platform** you pick (iPhone or Android), the page language and the time of sign-up. This data reaches us by email at support@rosanero.app, through **Resend**, and we only use it to invite you to the test and to write to you during the beta: never for newsletters or ads. To invite you we add the address to **TestFlight** (Apple) or to the **Google Play** tester list, which send you the invite. To prevent abuse the server also uses the **IP address** of the request, only for as long as it takes to limit repeated submissions.
+
 <h2 id="sez-4">4. Why we process it, and on what legal basis</h2>
 
 <div class="table-wrap">
@@ -70,6 +74,7 @@ If you send feedback from the app, what you write is transmitted to the **Feedba
 | Security: preventing abuse and unauthorised access, rate-limiting | § 3.2 | Legitimate interest — (f) |
 | Diagnosing crashes and faults, understanding which sections are used | § 3.3 | Legitimate interest — (f) |
 | Handling your feedback and replying to it | § 3.4 | Legitimate interest — (f) |
+| Inviting you to the beta and writing to you during the test | § 3.5 | Consent — (a) |
 
 </div>
 
@@ -84,7 +89,8 @@ From you directly, or — when you choose to sign in with Apple or Google — **
 We do not sell your data and do not share it for third-party marketing. The following providers process it on our behalf, as processors or as independent controllers:
 
 - **Apple** and **Google**, as identity providers, for sign-in;
-- **Resend**, for sending verification and password-recovery emails;
+- **Resend**, for sending verification and password-recovery emails and for forwarding beta sign-ups to us;
+- **Apple (TestFlight)** and **Google (Google Play)**, when we invite you to the beta;
 - **Google (Firebase)**, for diagnostics and usage analytics;
 - **FeedbackThread**, for handling feedback;
 - the **hosting provider** of the infrastructure the service runs on.
@@ -102,6 +108,7 @@ Some of the providers listed above are based in the United States. Where this in
 - **Verification codes**: minutes — as long as they are valid.
 - **Diagnostic data**: per Firebase's retention periods, and in any case no longer than the purpose requires.
 - **Feedback**: for as long as it takes to handle the conversation with you.
+- **Beta sign-ups**: until the end of the test programme, or earlier if you withdraw your consent or ask us to delete them.
 
 <h2 id="sez-9">9. Deleting your account</h2>
 
@@ -109,7 +116,7 @@ You can delete your account **from inside the app**, under *More → Delete Acco
 
 <h2 id="sez-10">10. Your rights</h2>
 
-Under GDPR arts. 15–22 you have the right to **access** your data, to have it **rectified** or **erased**, to **restrict** processing, to **data portability**, and to **object** to processing based on legitimate interest. Write to [support@rosanero.app](mailto:support@rosanero.app) to exercise them; we will reply within one month.
+Under GDPR arts. 15–22 you have the right to **access** your data, to have it **rectified** or **erased**, to **restrict** processing, to **data portability**, and to **object** to processing based on legitimate interest. Write to [support@rosanero.app](mailto:support@rosanero.app) to exercise them; we will reply within one month. If you signed up for the beta you can also **withdraw your consent** at any time, at the same address: withdrawal does not affect processing carried out before it.
 
 You also have the right to lodge a **complaint with the Italian Data Protection Authority** (Garante per la protezione dei dati personali, [www.garanteprivacy.it](https://www.garanteprivacy.it)) or with the supervisory authority of the country where you live.
 

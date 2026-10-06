@@ -244,7 +244,7 @@
   .beta-expect .req { grid-column: 1 / -1; }
 }
 @media (max-width: 900px) {
-  .beta-hero { grid-template-columns: 1fr; padding-top: 40px; padding-bottom: 56px; gap: 44px; }
+  .beta-hero { grid-template-columns: minmax(0, 1fr); padding-top: 40px; padding-bottom: 56px; gap: 44px; }
   .beta-card { padding: 18px; border-radius: 22px; max-width: none; }
   .beta-visual { padding: 0 6px; }
   .pass-stage { width: min(100%, 360px); }
@@ -258,6 +258,12 @@
   .beta-final { padding: 48px 20px; }
   .beta-beams i { width: 200px; }
   .beta-beams i:first-child { left: auto; right: 30%; }
+}
+@media (max-width: 380px) {
+  .beta-copy .eyebrow { font-size: 11.5px; letter-spacing: 0.14em; padding: 7px 12px; }
+  .beta-card { padding: 14px; }
+  .seg-grid { gap: 8px; }
+  .seg-ico { display: none; }
 }
 @media (max-width: 520px) {
   .field { flex-wrap: wrap; padding: 6px; }

@@ -466,8 +466,8 @@ const it = {
       get: {
         title: 'Cosa trovi',
         items: [
-          'Il Live News Feed, senza doppioni',
-          'Classifica, calendario e rosa sempre aggiornati',
+          'Classifica e calendario sempre aggiornati',
+          'Il tuo account: accedi con Apple, Google o email',
           'Le nuove funzioni prima di tutti, a ogni aggiornamento',
         ],
       },
@@ -965,8 +965,8 @@ const en: UIStrings = {
       get: {
         title: 'What you get',
         items: [
-          'The Live News Feed, with no duplicates',
-          'Standings, fixtures and squad, always up to date',
+          'Standings and fixtures, always up to date',
+          'Your account: sign in with Apple, Google or email',
           'New features before anyone else, with every update',
         ],
       },

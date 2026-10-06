@@ -2,7 +2,7 @@
 
 Documento di ripresa. Contiene tutto quello che serve per continuare il lavoro in una sessione nuova, senza il contesto della conversazione precedente. Aggiornare la checklist in fondo man mano.
 
-Ultimo aggiornamento: 2026-09-02.
+Ultimo aggiornamento: 2026-10-06.
 
 ## 1. Cosa stiamo costruendo
 
@@ -22,7 +22,8 @@ Hosting: **GitHub Pages** su apex **`rosanero.app`** (API già su `api.rosanero.
 
 ## 2. Decisioni prese (non richiedere di nuovo)
 
-- CTA: "Prossimamente su App Store / Google Play", nessuna raccolta email, nessun analytics, nessun cookie banner.
+- CTA: "Prossimamente su App Store / Google Play", nessun analytics, nessun cookie banner. Unica raccolta email: la pagina beta (sotto).
+- Beta pubblica (2026-10-06): pagina `/beta/` (+ `/en/beta/`) con modulo email + piattaforma (iPhone / Android), consenso privacy obbligatorio, honeypot. Invio a rosanero-api `POST /beta/signup` → email via Resend a `support@rosanero.app` (nessun servizio form esterno, nessun database). Stato per piattaforma in `src/data/beta.json`, interruttore = workflow "Beta: apri/chiudi" (GitHub Actions). Piattaforma chiusa con l'altra aperta = lista d'attesa "Avvisami"; tutte chiuse = "Tutto esaurito", landing senza CTA beta. Concept visivo: "Beta Pass", biglietto da stadio con riflesso olografico e timbro all'iscrizione. Privacy § 3.5.
 - Lingue: italiano default + inglese sotto `/en/`. Testi marketing EN li traduce Claude. **Testi legali (Termini, Privacy) IT e EN li fornisce l'utente**: finché non arrivano, le pagine restano con `placeholder: true` (banner + noindex).
 - Email contatti: `support@rosanero.app` (l'utente crea l'alias su Resend).
 - Pagina eliminazione account: informativa (passaggi in-app + email per richieste manuali). Richiesta da Google Play anche se l'eliminazione in-app esiste.
@@ -200,5 +201,7 @@ Markdown importato direttamente (pattern `src/pages/index.astro:12` di monoidx):
 - [x] Asset: immagini in `public/img`, favicon (segnaposto dal logo jpg); `og.png` da rigenerare quando arriva l'icona definitiva
 - [x] `npm install`, `npm run build`, `npm run check` (0 errori), sitemap 10 URL con hreflang, verifica visiva desktop
 - [x] Repo GitHub https://github.com/smashkins/rosanero-landing (pubblico), workflow, primo deploy riuscito (2026-09-03), Pages con source Actions e cname `rosanero.app` (impostati via API)
+- [x] Pagina beta pubblica IT/EN, Beta Pass, CTA in landing (nav, hero, chiusura), privacy § 3.5, workflow apri/chiudi (branch `feat/beta-page`, 2026-10-06)
+- [ ] Beta: deploy dell'endpoint `POST /beta/signup` su rosanero-api (branch `feat/beta-signup`) con `BETA_SIGNUP_NOTIFY_EMAIL` e `BETA_SIGNUP_ORIGINS`, poi merge di `feat/beta-page` e prova reale dal sito
 - [ ] DNS: record A/AAAA/CNAME al registrar (a cura dell'utente, vedi §5), poi "Enforce HTTPS" in Settings → Pages e verifica post-deploy (§6 punto 5)
 - [ ] Quando arrivano: icona definitiva (favicon/OG), testi legali IT/EN (`placeholder: false`), percorso in-app eliminazione account, tempi `[n]`

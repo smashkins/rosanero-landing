@@ -5,11 +5,15 @@ import type { UIStrings } from '~/i18n/ui';
 interface Props {
   s: UIStrings;
   primary?: boolean;
+  /** href della pagina beta: se presente, la CTA beta diventa il pulsante principale. */
+  beta?: string;
   class?: string;
 }
-const { s, primary = false, class: className } = Astro.props;
+const { s, primary = false, beta, class: className } = Astro.props;
 ---
 <div class:list={['hero-actions', className]}>
-  <span class:list={['btn', { primary }]}><Icon name="phone" size={18} />{s.hero.appStore}</span>
+  {beta && <a class="btn primary" href={beta}><Icon name="ticket" size={18} />{s.hero.betaCta}</a>}
+  {beta && <span class="break" aria-hidden="true"></span>}
+  <span class:list={['btn', { primary: primary && !beta }]}><Icon name="phone" size={18} />{s.hero.appStore}</span>
   <span class="btn"><Icon name="play" size={18} />{s.hero.googlePlay}</span>
 </div>

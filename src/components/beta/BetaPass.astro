@@ -1,0 +1,52 @@
+---
+// Il "Beta Pass": biglietto da stadio digitale. Si inclina col puntatore, ha un
+// riflesso olografico e riceve il timbro all'iscrizione (o "Tutto esaurito" se
+// la beta è chiusa). Gli aggiornamenti dal vivo (ingresso, posto, titolare,
+// codice a barre, timbro) li fa lo script di BetaPage.
+import { barcodeFor } from '~/lib/pass';
+import type { UIStrings } from '~/i18n/ui';
+import type { BetaPlatform } from '~/data/beta';
+
+interface Props {
+  s: UIStrings;
+  open: boolean;
+  platform: BetaPlatform;
+}
+const { s, open, platform } = Astro.props;
+const p = s.beta.pass;
+const via = s.beta.form.platforms[platform];
+---
+<div class="pass-stage" data-pass-stage>
+  <div class="pass-glow" aria-hidden="true"></div>
+  <div class="pass idle" data-pass data-state={open ? 'idle' : 'closed'} role="img" aria-label={p.aria}>
+    <div class="pass-face">
+      <div class="pass-stripes"></div>
+      <div class="pass-main">
+        <div class="pass-top">
+          <span class="pass-brand"><img src="/img/logo.jpg" alt="" width="26" height="26" />Rosanero</span>
+          <span class="pass-kind">{p.kind}</span>
+        </div>
+        <div class="pass-title">
+          <span class="pass-season">{p.season}</span>
+          <span class="pass-word">{p.word1}</span>
+          <span class="pass-word outline">{p.word2}</span>
+        </div>
+        <dl class="pass-fields">
+          <div><dt>{p.sector}</dt><dd>{p.sectorValue}</dd></div>
+          <div><dt>{p.gate}</dt><dd data-pass-gate>{via.name} · {via.via}</dd></div>
+          <div><dt>{p.row}</dt><dd>01</dd></div>
+          <div><dt>{p.seat}</dt><dd data-pass-seat>—</dd></div>
+          <div class="wide"><dt>{p.holder}</dt><dd class="holder empty" data-pass-holder data-empty={p.holderEmpty}>{p.holderEmpty}</dd></div>
+        </dl>
+      </div>
+      <div class="pass-stub">
+        <div class="pass-barcode" data-pass-barcode style={`background-image: ${barcodeFor('rosanero')}`}></div>
+        <div class="pass-stub-text"><span>{p.validFor}</span><span>{p.personal}</span></div>
+      </div>
+      <div class="pass-holo"></div>
+      <div class="pass-glare"></div>
+    </div>
+    <div class="pass-stamp" data-pass-stamp><span data-pass-stamp-text>{open ? p.stampJoin : p.stampClosed}</span></div>
+  </div>
+  <div class="pass-burst" data-pass-burst aria-hidden="true"></div>
+</div>

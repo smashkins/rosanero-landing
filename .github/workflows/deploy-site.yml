@@ -5,6 +5,14 @@ on:
     branches:
       - main
   workflow_dispatch:
+  # Chiamato da beta-toggle.yml dopo aver aggiornato src/data/beta.json.
+  workflow_call:
+    inputs:
+      ref:
+        description: Ref da buildare (vuoto = il commit dell'evento)
+        type: string
+        required: false
+        default: ''
 
 permissions:
   contents: read
@@ -21,6 +29,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+        with:
+          # Da beta-toggle il commit dell'evento è quello di prima del cambio:
+          # serve la punta di main appena aggiornata.
+          ref: ${{ inputs.ref || github.sha }}
 
       - name: Setup Node
         uses: actions/setup-node@v6

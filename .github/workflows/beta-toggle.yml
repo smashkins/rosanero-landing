@@ -1,0 +1,82 @@
+name: "Beta: apri/chiudi"
+
+# Apre o chiude le iscrizioni alla beta pubblica (rosanero.app/beta/) e
+# ripubblica il sito. Si lancia a mano da GitHub → Actions → "Beta: apri/chiudi"
+# → Run workflow (anche dall'app GitHub sul telefono).
+#
+# Una piattaforma chiusa con l'altra aperta diventa lista d'attesa ("Avvisami");
+# entrambe chiuse: la pagina mostra "Tutto esaurito" e la landing torna a
+# "Prossimamente".
+
+on:
+  workflow_dispatch:
+    inputs:
+      ios:
+        description: "iPhone (TestFlight)"
+        type: choice
+        options: [aperta, chiusa]
+        default: aperta
+      android:
+        description: "Android (Google Play)"
+        type: choice
+        options: [chiusa, aperta]
+        default: chiusa
+
+concurrency:
+  group: beta-toggle
+  cancel-in-progress: false
+
+jobs:
+  toggle:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          ref: main
+
+      - name: Aggiorna src/data/beta.json
+        env:
+          IOS: ${{ inputs.ios }}
+          ANDROID: ${{ inputs.android }}
+        run: |
+          state() { [ "$1" = "aperta" ] && echo open || echo closed; }
+          printf '{\n  "ios": "%s",\n  "android": "%s"\n}\n' "$(state "$IOS")" "$(state "$ANDROID")" > src/data/beta.json
+          cat src/data/beta.json
+          {
+            echo "### Beta pubblica"
+            echo ""
+            echo "| Piattaforma | Stato |"
+            echo "|---|---|"
+            echo "| iPhone (TestFlight) | $IOS |"
+            echo "| Android (Google Play) | $ANDROID |"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit
+        env:
+          IOS: ${{ inputs.ios }}
+          ANDROID: ${{ inputs.android }}
+        run: |
+          if git diff --quiet -- src/data/beta.json; then
+            echo "Nessun cambio di stato: ripubblico comunque."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/beta.json
+          git commit -m "Beta: iOS $IOS, Android $ANDROID"
+          git push origin HEAD:main
+
+  # Un push fatto con GITHUB_TOKEN non avvia altri workflow: il deploy si
+  # chiama qui, sulla punta di main appena aggiornata.
+  deploy:
+    needs: toggle
+    uses: ./.github/workflows/deploy-site.yml
+    with:
+      ref: main
+    permissions:
+      contents: read
+      pages: write
+      id-token: write

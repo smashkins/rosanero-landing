@@ -2,6 +2,7 @@
 import Icon from '~/components/Icon.astro';
 import LangSwitch from '~/components/LangSwitch.astro';
 import { localizedHref, t, type Locale } from '~/i18n';
+import { betaOpen } from '~/data/beta';
 
 interface Props {
   locale: Locale;
@@ -19,6 +20,8 @@ const links = [
   { href: anchor('classifica'), label: s.nav.standings },
   { href: localizedHref('/support/', locale), label: s.nav.support },
 ];
+const betaHref = localizedHref('/beta/', locale);
+const onBeta = Astro.url.pathname.replace(/^\/en/, '') === '/beta/';
 ---
 <div class="topbar">
   <div class="wrap">
@@ -32,7 +35,11 @@ const links = [
       </nav>
       <div class="nav-right">
         <LangSwitch locale={locale} />
-        <span class="nav-cta">{s.nav.soon}</span>
+        {betaOpen ? (
+          <a class="nav-cta beta" href={betaHref} aria-current={onBeta ? 'page' : undefined}><span class="live-dot"></span>{s.nav.beta}</a>
+        ) : (
+          <span class="nav-cta">{s.nav.soon}</span>
+        )}
         <button class="menu-btn" type="button" aria-label={s.nav.menu} aria-expanded="false" aria-controls="nav-drawer" data-menu>
           <Icon name="menu" size={20} stroke={2} />
         </button>
@@ -40,6 +47,7 @@ const links = [
     </header>
     <nav class="nav-drawer" id="nav-drawer" aria-label={s.nav.menu}>
       {links.map((l) => <a href={l.href}>{l.label}</a>)}
+      {betaOpen && <a class="drawer-beta" href={betaHref}><span class="live-dot"></span>{s.nav.betaLink}</a>}
     </nav>
   </div>
   <div class="stripes"></div>

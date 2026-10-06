@@ -2,8 +2,12 @@
 import StoreBadges from '~/components/StoreBadges.astro';
 import type { UIStrings } from '~/i18n/ui';
 
-interface Props { s: UIStrings }
-const { s } = Astro.props;
+interface Props {
+  s: UIStrings;
+  /** href della pagina beta quando è aperta */
+  beta?: string;
+}
+const { s, beta } = Astro.props;
 ---
 <section class="section" style="padding: 40px 0 90px;">
   <div class="wrap">
@@ -11,7 +15,7 @@ const { s } = Astro.props;
       <span class="eyebrow green"><span class="dot"></span>{s.closing.eyebrow}</span>
       <h2>{s.closing.title} <span class="grad-2">{s.closing.titleAccent}</span></h2>
       <p>{s.closing.sub}</p>
-      <StoreBadges s={s} primary={true} class="center" />
+      <StoreBadges s={s} primary={true} beta={beta} class="center" />
     </div>
   </div>
 </section>

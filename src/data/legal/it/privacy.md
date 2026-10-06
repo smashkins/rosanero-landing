@@ -2,7 +2,7 @@
 title: Informativa sulla privacy
 description: Quali dati personali tratta l'app Rosanero, perché, e quali diritti hai.
 eyebrow: Legale · Privacy
-updated: 2026-09-03
+updated: 2026-10-06
 placeholder: false
 toc:
   - { id: sez-1, label: "1. Titolare del trattamento" }
@@ -57,6 +57,10 @@ Le versioni distribuite dell'app (TestFlight e App Store) includono **Firebase A
 
 Se invii un feedback dall'app, il testo che scrivi viene trasmesso al servizio **FeedbackThread** insieme a un identificativo del tuo account, così da poterti rispondere. Non inviare in quel canale dati che non vuoi che siano trattati.
 
+### 3.5 Iscrizione alla beta dal sito
+
+Se ti iscrivi alla beta pubblica dalla pagina [Beta pubblica](/beta/) del sito, trattiamo l'**indirizzo email** che inserisci, la **piattaforma** che scegli (iPhone o Android), il **modello del telefono**, la lingua della pagina e il momento dell'iscrizione. Il modello ci serve a verificare che l'app si possa installare e a provarla su dispositivi diversi. Questi dati ci arrivano per email all'indirizzo support@rosanero.app, tramite **Resend**, e li usiamo solo per invitarti al test e per scriverti durante la beta: mai per newsletter o pubblicità. Per invitarti inseriamo l'indirizzo in **TestFlight** (Apple) o nell'elenco dei tester di **Google Play**, che ti mandano l'invito. Per prevenire abusi il server usa anche l'**indirizzo IP** della richiesta, solo per il tempo necessario a limitare gli invii ripetuti.
+
 <h2 id="sez-4">4. Perché trattiamo questi dati e su quale base giuridica</h2>
 
 <div class="table-wrap">
@@ -68,6 +72,7 @@ Se invii un feedback dall'app, il testo che scrivi viene trasmesso al servizio *
 | Sicurezza: prevenire abusi, accessi non autorizzati e limitare le richieste ripetute | § 3.2 | Legittimo interesse — lett. f) |
 | Diagnosticare crash e malfunzionamenti, capire quali sezioni sono usate | § 3.3 | Legittimo interesse — lett. f) |
 | Gestire il feedback e risponderti | § 3.4 | Legittimo interesse — lett. f) |
+| Invitarti alla beta e scriverti durante il test | § 3.5 | Consenso — lett. a) |
 
 </div>
 
@@ -82,7 +87,8 @@ Direttamente da te, oppure — quando scegli di accedere con Apple o Google — 
 Non vendiamo i tuoi dati e non li cediamo per finalità di marketing di terzi. Li trattano per nostro conto, come responsabili o titolari autonomi, i seguenti fornitori:
 
 - **Apple** e **Google**, come provider di identità, per l'accesso;
-- **Resend**, per l'invio delle email di verifica e di recupero password;
+- **Resend**, per l'invio delle email di verifica e di recupero password e per inoltrarci le iscrizioni alla beta;
+- **Apple (TestFlight)** e **Google (Google Play)**, quando ti invitiamo alla beta;
 - **Google (Firebase)**, per diagnostica e analisi di utilizzo;
 - **FeedbackThread**, per la gestione dei feedback;
 - il **fornitore di hosting** dell'infrastruttura su cui gira il servizio.
@@ -100,6 +106,7 @@ Alcuni dei fornitori sopra elencati hanno sede negli Stati Uniti. Quando ciò co
 - **Codici di verifica**: pochi minuti, il tempo della loro validità.
 - **Dati diagnostici**: secondo i periodi di conservazione di Firebase, comunque non oltre quanto necessario alla finalità.
 - **Feedback**: finché serve a gestire la conversazione con te.
+- **Iscrizioni alla beta**: fino alla fine del programma di test, o prima se revochi il consenso o ci chiedi di cancellarle.
 
 <h2 id="sez-9">9. Cancellare l'account</h2>
 
@@ -107,7 +114,7 @@ Puoi eliminare il tuo account **direttamente dall'app**, in *Altro → Elimina a
 
 <h2 id="sez-10">10. I tuoi diritti</h2>
 
-Ai sensi degli artt. 15–22 del GDPR hai diritto di ottenere l'**accesso** ai tuoi dati, la loro **rettifica** o **cancellazione**, la **limitazione** del trattamento, la **portabilità**, e di **opporti** ai trattamenti fondati sul legittimo interesse. Puoi esercitarli scrivendo a [support@rosanero.app](mailto:support@rosanero.app); ti risponderemo entro un mese.
+Ai sensi degli artt. 15–22 del GDPR hai diritto di ottenere l'**accesso** ai tuoi dati, la loro **rettifica** o **cancellazione**, la **limitazione** del trattamento, la **portabilità**, e di **opporti** ai trattamenti fondati sul legittimo interesse. Puoi esercitarli scrivendo a [support@rosanero.app](mailto:support@rosanero.app); ti risponderemo entro un mese. Se ti sei iscritto alla beta puoi anche **revocare il consenso** in qualsiasi momento, allo stesso indirizzo: la revoca non tocca il trattamento fatto prima.
 
 Hai inoltre diritto di proporre **reclamo al Garante per la protezione dei dati personali** ([www.garanteprivacy.it](https://www.garanteprivacy.it)) o all'autorità di controllo dello Stato in cui risiedi.
 

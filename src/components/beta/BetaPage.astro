@@ -1,0 +1,277 @@
+---
+// Pagina della beta pubblica (/beta/ e /en/beta/). Lo stato aperta/chiusa per
+// piattaforma arriva da src/data/beta.ts; l'iscrizione va a rosanero-api
+// (POST /beta/signup), che inoltra la richiesta a support@rosanero.app.
+import '~/styles/beta.css';
+import Base from '~/layouts/Base.astro';
+import Icon from '~/components/Icon.astro';
+import BetaPass from '~/components/beta/BetaPass.astro';
+import { localizedHref, t, type Locale } from '~/i18n';
+import { BETA_PLATFORMS, IPHONE_MODELS, betaEndpoint, betaOpen, betaStatus, type BetaPlatform } from '~/data/beta';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const s = t(locale);
+const b = s.beta;
+const f = b.form;
+const d = f.device;
+const h = (p: string) => localizedHref(p, locale);
+
+// Piattaforma preselezionata: la prima aperta (iPhone se lo sono entrambe).
+const initial: BetaPlatform = BETA_PLATFORMS.find((p) => betaStatus[p] === 'open') ?? 'ios';
+const intentOf = (p: BetaPlatform) => (betaStatus[p] === 'open' ? 'join' : 'notify');
+
+// Testi che lo script cambia al volo (piattaforma, esito dell'invio).
+const clientStrings = {
+  platforms: f.platforms,
+  device: d,
+  hintJoin: f.hintJoin,
+  hintNotify: f.hintNotify,
+  submitJoin: f.submitJoin,
+  submitNotify: f.submitNotify,
+  sending: f.sending,
+  errors: b.errors,
+  success: b.success,
+  stampJoin: b.pass.stampJoin,
+  stampNotify: b.pass.stampNotify,
+};
+const clientJson = JSON.stringify(clientStrings).replace(/</g, '\\u003c');
+const androidFaq = (item: (typeof b.faq.items)[number]) =>
+  item.aClosed && betaStatus.android === 'closed' ? item.aClosed : item.a;
+---
+<Base locale={locale} title={b.metaTitle} description={b.metaDescription}>
+  <section class="wrap beta-hero" id="iscriviti">
+    <div class="beta-beams" aria-hidden="true"><i></i><i></i></div>
+
+    <div class="beta-copy">
+      {betaOpen ? (
+        <span class="rv eyebrow"><span class="live-dot"></span>{b.eyebrowOpen}</span>
+        <h1 class="rv">{b.title} <span class="grad">{b.titleAccent}</span></h1>
+        <p class="rv lead">{b.lead}</p>
+      ) : (
+        <span class="rv eyebrow closed"><span class="dot"></span>{b.eyebrowClosed}</span>
+        <h1 class="rv">{b.closed.title} <span class="grad">{b.closed.titleAccent}</span></h1>
+        <p class="rv lead">{b.closed.text}</p>
+        <a class="rv btn primary beta-home" href={h('/')}>{b.closed.cta}<Icon name="arrow" /></a>
+      )}
+
+      {betaOpen && (
+        <div
+          class="rv beta-card"
+          data-beta
+          data-endpoint={betaEndpoint}
+          data-locale={locale}
+          data-ios={betaStatus.ios}
+          data-android={betaStatus.android}
+        >
+          <script is:inline type="application/json" data-beta-strings set:html={clientJson} />
+          <form class="beta-form" data-beta-form novalidate>
+            <fieldset class="seg">
+              <legend class="lbl">{f.platformLegend}</legend>
+              <div class="seg-grid">
+              {BETA_PLATFORMS.map((p) => (
+                <label class="seg-opt">
+                  <input type="radio" name="platform" value={p} checked={p === initial} data-intent={intentOf(p)} />
+                  <span class="seg-ico"><Icon name={p === 'ios' ? 'phone' : 'play'} size={20} /></span>
+                  <span class="seg-txt">
+                    <b>{f.platforms[p].name}</b>
+                    <small>{f.platforms[p].via}</small>
+                  </span>
+                  {betaStatus[p] === 'closed' && <span class="tag dim">{f.soon}</span>}
+                </label>
+              ))}
+              </div>
+            </fieldset>
+
+            {/* Telefono: menu dei modelli compatibili per iPhone, testo libero per Android. */}
+            <div class="field-wrap" data-device>
+              <label class="lbl" for={initial === 'ios' ? 'beta-device-ios' : 'beta-device-android'} data-device-label>
+                {initial === 'ios' ? d.labelIos : d.labelAndroid}
+              </label>
+              <div class="field select" data-device-ios hidden={initial !== 'ios'}>
+                <Icon name="phone" size={20} />
+                <select id="beta-device-ios" name="deviceIos" required aria-describedby="beta-device-hint beta-device-error">
+                  <option value="" selected disabled>{d.choose}</option>
+                  {IPHONE_MODELS.map((m) => <option value={m}>{m}</option>)}
+                  <option value="other">{d.other}</option>
+                </select>
+                <Icon name="chevron" size={18} class="chev" />
+              </div>
+              <div class="field device-other" data-device-other hidden>
+                <input
+                  id="beta-device-other"
+                  name="deviceOther"
+                  type="text"
+                  maxlength="60"
+                  autocomplete="off"
+                  placeholder={d.otherPlaceholder}
+                  aria-label={d.otherLabel}
+                  aria-describedby="beta-device-error"
+                />
+              </div>
+              <div class="field" data-device-android hidden={initial !== 'android'}>
+                <Icon name="play" size={20} />
+                <input
+                  id="beta-device-android"
+                  name="deviceAndroid"
+                  type="text"
+                  maxlength="60"
+                  autocomplete="off"
+                  placeholder={d.androidPlaceholder}
+                  aria-describedby="beta-device-hint beta-device-error"
+                />
+              </div>
+              <p class="hint" id="beta-device-hint" data-device-hint>{initial === 'ios' ? d.hintIos : d.hintAndroid}</p>
+              <p class="field-error" id="beta-device-error" data-device-error hidden></p>
+            </div>
+
+            <div class="field-wrap">
+              <label class="lbl" for="beta-email">{f.emailLabel}</label>
+              <div class="field" data-field>
+                <Icon name="mail" size={20} />
+                <input
+                  id="beta-email"
+                  name="email"
+                  type="email"
+                  inputmode="email"
+                  autocomplete="email"
+                  autocapitalize="off"
+                  spellcheck="false"
+                  maxlength="254"
+                  required
+                  placeholder={f.emailPlaceholder}
+                  aria-describedby="beta-hint beta-email-error"
+                />
+                <button class="btn primary submit" type="submit" data-submit>
+                  <span class="spinner" aria-hidden="true"></span>
+                  <span data-submit-label>{intentOf(initial) === 'join' ? f.submitJoin : f.submitNotify}</span>
+                  <Icon name="arrow" />
+                </button>
+              </div>
+              <p class="hint" id="beta-hint" data-hint>
+                {intentOf(initial) === 'join' ? f.hintJoin[initial] : f.hintNotify[initial]}
+              </p>
+              <p class="field-error" id="beta-email-error" data-email-error hidden></p>
+            </div>
+
+            <label class="consent" data-consent>
+              <input type="checkbox" name="consent" required aria-describedby="beta-consent-error" />
+              <span>{f.consentBefore}<a href={h('/privacy/')} target="_blank" rel="noopener">{f.consentLink}</a>{f.consentAfter}</span>
+            </label>
+            <p class="field-error" id="beta-consent-error" data-consent-error hidden></p>
+
+            {/* Trappola per i bot: invisibile e fuori dal tab order. */}
+            <div class="hp" aria-hidden="true">
+              <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+            </div>
+
+            <p class="form-error" data-form-error role="alert" hidden></p>
+            <p class="reassure"><Icon name="shield" size={16} />{f.reassurance}</p>
+          </form>
+
+          <div class="beta-done" data-done hidden>
+            <span class="done-ico" aria-hidden="true">
+              <svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24" /><path d="M15 27l7 7 15-16" /></svg>
+            </span>
+            <h2 tabindex="-1" data-done-title></h2>
+            <p data-done-text></p>
+            <span class="done-mail" data-done-mail></span>
+            <button type="button" class="link" data-again>{b.success.again}</button>
+          </div>
+
+          <noscript><p class="form-error">{f.noscript}</p></noscript>
+        </div>
+      )}
+    </div>
+
+    <div class="beta-visual rv-s">
+      <BetaPass s={s} open={betaOpen} platform={initial} />
+    </div>
+  </section>
+
+  {betaOpen && (
+    <>
+      <section class="section band">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="rv eyebrow"><span class="dot"></span>{b.steps.eyebrow}</span>
+            <h2 class="rv">{b.steps.title} <span class="grad">{b.steps.titleAccent}</span></h2>
+          </div>
+          <ol class="beta-steps">
+            {b.steps.items.map((st, i) => (
+              <li class="rv card step">
+                <div class="step-top">
+                  <span class="step-n">{String(i + 1).padStart(2, '0')}</span>
+                  <span class="step-ico"><Icon name={st.icon} size={22} /></span>
+                </div>
+                <h3>{st.title}</h3>
+                <p>{st.text}</p>
+              </li>
+            ))}
+          </ol>
+
+          <div class="beta-expect">
+            <div class="rv card">
+              <h3>{b.expect.get.title}</h3>
+              <ul class="ticks">{b.expect.get.items.map((it) => <li><Icon name="check" size={16} stroke={2.4} />{it}</li>)}</ul>
+            </div>
+            <div class="rv card">
+              <h3>{b.expect.ask.title}</h3>
+              <ul class="ticks">{b.expect.ask.items.map((it) => <li><Icon name="check" size={16} stroke={2.4} />{it}</li>)}</ul>
+            </div>
+            <div class="rv card req">
+              <h3>{b.expect.req.title}</h3>
+              <ul>
+                {b.expect.req.items.map((it) => (
+                  <li><span class="req-ico"><Icon name={it.icon} size={18} /></span><span><b>{it.strong}</b> {it.text}</span></li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap beta-faq">
+          <div class="section-head faq-head">
+            <span class="rv eyebrow"><span class="dot"></span>{b.faq.eyebrow}</span>
+            <h2 class="rv">{b.faq.title} <span class="grad">{b.faq.titleAccent}</span></h2>
+            <p class="rv">{b.faq.sub}</p>
+          </div>
+          <div class="faq">
+            {b.faq.items.map((item) => (
+              <details class="rv faq-item">
+                <summary>{item.q}<span class="faq-x" aria-hidden="true"></span></summary>
+                <p>
+                  {androidFaq(item)}
+                  {item.more && <> {item.more}<a class="link" href={h('/privacy/')}>{f.consentLink}</a>.</>}
+                </p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 0;">
+        <div class="wrap">
+          <div class="rv-s closing beta-final">
+            <h2>{b.final.title} <span class="grad-2">{b.final.titleAccent}</span></h2>
+            <a class="btn primary" href="#iscriviti" data-to-form><Icon name="ticket" />{b.final.cta}</a>
+          </div>
+        </div>
+      </section>
+    </>
+  )}
+
+  <div class="wrap beta-disclaimer">
+    <div class="disclaimer">
+      <Icon name="shield" size={18} />
+      <span><b>{s.disclaimer.strong}</b> {s.disclaimer.text}</span>
+    </div>
+  </div>
+</Base>
+
+<script>
+  import { initBeta } from '~/lib/beta-client';
+  initBeta();
+</script>

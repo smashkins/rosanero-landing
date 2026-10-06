@@ -9,12 +9,22 @@ type PerPlatform = Record<Platform, string>;
 
 interface Strings {
   platforms: Record<Platform, { name: string; via: string }>;
+  device: { labelIos: string; labelAndroid: string; hintIos: string; hintAndroid: string };
   hintJoin: PerPlatform;
   hintNotify: PerPlatform;
   submitJoin: string;
   submitNotify: string;
   sending: string;
-  errors: { email: string; consent: string; rate: string; network: string; server: string };
+  errors: {
+    email: string;
+    deviceIos: string;
+    deviceOther: string;
+    deviceAndroid: string;
+    consent: string;
+    rate: string;
+    network: string;
+    server: string;
+  };
   success: { joinTitle: string; joinText: PerPlatform; notifyTitle: string; notifyText: PerPlatform };
   stampJoin: string;
   stampNotify: string;
@@ -23,6 +33,21 @@ interface Strings {
 type Outcome = 'ok' | 'email' | 'rate' | 'network' | 'server';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+// Risposte troppo generiche per servire a qualcosa: serve marca E modello.
+const GENERIC_DEVICES = new Set([
+  'android', 'samsung', 'galaxy', 'samsung galaxy', 'xiaomi', 'redmi', 'poco', 'huawei',
+  'honor', 'google', 'pixel', 'google pixel', 'oppo', 'motorola', 'moto', 'oneplus',
+  'realme', 'nokia', 'sony', 'xperia', 'vivo', 'nothing', 'telefono', 'cellulare',
+  'smartphone', 'phone', 'iphone', 'apple', 'apple iphone',
+]);
+const normDevice = (v: string) => v.trim().replace(/\s+/g, ' ');
+
+/** Un modello scritto a mano è accettabile se è abbastanza lungo e non è solo una marca. */
+function isSpecificDevice(value: string): boolean {
+  const v = normDevice(value);
+  return v.length >= 3 && v.length <= 60 && /\p{L}/u.test(v) && !GENERIC_DEVICES.has(v.toLowerCase());
+}
 const reduceMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 const $ = <T extends Element>(root: ParentNode, sel: string) => root.querySelector<T>(sel);
@@ -173,6 +198,15 @@ function initForm(root: HTMLElement, pass: PassApi | null): void {
   const formError = $<HTMLElement>(form, '[data-form-error]')!;
   const submit = $<HTMLButtonElement>(form, '[data-submit]')!;
   const submitLabel = $<HTMLElement>(form, '[data-submit-label]')!;
+  const deviceLabel = $<HTMLLabelElement>(form, '[data-device-label]')!;
+  const deviceHint = $<HTMLElement>(form, '[data-device-hint]')!;
+  const deviceError = $<HTMLElement>(form, '[data-device-error]')!;
+  const iosWrap = $<HTMLElement>(form, '[data-device-ios]')!;
+  const otherWrap = $<HTMLElement>(form, '[data-device-other]')!;
+  const androidWrap = $<HTMLElement>(form, '[data-device-android]')!;
+  const iosSelect = form.elements.namedItem('deviceIos') as HTMLSelectElement;
+  const otherInput = form.elements.namedItem('deviceOther') as HTMLInputElement;
+  const androidInput = form.elements.namedItem('deviceAndroid') as HTMLInputElement;
 
   const selected = (): { platform: Platform; intent: Intent } => {
     const input = form.querySelector<HTMLInputElement>('input[name="platform"]:checked');
@@ -180,19 +214,59 @@ function initForm(root: HTMLElement, pass: PassApi | null): void {
     return { platform, intent: input?.dataset.intent === 'notify' ? 'notify' : 'join' };
   };
 
+  /** Il modello scelto o scritto per la piattaforma attiva ('' se manca). */
+  const currentDevice = (): string => {
+    if (selected().platform === 'android') return normDevice(androidInput.value);
+    return iosSelect.value === 'other' ? normDevice(otherInput.value) : iosSelect.value;
+  };
+  /** Messaggio d'errore per il modello, o null se va bene. */
+  const deviceProblem = (): string | null => {
+    if (selected().platform === 'android') {
+      return isSpecificDevice(androidInput.value) ? null : strings.errors.deviceAndroid;
+    }
+    if (!iosSelect.value) return strings.errors.deviceIos;
+    if (iosSelect.value === 'other' && !isSpecificDevice(otherInput.value)) return strings.errors.deviceOther;
+    return null;
+  };
+  /** Il campo da evidenziare e da mettere a fuoco in caso di errore. */
+  const deviceControl = () => {
+    if (selected().platform === 'android') return { wrap: androidWrap, input: androidInput as HTMLElement };
+    return iosSelect.value === 'other'
+      ? { wrap: otherWrap, input: otherInput as HTMLElement }
+      : { wrap: iosWrap, input: iosSelect as HTMLElement };
+  };
+
+  const updateGate = () => {
+    const { platform } = selected();
+    const p = strings.platforms[platform];
+    pass?.setGate(currentDevice() || `${p.name} · ${p.via}`);
+  };
+
   const syncPlatform = () => {
     const { platform, intent } = selected();
+    const ios = platform === 'ios';
     hint.textContent = (intent === 'join' ? strings.hintJoin : strings.hintNotify)[platform];
     submitLabel.textContent = intent === 'join' ? strings.submitJoin : strings.submitNotify;
-    const p = strings.platforms[platform];
-    pass?.setGate(`${p.name} · ${p.via}`);
+    iosWrap.hidden = !ios;
+    otherWrap.hidden = !ios || iosSelect.value !== 'other';
+    androidWrap.hidden = ios;
+    deviceLabel.textContent = ios ? strings.device.labelIos : strings.device.labelAndroid;
+    deviceLabel.htmlFor = ios ? iosSelect.id : androidInput.id;
+    deviceHint.textContent = ios ? strings.device.hintIos : strings.device.hintAndroid;
+    updateGate();
   };
 
   const showError = (el: HTMLElement, text: string | null) => {
     el.textContent = text ?? '';
     el.hidden = !text;
   };
+  const clearDeviceError = () => {
+    showError(deviceError, null);
+    for (const el of [iosWrap, otherWrap, androidWrap]) el.classList.remove('invalid');
+    for (const el of [iosSelect, otherInput, androidInput]) el.removeAttribute('aria-invalid');
+  };
   const clearErrors = () => {
+    clearDeviceError();
     showError(emailError, null);
     showError(consentError, null);
     showError(formError, null);
@@ -209,9 +283,23 @@ function initForm(root: HTMLElement, pass: PassApi | null): void {
   };
 
   form.addEventListener('change', (e) => {
-    if ((e.target as HTMLInputElement).name === 'platform') syncPlatform();
+    if ((e.target as HTMLInputElement).name === 'platform') {
+      clearDeviceError();
+      syncPlatform();
+    }
+    if (e.target === iosSelect) {
+      syncPlatform();
+      if (iosSelect.value === 'other') otherInput.focus();
+      if (!deviceError.hidden && !deviceProblem()) clearDeviceError();
+    }
     if (e.target === consent && consent.checked) showError(consentError, null);
   });
+  for (const input of [otherInput, androidInput]) {
+    input.addEventListener('input', () => {
+      updateGate();
+      if (!deviceError.hidden && !deviceProblem()) clearDeviceError();
+    });
+  }
   email.addEventListener('input', () => {
     pass?.setHolder(email.value);
     if (!emailError.hidden && EMAIL_RE.test(email.value.trim())) {
@@ -227,29 +315,43 @@ function initForm(root: HTMLElement, pass: PassApi | null): void {
     clearErrors();
     const value = email.value.trim().toLowerCase();
     let ok = true;
+    let firstInvalid: HTMLElement | null = null;
+    const problem = deviceProblem();
+    if (problem) {
+      const { wrap, input } = deviceControl();
+      showError(deviceError, problem);
+      wrap.classList.add('invalid');
+      input.setAttribute('aria-invalid', 'true');
+      firstInvalid = input;
+      ok = false;
+    }
     if (!EMAIL_RE.test(value) || value.length > 254) {
       showError(emailError, strings.errors.email);
       field.classList.add('invalid');
       email.setAttribute('aria-invalid', 'true');
+      firstInvalid ??= email;
       ok = false;
     }
     if (!consent.checked) {
       showError(consentError, strings.errors.consent);
       consent.setAttribute('aria-invalid', 'true');
+      firstInvalid ??= consent;
       ok = false;
     }
     if (!ok) {
-      (field.classList.contains('invalid') ? email : consent).focus();
+      firstInvalid?.focus();
       return;
     }
 
     const { platform, intent } = selected();
+    const device = currentDevice();
     busy(true);
     const outcome = await send(endpoint, {
       email: value,
       platform,
       intent,
       locale,
+      device,
       consent: true,
       website: honeypot.value,
     });
@@ -259,7 +361,7 @@ function initForm(root: HTMLElement, pass: PassApi | null): void {
       const join = intent === 'join';
       $<HTMLElement>(done, '[data-done-title]')!.textContent = join ? strings.success.joinTitle : strings.success.notifyTitle;
       $<HTMLElement>(done, '[data-done-text]')!.textContent = (join ? strings.success.joinText : strings.success.notifyText)[platform];
-      $<HTMLElement>(done, '[data-done-mail]')!.textContent = value;
+      $<HTMLElement>(done, '[data-done-mail]')!.textContent = `${value} · ${device}`;
       form.hidden = true;
       done.hidden = false;
       root.classList.add('is-done');
@@ -298,6 +400,7 @@ interface Payload {
   platform: Platform;
   intent: Intent;
   locale: 'it' | 'en';
+  device: string;
   consent: true;
   website: string;
 }

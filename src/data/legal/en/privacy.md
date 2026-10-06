@@ -61,7 +61,7 @@ If you send feedback from the app, what you write is transmitted to the **Feedba
 
 ### 3.5 Signing up for the beta on the website
 
-If you sign up for the public beta on the website's [Public beta](/en/beta/) page, we process the **email address** you enter, the **platform** you pick (iPhone or Android), the page language and the time of sign-up. This data reaches us by email at support@rosanero.app, through **Resend**, and we only use it to invite you to the test and to write to you during the beta: never for newsletters or ads. To invite you we add the address to **TestFlight** (Apple) or to the **Google Play** tester list, which send you the invite. To prevent abuse the server also uses the **IP address** of the request, only for as long as it takes to limit repeated submissions.
+If you sign up for the public beta on the website's [Public beta](/en/beta/) page, we process the **email address** you enter, the **platform** you pick (iPhone or Android), your **phone model**, the page language and the time of sign-up. We need the model to check that the app can be installed and to test it on a range of devices. This data reaches us by email at support@rosanero.app, through **Resend**, and we only use it to invite you to the test and to write to you during the beta: never for newsletters or ads. To invite you we add the address to **TestFlight** (Apple) or to the **Google Play** tester list, which send you the invite. To prevent abuse the server also uses the **IP address** of the request, only for as long as it takes to limit repeated submissions.
 
 <h2 id="sez-4">4. Why we process it, and on what legal basis</h2>
 

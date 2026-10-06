@@ -15,7 +15,7 @@ export type IconName =
   | 'news' | 'users' | 'list' | 'calendar' | 'idcard' | 'chart' | 'swap' | 'pin'
   | 'phone' | 'play' | 'shield' | 'check' | 'target' | 'ball' | 'star' | 'clock'
   | 'comment' | 'card' | 'flag' | 'monitor' | 'stadium' | 'plane' | 'trophy'
-  | 'ticket' | 'broadcast' | 'bolt' | 'globe' | 'menu' | 'mail' | 'trash' | 'warning' | 'arrow';
+  | 'ticket' | 'broadcast' | 'bolt' | 'globe' | 'menu' | 'mail' | 'trash' | 'warning' | 'arrow' | 'chevron';
 
 const it = {
   meta: {
@@ -388,6 +388,17 @@ const it = {
         android: { name: 'Android', via: 'Google Play' },
       },
       soon: 'Presto',
+      device: {
+        labelIos: 'Il tuo iPhone',
+        labelAndroid: 'Modello del telefono',
+        choose: 'Scegli il modello',
+        other: 'Altro modello…',
+        otherLabel: 'Modello del tuo iPhone',
+        otherPlaceholder: 'Scrivi il modello esatto',
+        androidPlaceholder: 'es. Samsung Galaxy S24, Pixel 8',
+        hintIos: "Ci sono solo i modelli compatibili con iOS 26 e iOS 27: se il tuo non c'è, purtroppo l'app non si installa.",
+        hintAndroid: 'Marca e modello, come li trovi in Impostazioni → Info sul telefono.',
+      },
       emailLabel: 'La tua email',
       emailPlaceholder: 'nome@email.it',
       hintJoin: {
@@ -409,6 +420,9 @@ const it = {
     },
     errors: {
       email: "Controlla l'indirizzo: sembra incompleto.",
+      deviceIos: 'Scegli il modello del tuo iPhone.',
+      deviceOther: 'Scrivi il modello completo, per esempio iPhone 15 Pro.',
+      deviceAndroid: 'Scrivi marca e modello, per esempio Samsung Galaxy S24.',
       consent: 'Spunta il consenso per poterti invitare.',
       rate: 'Troppi tentativi ravvicinati. Riprova tra qualche minuto.',
       network: 'Connessione non riuscita. Controlla la rete e riprova.',
@@ -887,6 +901,17 @@ const en: UIStrings = {
         android: { name: 'Android', via: 'Google Play' },
       },
       soon: 'Soon',
+      device: {
+        labelIos: 'Your iPhone',
+        labelAndroid: 'Phone model',
+        choose: 'Pick your model',
+        other: 'Another model…',
+        otherLabel: 'Your iPhone model',
+        otherPlaceholder: 'Type the exact model',
+        androidPlaceholder: 'e.g. Samsung Galaxy S24, Pixel 8',
+        hintIos: "Only models that run iOS 26 or iOS 27 are listed: if yours isn't here, the app won't install on it.",
+        hintAndroid: 'Brand and model, as shown in Settings → About phone.',
+      },
       emailLabel: 'Your email',
       emailPlaceholder: 'name@email.com',
       hintJoin: {
@@ -908,6 +933,9 @@ const en: UIStrings = {
     },
     errors: {
       email: 'Check the address: it looks incomplete.',
+      deviceIos: 'Pick your iPhone model.',
+      deviceOther: 'Type the full model, for example iPhone 15 Pro.',
+      deviceAndroid: 'Type brand and model, for example Samsung Galaxy S24.',
       consent: 'Tick the consent box so we can invite you.',
       rate: 'Too many attempts in a row. Try again in a few minutes.',
       network: 'Could not connect. Check your network and try again.',

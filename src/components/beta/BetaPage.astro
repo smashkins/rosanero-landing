@@ -7,13 +7,14 @@ import Base from '~/layouts/Base.astro';
 import Icon from '~/components/Icon.astro';
 import BetaPass from '~/components/beta/BetaPass.astro';
 import { localizedHref, t, type Locale } from '~/i18n';
-import { BETA_PLATFORMS, betaEndpoint, betaOpen, betaStatus, type BetaPlatform } from '~/data/beta';
+import { BETA_PLATFORMS, IPHONE_MODELS, betaEndpoint, betaOpen, betaStatus, type BetaPlatform } from '~/data/beta';
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const s = t(locale);
 const b = s.beta;
 const f = b.form;
+const d = f.device;
 const h = (p: string) => localizedHref(p, locale);
 
 // Piattaforma preselezionata: la prima aperta (iPhone se lo sono entrambe).
@@ -23,6 +24,7 @@ const intentOf = (p: BetaPlatform) => (betaStatus[p] === 'open' ? 'join' : 'noti
 // Testi che lo script cambia al volo (piattaforma, esito dell'invio).
 const clientStrings = {
   platforms: f.platforms,
+  device: d,
   hintJoin: f.hintJoin,
   hintNotify: f.hintNotify,
   submitJoin: f.submitJoin,
@@ -80,6 +82,48 @@ const androidFaq = (item: (typeof b.faq.items)[number]) =>
               ))}
               </div>
             </fieldset>
+
+            {/* Telefono: menu dei modelli compatibili per iPhone, testo libero per Android. */}
+            <div class="field-wrap" data-device>
+              <label class="lbl" for={initial === 'ios' ? 'beta-device-ios' : 'beta-device-android'} data-device-label>
+                {initial === 'ios' ? d.labelIos : d.labelAndroid}
+              </label>
+              <div class="field select" data-device-ios hidden={initial !== 'ios'}>
+                <Icon name="phone" size={20} />
+                <select id="beta-device-ios" name="deviceIos" required aria-describedby="beta-device-hint beta-device-error">
+                  <option value="" selected disabled>{d.choose}</option>
+                  {IPHONE_MODELS.map((m) => <option value={m}>{m}</option>)}
+                  <option value="other">{d.other}</option>
+                </select>
+                <Icon name="chevron" size={18} class="chev" />
+              </div>
+              <div class="field device-other" data-device-other hidden>
+                <input
+                  id="beta-device-other"
+                  name="deviceOther"
+                  type="text"
+                  maxlength="60"
+                  autocomplete="off"
+                  placeholder={d.otherPlaceholder}
+                  aria-label={d.otherLabel}
+                  aria-describedby="beta-device-error"
+                />
+              </div>
+              <div class="field" data-device-android hidden={initial !== 'android'}>
+                <Icon name="play" size={20} />
+                <input
+                  id="beta-device-android"
+                  name="deviceAndroid"
+                  type="text"
+                  maxlength="60"
+                  autocomplete="off"
+                  placeholder={d.androidPlaceholder}
+                  aria-describedby="beta-device-hint beta-device-error"
+                />
+              </div>
+              <p class="hint" id="beta-device-hint" data-device-hint>{initial === 'ios' ? d.hintIos : d.hintAndroid}</p>
+              <p class="field-error" id="beta-device-error" data-device-error hidden></p>
+            </div>
 
             <div class="field-wrap">
               <label class="lbl" for="beta-email">{f.emailLabel}</label>

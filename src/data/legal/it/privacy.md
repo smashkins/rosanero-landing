@@ -59,7 +59,7 @@ Se invii un feedback dall'app, il testo che scrivi viene trasmesso al servizio *
 
 ### 3.5 Iscrizione alla beta dal sito
 
-Se ti iscrivi alla beta pubblica dalla pagina [Beta pubblica](/beta/) del sito, trattiamo l'**indirizzo email** che inserisci, la **piattaforma** che scegli (iPhone o Android), la lingua della pagina e il momento dell'iscrizione. Questi dati ci arrivano per email all'indirizzo support@rosanero.app, tramite **Resend**, e li usiamo solo per invitarti al test e per scriverti durante la beta: mai per newsletter o pubblicità. Per invitarti inseriamo l'indirizzo in **TestFlight** (Apple) o nell'elenco dei tester di **Google Play**, che ti mandano l'invito. Per prevenire abusi il server usa anche l'**indirizzo IP** della richiesta, solo per il tempo necessario a limitare gli invii ripetuti.
+Se ti iscrivi alla beta pubblica dalla pagina [Beta pubblica](/beta/) del sito, trattiamo l'**indirizzo email** che inserisci, la **piattaforma** che scegli (iPhone o Android), il **modello del telefono**, la lingua della pagina e il momento dell'iscrizione. Il modello ci serve a verificare che l'app si possa installare e a provarla su dispositivi diversi. Questi dati ci arrivano per email all'indirizzo support@rosanero.app, tramite **Resend**, e li usiamo solo per invitarti al test e per scriverti durante la beta: mai per newsletter o pubblicità. Per invitarti inseriamo l'indirizzo in **TestFlight** (Apple) o nell'elenco dei tester di **Google Play**, che ti mandano l'invito. Per prevenire abusi il server usa anche l'**indirizzo IP** della richiesta, solo per il tempo necessario a limitare gli invii ripetuti.
 
 <h2 id="sez-4">4. Perché trattiamo questi dati e su quale base giuridica</h2>
 

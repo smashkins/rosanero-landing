@@ -2,7 +2,7 @@
 
 Documento di ripresa. Contiene tutto quello che serve per continuare il lavoro in una sessione nuova, senza il contesto della conversazione precedente. Aggiornare la checklist in fondo man mano.
 
-Ultimo aggiornamento: 2026-10-06.
+Ultimo aggiornamento: 2026-10-12.
 
 ## 1. Cosa stiamo costruendo
 
@@ -24,11 +24,12 @@ Hosting: **GitHub Pages** su apex **`rosanero.app`** (API già su `api.rosanero.
 
 - CTA: "Prossimamente su App Store / Google Play", nessun analytics, nessun cookie banner. Unica raccolta email: la pagina beta (sotto).
 - Beta pubblica (2026-10-06): pagina `/beta/` (+ `/en/beta/`) con modulo email + piattaforma (iPhone / Android) + modello del telefono (obbligatorio: per iPhone un menu dei modelli compatibili con iOS 26/27 in `src/data/beta.ts`, da aggiornare quando escono nuovi iPhone; per Android testo libero), consenso privacy obbligatorio, honeypot. Invio a rosanero-api `POST /beta/signup` → email via Resend a `support@rosanero.app` (nessun servizio form esterno, nessun database). Stato per piattaforma in `src/data/beta.json`, interruttore = workflow "Beta: apri/chiudi" (GitHub Actions). Piattaforma chiusa con l'altra aperta = lista d'attesa "Avvisami"; tutte chiuse = "Tutto esaurito", landing senza CTA beta. Concept visivo: "Beta Pass", biglietto da stadio con riflesso olografico e timbro all'iscrizione. Privacy § 3.5.
+- Beta su invito (2026-10-12): l'iscrizione è una **richiesta**, non un ingresso. L'utente approva a mano solo chi conosce e lo invita da TestFlight (solo email, niente link pubblico); le richieste non accolte vengono cancellate subito dopo la valutazione. Il copy lo dice ovunque ("Richiesta ricevuta", timbro "Ricevuto", "su invito", FAQ, privacy § 3.5 e § 8): non promettere l'invito a chi si iscrive.
 - Lingue: italiano default + inglese sotto `/en/`. Testi marketing EN li traduce Claude. **Testi legali (Termini, Privacy) IT e EN li fornisce l'utente**: finché non arrivano, le pagine restano con `placeholder: true` (banner + noindex).
 - Email contatti: `support@rosanero.app` (l'utente crea l'alias su Resend).
 - Pagina eliminazione account: informativa (passaggi in-app + email per richieste manuali). Richiesta da Google Play anche se l'eliminazione in-app esiste.
 - Stack: **Astro 7**, stesse versioni e pattern di `/Users/vincenzostira/Developer/web/astro/` (monoidx.dev): `astro ^7.0.0`, `@astrojs/mdx ^7.0.0`, `@astrojs/sitemap ^3.7.3`, `@astrojs/check ^0.9.9`, `typescript ^5.9.3`, Node 22, `npm ci` in CI (lockfile committato).
-- Direzione visiva scelta: **A2 · Notte rosanero · più rosa**. Disclaimer ovunque: "Progetto indipendente dei tifosi. Rosanero non è affiliata al Palermo F.C. e non usa loghi o contenuti ufficiali."
+- Direzione visiva scelta: **A2 · Notte rosanero · più rosa**. Disclaimer ovunque: "Progetto indipendente dei tifosi. Rosanero non è affiliata al Palermo F.C. e non usa contenuti ufficiali. I loghi delle squadre provengono da fornitori di dati terzi: non ne siamo responsabili e appartengono ai rispettivi proprietari." (2026-10-12: l'app mostra gli stemmi inviati dal fornitore dei dati sportivi. Le artboard in `design/` hanno ancora la frase vecchia: per il disclaimer fa fede `src/i18n/ui.ts`.)
 - Effetti di movimento: **JavaScript** (IntersectionObserver), non CSS scroll-driven: il browser dell'utente non li supporta.
 - Icone: SVG inline, mai emoji.
 

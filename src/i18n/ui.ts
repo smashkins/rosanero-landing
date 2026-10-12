@@ -51,7 +51,7 @@ const it = {
   },
   disclaimer: {
     strong: 'Progetto indipendente dei tifosi.',
-    text: 'Rosanero non è affiliata al Palermo F.C. e non usa loghi o contenuti ufficiali.',
+    text: 'Rosanero non è affiliata al Palermo F.C. e non usa contenuti ufficiali. I loghi delle squadre provengono da fornitori di dati terzi: non ne siamo responsabili e appartengono ai rispettivi proprietari.',
   },
   ticker: {
     live: 'Live',
@@ -375,12 +375,12 @@ const it = {
   beta: {
     metaTitle: 'Beta pubblica · Rosanero',
     metaDescription:
-      "Prova Rosanero prima dell'uscita: lascia la tua email e ti invitiamo alla beta su TestFlight (iPhone) o Google Play (Android). Gratis, per tutti i tifosi.",
+      "Prova Rosanero prima dell'uscita: chiedi di entrare nella beta su TestFlight (iPhone) o Google Play (Android). Gratis, su invito.",
     eyebrowOpen: 'Beta pubblica · Iscrizioni aperte',
     eyebrowClosed: 'Beta pubblica · Iscrizioni chiuse',
     title: 'Entra prima del',
     titleAccent: "fischio d'inizio.",
-    lead: "Rosanero è quasi pronta. Provala in anteprima, dicci cosa non va e aiutaci a costruirla: la beta è gratuita e aperta a tutti i tifosi.",
+    lead: "Rosanero è quasi pronta. Provala in anteprima, dicci cosa non va e aiutaci a costruirla: la beta è gratuita e su invito.",
     form: {
       platformLegend: 'Il tuo telefono',
       platforms: {
@@ -423,16 +423,16 @@ const it = {
       deviceIos: 'Scegli il modello del tuo iPhone.',
       deviceOther: 'Scrivi il modello completo, per esempio iPhone 15 Pro.',
       deviceAndroid: 'Scrivi marca e modello, per esempio Samsung Galaxy S24.',
-      consent: 'Spunta il consenso per poterti invitare.',
+      consent: 'Spunta il consenso per inviare la richiesta.',
       rate: 'Troppi tentativi ravvicinati. Riprova tra qualche minuto.',
       network: 'Connessione non riuscita. Controlla la rete e riprova.',
       server: 'Qualcosa è andato storto dalla nostra parte. Riprova tra poco o scrivici a support@rosanero.app.',
     },
     success: {
-      joinTitle: 'Sei dentro.',
+      joinTitle: 'Richiesta ricevuta.',
       joinText: {
-        ios: "Ti aggiungiamo a mano su TestFlight: l'invito arriva da Apple nei prossimi giorni. Se non lo vedi, controlla lo spam.",
-        android: "Ti aggiungiamo al test di Google Play e ti scriviamo con il link per installare l'app.",
+        ios: "La beta è su invito e aggiungiamo i tester a mano, pochi alla volta. Se c'è posto per te, ti arriva l'invito di Apple da TestFlight: controlla anche lo spam.",
+        android: "La beta è su invito e aggiungiamo i tester a mano, pochi alla volta. Se c'è posto per te, ti scriviamo con il link per installare l'app.",
       },
       notifyTitle: 'Ti teniamo il posto.',
       notifyText: {
@@ -456,7 +456,7 @@ const it = {
       holderEmpty: 'la-tua@email.it',
       validFor: 'Accesso anticipato',
       personal: 'Non cedibile',
-      stampJoin: 'Convalidato',
+      stampJoin: 'Ricevuto',
       stampNotify: 'In lista',
       stampClosed: 'Tutto esaurito',
     },
@@ -508,11 +508,11 @@ const it = {
       sub: 'Le risposte veloci. Per tutto il resto scrivici a support@rosanero.app.',
       items: [
         { q: 'È gratis?', a: 'Sì. La beta è gratuita, e lo è anche TestFlight. Nessun pagamento, nessun abbonamento.' },
-        { q: "Quando arriva l'invito?", a: 'Aggiungiamo i tester a mano, a gruppi: di solito entro pochi giorni. Su iPhone la mail arriva da TestFlight (Apple); se non la vedi, controlla lo spam.' },
+        { q: "Come arriva l'invito?", a: "La beta è su invito: leggiamo le richieste a mano e aggiungiamo i tester a piccoli gruppi. Se c'è posto per te, su iPhone la mail arriva da TestFlight (Apple); se non la vedi, controlla lo spam." },
         { q: "Che cos'è TestFlight?", a: "È l'app di Apple per provare le app prima dell'uscita sull'App Store. La scarichi gratis dall'App Store e l'invito la apre da solo." },
         { q: 'Posso uscire quando voglio?', a: 'Sì. Su iPhone apri TestFlight, scegli Rosanero e interrompi il test. Oppure scrivici e ti togliamo dalla lista.' },
-        { q: 'E su Android?', a: 'La beta Android passa dal test chiuso di Google Play. Scegli Android nel modulo: ti aggiungiamo appena possibile e ti mandiamo il link per installare l\'app.', aClosed: 'La beta Android parte più avanti, con il test chiuso di Google Play. Scegli Android nel modulo e ti avvisiamo appena apre.' },
-        { q: 'Cosa fate con la mia email?', a: "La usiamo solo per invitarti alla beta e scriverti durante il test: mai newsletter, mai pubblicità. Puoi chiederci di cancellarla quando vuoi.", more: "I dettagli sono nell'" },
+        { q: 'E su Android?', a: 'La beta Android passa dal test chiuso di Google Play. Scegli Android nel modulo: se c\'è posto per te, ti aggiungiamo e ti mandiamo il link per installare l\'app.', aClosed: 'La beta Android parte più avanti, con il test chiuso di Google Play. Scegli Android nel modulo e ti avvisiamo appena apre.' },
+        { q: 'Cosa fate con la mia email?', a: "La usiamo solo per invitarti alla beta e scriverti durante il test: mai newsletter, mai pubblicità. Se la richiesta non viene accolta la cancelliamo subito; altrimenti puoi chiederci di cancellarla quando vuoi.", more: "I dettagli sono nell'" },
       ],
     },
     final: {
@@ -564,7 +564,7 @@ const en: UIStrings = {
   },
   disclaimer: {
     strong: 'An independent fan project.',
-    text: 'Rosanero is not affiliated with Palermo F.C. and does not use official logos or content.',
+    text: 'Rosanero is not affiliated with Palermo F.C. and does not use official content. Team logos come from third-party data providers: we are not responsible for them, and they belong to their respective owners.',
   },
   ticker: {
     live: 'Live',
@@ -888,12 +888,12 @@ const en: UIStrings = {
   beta: {
     metaTitle: 'Public beta · Rosanero',
     metaDescription:
-      'Try Rosanero before launch: leave your email and we will invite you to the beta on TestFlight (iPhone) or Google Play (Android). Free, for every fan.',
+      'Try Rosanero before launch: ask to join the beta on TestFlight (iPhone) or Google Play (Android). Free, invite-only.',
     eyebrowOpen: 'Public beta · Sign-ups open',
     eyebrowClosed: 'Public beta · Sign-ups closed',
     title: 'Get in before',
     titleAccent: 'kick-off.',
-    lead: 'Rosanero is almost ready. Try it early, tell us what breaks and help us build it: the beta is free and open to every fan.',
+    lead: 'Rosanero is almost ready. Try it early, tell us what breaks and help us build it: the beta is free and invite-only.',
     form: {
       platformLegend: 'Your phone',
       platforms: {
@@ -936,16 +936,16 @@ const en: UIStrings = {
       deviceIos: 'Pick your iPhone model.',
       deviceOther: 'Type the full model, for example iPhone 15 Pro.',
       deviceAndroid: 'Type brand and model, for example Samsung Galaxy S24.',
-      consent: 'Tick the consent box so we can invite you.',
+      consent: 'Tick the consent box to send your request.',
       rate: 'Too many attempts in a row. Try again in a few minutes.',
       network: 'Could not connect. Check your network and try again.',
       server: 'Something went wrong on our side. Try again shortly or email support@rosanero.app.',
     },
     success: {
-      joinTitle: "You're in.",
+      joinTitle: 'Request received.',
       joinText: {
-        ios: 'We add testers by hand on TestFlight: the invite from Apple arrives in the next few days. If you cannot see it, check your spam folder.',
-        android: 'We will add you to the Google Play test and email you the link to install the app.',
+        ios: "The beta is invite-only and we add testers by hand, a few at a time. If there is a place for you, Apple's TestFlight invite will reach you: check your spam folder too.",
+        android: 'The beta is invite-only and we add testers by hand, a few at a time. If there is a place for you, we will email you the link to install the app.',
       },
       notifyTitle: 'We saved you a seat.',
       notifyText: {
@@ -969,7 +969,7 @@ const en: UIStrings = {
       holderEmpty: 'your@email.com',
       validFor: 'Early access',
       personal: 'Non-transferable',
-      stampJoin: 'Validated',
+      stampJoin: 'Received',
       stampNotify: 'On the list',
       stampClosed: 'Sold out',
     },
@@ -1021,11 +1021,11 @@ const en: UIStrings = {
       sub: 'The quick answers. For anything else, email support@rosanero.app.',
       items: [
         { q: 'Is it free?', a: 'Yes. The beta is free, and so is TestFlight. No payment, no subscription.' },
-        { q: 'When does the invite arrive?', a: 'We add testers by hand, in batches: usually within a few days. On iPhone the email comes from TestFlight (Apple); if you cannot see it, check your spam folder.' },
+        { q: 'How does the invite arrive?', a: 'The beta is invite-only: we read requests by hand and add testers in small batches. If there is a place for you, on iPhone the email comes from TestFlight (Apple); if you cannot see it, check your spam folder.' },
         { q: 'What is TestFlight?', a: 'It is the Apple app for trying apps before they reach the App Store. Download it for free from the App Store and the invite opens it for you.' },
         { q: 'Can I leave whenever I want?', a: 'Yes. On iPhone open TestFlight, pick Rosanero and stop testing. Or email us and we will take you off the list.' },
-        { q: 'What about Android?', a: 'The Android beta runs on the Google Play closed test. Pick Android in the form: we will add you as soon as we can and email you the install link.', aClosed: 'The Android beta starts later, on the Google Play closed test. Pick Android in the form and we will tell you when it opens.' },
-        { q: 'What do you do with my email?', a: 'We only use it to invite you to the beta and to write to you during the test: never newsletters, never ads. You can ask us to delete it at any time.', more: 'The details are in the ' },
+        { q: 'What about Android?', a: 'The Android beta runs on the Google Play closed test. Pick Android in the form: if there is a place for you, we will add you and email you the install link.', aClosed: 'The Android beta starts later, on the Google Play closed test. Pick Android in the form and we will tell you when it opens.' },
+        { q: 'What do you do with my email?', a: 'We only use it to invite you to the beta and to write to you during the test: never newsletters, never ads. If your request is not accepted we delete it right away; otherwise you can ask us to delete it at any time.', more: 'The details are in the ' },
       ],
     },
     final: {

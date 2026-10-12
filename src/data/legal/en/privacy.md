@@ -2,7 +2,7 @@
 title: Privacy Policy
 description: What personal data the Rosanero app processes, why, and what rights you have.
 eyebrow: Legal · Privacy
-updated: 2026-10-06
+updated: 2026-10-12
 placeholder: false
 toc:
   - { id: sez-1, label: "1. Data controller" }
@@ -61,7 +61,7 @@ If you send feedback from the app, what you write is transmitted to the **Feedba
 
 ### 3.5 Signing up for the beta on the website
 
-If you sign up for the public beta on the website's [Public beta](/en/beta/) page, we process the **email address** you enter, the **platform** you pick (iPhone or Android), your **phone model**, the page language and the time of sign-up. We need the model to check that the app can be installed and to test it on a range of devices. This data reaches us by email at support@rosanero.app, through **Resend**, and we only use it to invite you to the test and to write to you during the beta: never for newsletters or ads. To invite you we add the address to **TestFlight** (Apple) or to the **Google Play** tester list, which send you the invite. To prevent abuse the server also uses the **IP address** of the request, only for as long as it takes to limit repeated submissions.
+If you sign up for the public beta on the website's [Public beta](/en/beta/) page, we process the **email address** you enter, the **platform** you pick (iPhone or Android), your **phone model**, the page language and the time of sign-up. We need the model to check that the app can be installed and to test it on a range of devices. This data reaches us by email at support@rosanero.app, through **Resend**, and we only use it to invite you to the test and to write to you during the beta: never for newsletters or ads. The beta is invite-only: if your request is not accepted, we delete it right after reviewing it. To invite you we add the address to **TestFlight** (Apple) or to the **Google Play** tester list, which send you the invite. To prevent abuse the server also uses the **IP address** of the request, only for as long as it takes to limit repeated submissions.
 
 <h2 id="sez-4">4. Why we process it, and on what legal basis</h2>
 
@@ -108,7 +108,7 @@ Some of the providers listed above are based in the United States. Where this in
 - **Verification codes**: minutes — as long as they are valid.
 - **Diagnostic data**: per Firebase's retention periods, and in any case no longer than the purpose requires.
 - **Feedback**: for as long as it takes to handle the conversation with you.
-- **Beta sign-ups**: until the end of the test programme, or earlier if you withdraw your consent or ask us to delete them.
+- **Beta sign-ups**: if the request is accepted, until the end of the test programme, or earlier if you withdraw your consent or ask us to delete them; if it is not accepted, we delete it right after reviewing it.
 
 <h2 id="sez-9">9. Deleting your account</h2>
 

@@ -2,7 +2,7 @@
 title: Informativa sulla privacy
 description: Quali dati personali tratta l'app Rosanero, perché, e quali diritti hai.
 eyebrow: Legale · Privacy
-updated: 2026-10-06
+updated: 2026-10-12
 placeholder: false
 toc:
   - { id: sez-1, label: "1. Titolare del trattamento" }
@@ -59,7 +59,7 @@ Se invii un feedback dall'app, il testo che scrivi viene trasmesso al servizio *
 
 ### 3.5 Iscrizione alla beta dal sito
 
-Se ti iscrivi alla beta pubblica dalla pagina [Beta pubblica](/beta/) del sito, trattiamo l'**indirizzo email** che inserisci, la **piattaforma** che scegli (iPhone o Android), il **modello del telefono**, la lingua della pagina e il momento dell'iscrizione. Il modello ci serve a verificare che l'app si possa installare e a provarla su dispositivi diversi. Questi dati ci arrivano per email all'indirizzo support@rosanero.app, tramite **Resend**, e li usiamo solo per invitarti al test e per scriverti durante la beta: mai per newsletter o pubblicità. Per invitarti inseriamo l'indirizzo in **TestFlight** (Apple) o nell'elenco dei tester di **Google Play**, che ti mandano l'invito. Per prevenire abusi il server usa anche l'**indirizzo IP** della richiesta, solo per il tempo necessario a limitare gli invii ripetuti.
+Se ti iscrivi alla beta pubblica dalla pagina [Beta pubblica](/beta/) del sito, trattiamo l'**indirizzo email** che inserisci, la **piattaforma** che scegli (iPhone o Android), il **modello del telefono**, la lingua della pagina e il momento dell'iscrizione. Il modello ci serve a verificare che l'app si possa installare e a provarla su dispositivi diversi. Questi dati ci arrivano per email all'indirizzo support@rosanero.app, tramite **Resend**, e li usiamo solo per invitarti al test e per scriverti durante la beta: mai per newsletter o pubblicità. La beta è su invito: se la tua richiesta non viene accolta, la cancelliamo subito dopo averla valutata. Per invitarti inseriamo l'indirizzo in **TestFlight** (Apple) o nell'elenco dei tester di **Google Play**, che ti mandano l'invito. Per prevenire abusi il server usa anche l'**indirizzo IP** della richiesta, solo per il tempo necessario a limitare gli invii ripetuti.
 
 <h2 id="sez-4">4. Perché trattiamo questi dati e su quale base giuridica</h2>
 
@@ -106,7 +106,7 @@ Alcuni dei fornitori sopra elencati hanno sede negli Stati Uniti. Quando ciò co
 - **Codici di verifica**: pochi minuti, il tempo della loro validità.
 - **Dati diagnostici**: secondo i periodi di conservazione di Firebase, comunque non oltre quanto necessario alla finalità.
 - **Feedback**: finché serve a gestire la conversazione con te.
-- **Iscrizioni alla beta**: fino alla fine del programma di test, o prima se revochi il consenso o ci chiedi di cancellarle.
+- **Iscrizioni alla beta**: se la richiesta viene accolta, fino alla fine del programma di test, o prima se revochi il consenso o ci chiedi di cancellarle; se non viene accolta, la cancelliamo subito dopo averla valutata.
 
 <h2 id="sez-9">9. Cancellare l'account</h2>
 

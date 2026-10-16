@@ -2,7 +2,7 @@
 title: Informativa sulla privacy
 description: Quali dati personali tratta l'app Rosanero, perché, e quali diritti hai.
 eyebrow: Legale · Privacy
-updated: 2026-10-12
+updated: 2026-10-16
 placeholder: false
 toc:
   - { id: sez-1, label: "1. Titolare del trattamento" }
@@ -29,7 +29,7 @@ Non è stato nominato un responsabile della protezione dei dati (DPO), non ricor
 
 <h2 id="sez-2">2. Puoi usare Rosanero senza account</h2>
 
-Calendario, risultati e rosa sono consultabili **senza registrarsi**. Se non crei un account non trattiamo alcun dato identificativo: restano solo i dati tecnici e diagnostici descritti al § 3.3, e le informazioni tecniche necessarie a consegnarti i contenuti (§ 3.4).
+Partite, risultati e classifiche sono consultabili **senza registrarsi**, e anche la bacheca dei suggerimenti funziona senza account. Se non crei un account non trattiamo alcun dato identificativo: restano solo i dati tecnici e diagnostici descritti al § 3.3, le informazioni tecniche necessarie a consegnarti i contenuti e, se usi la bacheca, ciò che ci invii lì (§ 3.4).
 
 <h2 id="sez-3">3. Quali dati trattiamo</h2>
 
@@ -38,28 +38,39 @@ Calendario, risultati e rosa sono consultabili **senza registrarsi**. Se non cre
 Se crei un account, trattiamo:
 
 - **nome** e **indirizzo email**, e lo stato di verifica dell'email;
-- l'**immagine del profilo**, se fornita dal provider con cui accedi;
+- il **link all'immagine del profilo** che fornisce Google, se accedi con Google: conserviamo solo l'indirizzo, l'app non scarica né mostra l'immagine;
 - la **password**, se scegli l'accesso con email e password: non viene mai conservata in chiaro, ma solo come hash crittografico;
-- i **codici di verifica a 6 cifre** (OTP) inviati per email, conservati per il breve tempo della loro validità;
-- gli **identificativi delle identità collegate** (Apple, Google, email/password) e i relativi token rilasciati dal provider.
+- i **codici di verifica a 6 cifre** (OTP) inviati per email, conservati solo come hash per i 10 minuti in cui sono validi;
+- gli **identificativi delle identità collegate** (Apple, solo su iPhone; Google; email e password) e i relativi token rilasciati dal provider.
 
 Se accedi con **Sign in with Apple** e scegli "Nascondi la mia email", riceviamo un indirizzo di inoltro anonimo `@privaterelay.appleid.com` e non il tuo indirizzo reale.
 
 ### 3.2 Dati di sessione
 
-Per tenerti connesso trattiamo un **token di sessione**, la sua scadenza, e — registrati dal server all'apertura della sessione — l'**indirizzo IP** e lo **user agent** del dispositivo. Il token è conservato sul tuo dispositivo nel **Portachiavi (Keychain)** di sistema; l'app riceve inoltre un token di breve durata, tenuto solo in memoria, per accedere ai contenuti riservati.
+Per tenerti connesso trattiamo un **token di sessione**, la sua scadenza, e — registrati dal server all'apertura della sessione — l'**indirizzo IP** e lo **user agent** del dispositivo. Sul tuo dispositivo il token è conservato così: su iPhone, nel **Portachiavi (Keychain)** di sistema; su Android, cifrato con una chiave custodita nell'**Android Keystore** ed escluso dai backup del dispositivo. L'app riceve inoltre un token di breve durata, tenuto solo in memoria, per accedere ai contenuti riservati.
 
 ### 3.3 Dati diagnostici e di utilizzo
 
-Le versioni distribuite dell'app (TestFlight e App Store) includono **Firebase Analytics** e **Firebase Crashlytics** di Google, che raccolgono eventi di utilizzo aggregati e segnalazioni di crash con lo stato tecnico del dispositivo al momento dell'errore (modello, versione del sistema, versione dell'app, identificativi generati dalle librerie). Non usiamo questi dati per profilazione pubblicitaria e non li incrociamo con i dati del tuo account. Le build di sviluppo interne non configurano Firebase e non inviano nulla.
+Le versioni distribuite dell'app includono **Firebase Crashlytics** e **Firebase Analytics** di Google:
 
-### 3.4 Feedback
+- su iPhone, le versioni dell'App Store e di TestFlight e le build di test distribuite con Firebase App Distribution;
+- su Android, le versioni di Google Play e le build di test distribuite con Firebase App Distribution.
 
-Se invii un feedback dall'app, il testo che scrivi viene trasmesso al servizio **FeedbackThread** insieme a un identificativo del tuo account, così da poterti rispondere. Non inviare in quel canale dati che non vuoi che siano trattati.
+**Crashlytics** raccoglie le segnalazioni di crash (lo stack trace e lo stato dell'app al momento dell'errore), il modello del dispositivo, la versione del sistema, la versione dell'app e un identificativo dell'installazione.
+
+**Analytics** raccoglie solo gli eventi di utilizzo automatici, per esempio le schermate visualizzate, le sessioni, la prima apertura e il tempo di utilizzo. L'app non registra eventi propri e non collega Analytics al tuo account. Analytics usa un identificativo dell'istanza dell'app generato dalla libreria; Google ricava dall'indirizzo IP una posizione approssimativa, a livello di paese o città.
+
+Non raccogliamo l'identificativo pubblicitario: su Android è disattivato, su iPhone l'app non chiede il permesso di tracciamento. Non usiamo questi dati per pubblicità o profilazione e non li incrociamo con i dati del tuo account. Le build di sviluppo interne non configurano Firebase e non inviano nulla.
+
+### 3.4 Bacheca dei suggerimenti
+
+In *Impostazioni → Suggerimenti e segnalazioni* puoi inviare suggerimenti e segnalazioni di bug e votare le richieste degli altri, con o senza account. Quando invii una richiesta, al servizio **FeedbackThread** arrivano: il tipo (suggerimento o segnalazione), il titolo e il testo che scrivi, la piattaforma, la versione dell'app e un identificativo. Se hai effettuato l'accesso, l'identificativo è quello del tuo account; altrimenti è un identificativo casuale, generato e conservato sul tuo dispositivo. Anche i tuoi voti sono registrati con lo stesso identificativo. Il tuo nome e la tua email non vengono inviati a FeedbackThread.
+
+Le richieste sono moderate prima della pubblicazione: nessun altro le vede finché non le approviamo. Una richiesta approvata, con titolo e testo, diventa **pubblica** sulla bacheca dell'app, su iPhone e su Android, senza il tuo nome. Per questo non scrivere nel titolo o nel testo dati personali, tuoi o di altri.
 
 ### 3.5 Iscrizione alla beta dal sito
 
-Se ti iscrivi alla beta pubblica dalla pagina [Beta pubblica](/beta/) del sito, trattiamo l'**indirizzo email** che inserisci, la **piattaforma** che scegli (iPhone o Android), il **modello del telefono**, la lingua della pagina e il momento dell'iscrizione. Il modello ci serve a verificare che l'app si possa installare e a provarla su dispositivi diversi. Questi dati ci arrivano per email all'indirizzo support@rosanero.app, tramite **Resend**, e li usiamo solo per invitarti al test e per scriverti durante la beta: mai per newsletter o pubblicità. La beta è su invito: se la tua richiesta non viene accolta, la cancelliamo subito dopo averla valutata. Per invitarti inseriamo l'indirizzo in **TestFlight** (Apple) o nell'elenco dei tester di **Google Play**, che ti mandano l'invito. Per prevenire abusi il server usa anche l'**indirizzo IP** della richiesta, solo per il tempo necessario a limitare gli invii ripetuti.
+Se ti iscrivi alla beta pubblica dalla pagina [Beta pubblica](/beta/) del sito, trattiamo l'**indirizzo email** che inserisci, la **piattaforma** che scegli (iPhone o Android), il **modello del telefono**, la lingua della pagina e il momento dell'iscrizione. Il modello ci serve a verificare che l'app si possa installare e a provarla su dispositivi diversi. Questi dati ci arrivano per email all'indirizzo support@rosanero.app, tramite **Resend**, e li usiamo solo per invitarti al test e per scriverti durante la beta: mai per newsletter o pubblicità. La beta è su invito: se la tua richiesta non viene accolta, la cancelliamo subito dopo averla valutata. Per invitarti inseriamo il tuo indirizzo email in **TestFlight** (Apple), per iPhone; per Android, in **Firebase App Distribution** (Google) o nell'elenco dei tester di **Google Play** (Google). Questi servizi ricevono il tuo indirizzo email e ti mandano l'invito. Firebase App Distribution conserva i dati del tester (l'email e i dati del dispositivo su cui installi la build di test) finché non ti rimuoviamo dai tester. Per prevenire abusi il server usa anche l'**indirizzo IP** della richiesta, solo per il tempo necessario a limitare gli invii ripetuti.
 
 <h2 id="sez-4">4. Perché trattiamo questi dati e su quale base giuridica</h2>
 
@@ -71,7 +82,7 @@ Se ti iscrivi alla beta pubblica dalla pagina [Beta pubblica](/beta/) del sito, 
 | Verificare l'email e consentire il recupero della password | § 3.1 | Esecuzione del contratto — lett. b) |
 | Sicurezza: prevenire abusi, accessi non autorizzati e limitare le richieste ripetute | § 3.2 | Legittimo interesse — lett. f) |
 | Diagnosticare crash e malfunzionamenti, capire quali sezioni sono usate | § 3.3 | Legittimo interesse — lett. f) |
-| Gestire il feedback e risponderti | § 3.4 | Legittimo interesse — lett. f) |
+| Gestire suggerimenti e segnalazioni, rispondere e pubblicare sulla bacheca quelli approvati | § 3.4 | Legittimo interesse — lett. f) |
 | Invitarti alla beta e scriverti durante il test | § 3.5 | Consenso — lett. a) |
 
 </div>
@@ -80,18 +91,20 @@ Non trattiamo dati appartenenti alle categorie particolari dell'art. 9 GDPR e no
 
 <h2 id="sez-5">5. Da dove arrivano i dati</h2>
 
-Direttamente da te, oppure — quando scegli di accedere con Apple o Google — **dal provider**, che ci comunica un identificativo, l'indirizzo email associato e, se disponibile, il nome. Non riceviamo mai la tua password del provider.
+Direttamente da te, oppure — quando scegli di accedere con Apple (su iPhone) o con Google — **dal provider**, che ci comunica un identificativo, l'indirizzo email associato e, se disponibili, il nome e (solo Google) il link all'immagine del profilo. Non riceviamo mai la tua password del provider.
 
 <h2 id="sez-6">6. A chi comunichiamo i dati</h2>
 
 Non vendiamo i tuoi dati e non li cediamo per finalità di marketing di terzi. Li trattano per nostro conto, come responsabili o titolari autonomi, i seguenti fornitori:
 
-- **Apple** e **Google**, come provider di identità, per l'accesso;
+- **Apple** (su iPhone) e **Google**, come provider di identità, per l'accesso;
 - **Resend**, per l'invio delle email di verifica e di recupero password e per inoltrarci le iscrizioni alla beta;
-- **Apple (TestFlight)** e **Google (Google Play)**, quando ti invitiamo alla beta;
+- **Apple (TestFlight)** e **Google (Firebase App Distribution e Google Play)**, quando ti invitiamo alla beta;
 - **Google (Firebase)**, per diagnostica e analisi di utilizzo;
-- **FeedbackThread**, per la gestione dei feedback;
+- **FeedbackThread**, per la bacheca dei suggerimenti;
 - il **fornitore di hosting** dell'infrastruttura su cui gira il servizio.
+
+Gli altri utenti dell'app vedono le richieste che approviamo sulla bacheca (§ 3.4).
 
 Possiamo inoltre comunicare dati all'autorità giudiziaria o ad altre autorità competenti quando un obbligo di legge lo imponga.
 
@@ -101,16 +114,19 @@ Alcuni dei fornitori sopra elencati hanno sede negli Stati Uniti. Quando ciò co
 
 <h2 id="sez-8">8. Per quanto tempo li conserviamo</h2>
 
-- **Dati dell'account**: finché l'account esiste. Se lo elimini, i dati collegati vengono cancellati insieme a esso (vedi § 9).
+- **Dati dell'account**: finché l'account esiste. Se lo elimini, i dati collegati vengono cancellati insieme a esso (vedi § 9). Restano solo nei backup notturni del database, conservati sullo stesso server: cancelliamo quelli più vecchi di 7 giorni, quindi entro 10 giorni non ne resta traccia.
 - **Sessioni**: fino alla scadenza o alla disconnessione.
-- **Codici di verifica**: pochi minuti, il tempo della loro validità.
-- **Dati diagnostici**: secondo i periodi di conservazione di Firebase, comunque non oltre quanto necessario alla finalità.
-- **Feedback**: finché serve a gestire la conversazione con te.
+- **Codici di verifica**: 10 minuti, il tempo della loro validità.
+- **Dati diagnostici**: le segnalazioni di crash 90 giorni; gli eventi di utilizzo 2 mesi, dopo i quali restano solo report aggregati, che non identificano nessuno.
+- **Bacheca dei suggerimenti**: le richieste approvate restano pubbliche finché la bacheca è attiva, anche dopo l'eliminazione dell'account, e le rimuoviamo se ce lo chiedi (vedi § 9); le altre richieste, per il tempo necessario a gestirle.
+- **Email al supporto** (comprese le richieste di cancellazione): 12 mesi dall'ultimo messaggio.
 - **Iscrizioni alla beta**: se la richiesta viene accolta, fino alla fine del programma di test, o prima se revochi il consenso o ci chiedi di cancellarle; se non viene accolta, la cancelliamo subito dopo averla valutata.
 
 <h2 id="sez-9">9. Cancellare l'account</h2>
 
-Puoi eliminare il tuo account **direttamente dall'app**, in *Altro → Elimina account*. La cancellazione rimuove il profilo, le identità collegate e le sessioni, e revoca l'autorizzazione concessa ad Apple quando avevi effettuato l'accesso con Apple. È un'operazione **irreversibile**. Le istruzioni passo per passo sono nella pagina [Eliminazione account](/delete-account/).
+Puoi eliminare il tuo account **direttamente dall'app**, in *Impostazioni → Elimina account*. La cancellazione è immediata: rimuove il profilo, le identità collegate e le sessioni, revoca l'autorizzazione concessa ad Apple se avevi effettuato l'accesso con Apple, e l'app ti disconnette, rimuovendo il token di sessione dal dispositivo. È un'operazione **irreversibile**.
+
+Non vengono cancellati: le richieste approvate sulla bacheca, che rimuoviamo se ce lo chiedi, anche senza eliminare l'account; i dati di Firebase, che non sono collegati all'account; le email scambiate con il supporto; i backup del database, dove i dati restano al massimo 10 giorni. I tempi sono al § 8. Le istruzioni passo per passo, anche per chi non ha più l'app, sono nella pagina [Eliminazione account](/delete-account/).
 
 <h2 id="sez-10">10. I tuoi diritti</h2>
 

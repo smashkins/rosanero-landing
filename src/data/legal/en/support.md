@@ -2,7 +2,7 @@
 title: Support
 description: How to contact the Rosanero team for bug reports, questions about your data and account requests.
 eyebrow: Support
-updated: 2026-09-02
+updated: 2026-10-16
 placeholder: false
 toc:
   - { id: scrivici, label: Write to us }
@@ -15,7 +15,7 @@ Rosanero is made by fans: we answer ourselves, not a call centre. Write to us fo
 
 <h2 id="scrivici">Write to us</h2>
 
-For anything, bugs, ideas, questions, an email is enough: [support@rosanero.app](mailto:support@rosanero.app). We usually reply within [n] working days.
+For anything, bugs, ideas, questions, an email is enough: [support@rosanero.app](mailto:support@rosanero.app). We usually reply within a few days.
 
 <h2 id="privacy-dati">Privacy and data</h2>
 
@@ -34,4 +34,4 @@ No. It is an independent fan project, not affiliated with Palermo F.C. It does n
 The first features are being built. We announce them here and on the stores when they are ready, without dates we cannot keep.
 
 **I deleted my account: can I come back?**
-Yes, by registering again. But level, XP and collectibles cannot be recovered: deletion is final.
+Yes, by signing up again, but as a new account: deletion is final and the old account's data cannot be recovered.

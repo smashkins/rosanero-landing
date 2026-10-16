@@ -2,7 +2,7 @@
 title: Supporto
 description: Come contattare il team di Rosanero per segnalazioni, domande sui dati e richieste sull'account.
 eyebrow: Supporto
-updated: 2026-09-02
+updated: 2026-10-16
 placeholder: false
 toc:
   - { id: scrivici, label: Scrivici }
@@ -15,7 +15,7 @@ Rosanero è fatta da tifosi: rispondiamo noi, non un call center. Scrivici per s
 
 <h2 id="scrivici">Scrivici</h2>
 
-Per qualsiasi cosa, bug, idee, domande, un'email basta: [support@rosanero.app](mailto:support@rosanero.app). Rispondiamo di solito entro [n] giorni lavorativi.
+Per qualsiasi cosa, bug, idee, domande, un'email basta: [support@rosanero.app](mailto:support@rosanero.app). Di solito rispondiamo entro pochi giorni.
 
 <h2 id="privacy-dati">Privacy e dati</h2>
 
@@ -34,4 +34,4 @@ No. È un progetto indipendente dei tifosi, non affiliato al Palermo F.C. Non us
 Le prime funzioni sono in costruzione. Le annunciamo qui e negli store quando sono pronte, senza date che non possiamo mantenere.
 
 **Ho eliminato l'account: posso tornare?**
-Sì, registrandoti di nuovo. Ma livello, XP e collezionabili non si recuperano: l'eliminazione è definitiva.
+Sì, registrandoti di nuovo, ma come nuovo account: l'eliminazione è definitiva e i dati del vecchio account non si possono recuperare.

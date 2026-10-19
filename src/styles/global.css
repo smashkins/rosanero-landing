@@ -316,7 +316,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .closing p { max-width: 560px; font-size: 17px; color: var(--muted); }
 
 /* legal pages */
-.legal-grid { display: grid; grid-template-columns: 260px minmax(0, 760px); gap: 72px; justify-content: start; padding: 64px 0 110px; }
+.legal-grid { display: grid; grid-template-columns: 260px minmax(0, 760px); gap: 72px; justify-content: start; padding-block: 64px 110px; }
 .legal-aside { display: flex; flex-direction: column; gap: 28px; position: sticky; top: 100px; align-self: start; }
 .legal-aside .group { display: flex; flex-direction: column; gap: 6px; }
 .lbl-side { font-family: var(--font-cond); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted-2); margin-bottom: 6px; }
@@ -396,9 +396,19 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .community-head { grid-template-columns: 1fr !important; }
   .coll-row { grid-template-columns: 1fr !important; }
   .card-phone img { width: 220px; }
-  .legal-grid { grid-template-columns: 1fr; gap: 32px; padding: 40px 0 70px; }
+  .legal-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; padding-block: 40px 70px; }
   .legal-aside { position: static; }
   .footer .inner { flex-direction: column; align-items: flex-start; }
+}
+/* legal tables: one block per row where the 560 px table no longer fits */
+@media (max-width: 600px) {
+  .legal table, .legal thead, .legal tbody, .legal tr { display: block; }
+  .legal table { min-width: 0; }
+  .legal tr { padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .legal th, .legal td { display: inline; padding: 0; border: 0; }
+  .legal :is(th, td):first-child { display: block; margin-bottom: 4px; }
+  .legal td:not(:first-child) { font-size: 14px; color: var(--muted); }
+  .legal :is(th, td):nth-child(3)::before { content: " · "; }
 }
 @media (max-width: 359px) {
   .brand span { display: none; }

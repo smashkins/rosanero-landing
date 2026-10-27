@@ -2,7 +2,7 @@
 title: Eliminazione account
 description: Come eliminare il tuo account Rosanero dall'app o via email, anche senza l'app, e cosa viene cancellato e cosa no.
 eyebrow: Eliminazione account
-updated: 2026-10-16
+updated: 2026-10-27
 placeholder: false
 toc:
   - { id: in-app, label: Dall'app }
@@ -44,6 +44,7 @@ Inoltre:
 
 - se accedevi con Apple, revochiamo presso Apple l'autorizzazione che avevi concesso;
 - se elimini l'account dall'app, l'app ti disconnette e rimuove il token di sessione dal dispositivo;
+- le registrazioni per le notifiche push dei tuoi dispositivi vengono scollegate dall'account;
 - i codici di verifica (OTP) già inviati non vengono cancellati con l'account, ma scadono entro 10 minuti.
 
 Se accedevi con Google, Rosanero può restare nell'elenco delle app di terze parti collegate al tuo Account Google. Puoi rimuoverla da [myaccount.google.com/connections](https://myaccount.google.com/connections).
@@ -52,6 +53,7 @@ Se accedevi con Google, Rosanero può restare nell'elenco delle app di terze par
 
 - **Suggerimenti e segnalazioni.** Le richieste che abbiamo approvato restano pubbliche sulla bacheca, non più collegate ad alcun account. Le rimuoviamo su richiesta entro 30 giorni, anche se non elimini l'account: scrivi a [support@rosanero.app](mailto:support@rosanero.app) indicandone i titoli.
 - **Dati di Firebase.** I dati di crash e di utilizzo raccolti da Firebase non sono collegati all'account. Le segnalazioni di crash sono conservate 90 giorni, gli eventi di utilizzo 2 mesi; dopo restano solo report aggregati, che non identificano nessuno.
+- **Notifiche push.** Le registrazioni dei tuoi iPhone restano, non più collegate ad alcun account, così continui a ricevere le notifiche che hai attivato. Per non riceverle più, spegnile nelle impostazioni dell'iPhone. Cancelliamo la registrazione dopo 90 giorni in cui l'app non si apre, per esempio se la disinstalli.
 - **Email al supporto.** Le email che ci scrivi, compresa la richiesta di cancellazione, sono conservate per 12 mesi dall'ultimo messaggio.
 - **Backup.** Ogni notte salviamo una copia del database sullo stesso server e cancelliamo quelle più vecchie di 7 giorni: entro 10 giorni dalla cancellazione, nei backup non resta nulla del tuo account. Non esistono altre copie.
 - **Beta.** L'iscrizione alla beta è separata dall'account. Per uscire dal test, scrivici a [support@rosanero.app](mailto:support@rosanero.app).

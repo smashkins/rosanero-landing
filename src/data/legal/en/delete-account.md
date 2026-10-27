@@ -2,7 +2,7 @@
 title: Account deletion
 description: How to delete your Rosanero account from the app or by email, even without the app, and what gets deleted and what does not.
 eyebrow: Account deletion
-updated: 2026-10-16
+updated: 2026-10-27
 placeholder: false
 toc:
   - { id: in-app, label: From the app }
@@ -44,6 +44,7 @@ Also:
 
 - if you signed in with Apple, we revoke at Apple the authorisation you had granted;
 - if you delete the account from the app, the app signs you out and removes the session token from your device;
+- your devices' push notification registrations are unlinked from the account;
 - verification codes (OTP) already sent are not deleted with the account, but they expire within 10 minutes.
 
 If you signed in with Google, Rosanero may remain listed among the third-party apps connected to your Google Account. You can remove it at [myaccount.google.com/connections](https://myaccount.google.com/connections).
@@ -52,6 +53,7 @@ If you signed in with Google, Rosanero may remain listed among the third-party a
 
 - **Suggestions and reports.** The requests we approved stay public on the board, no longer tied to any account. We remove them on request within 30 days, even if you do not delete your account: write to [support@rosanero.app](mailto:support@rosanero.app) giving their titles.
 - **Firebase data.** The crash and usage data collected by Firebase is not linked to the account. Crash reports are kept for 90 days, usage events for 2 months; after that only aggregated reports remain, which do not identify anyone.
+- **Push notifications.** Your iPhones' registrations stay, no longer tied to any account, so you keep getting the notifications you turned on. To stop getting them, turn them off in the iPhone's settings. We delete a registration after 90 days in which the app is not opened, for example if you uninstall it.
 - **Support emails.** The emails you send us, including the deletion request, are kept for 12 months from the last message.
 - **Backups.** Every night we save a copy of the database on the same server and delete the copies older than 7 days: within 10 days of deletion, nothing of your account remains in the backups. There are no other copies.
 - **Beta.** A beta sign-up is separate from the account. To leave the test, write to us at [support@rosanero.app](mailto:support@rosanero.app).

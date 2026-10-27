@@ -2,7 +2,7 @@
 
 Documento di ripresa. Contiene tutto quello che serve per continuare il lavoro in una sessione nuova, senza il contesto della conversazione precedente. Aggiornare la checklist in fondo man mano.
 
-Ultimo aggiornamento: 2026-10-12.
+Ultimo aggiornamento: 2026-10-27.
 
 ## 1. Cosa stiamo costruendo
 
@@ -204,5 +204,7 @@ Markdown importato direttamente (pattern `src/pages/index.astro:12` di monoidx):
 - [x] Repo GitHub https://github.com/smashkins/rosanero-landing (pubblico), workflow, primo deploy riuscito (2026-09-03), Pages con source Actions e cname `rosanero.app` (impostati via API)
 - [x] Pagina beta pubblica IT/EN, Beta Pass, modello del telefono obbligatorio (menu iPhone iOS 26/27, testo libero Android), CTA in landing (nav, hero, chiusura), privacy § 3.5, workflow apri/chiudi (PR #1, online dal 2026-10-06)
 - [x] Beta: endpoint `POST /beta/signup` in produzione su rosanero-api (PR #22, auth `0.3.0`, `BETA_SIGNUP_*` e blocco `/beta/*` nei Caddyfile del NAS), prova reale dal sito riuscita il 2026-10-06
+- [x] Privacy per le notifiche push e gli eventi Analytics dell'app (2026-10-27): § 3.3 eventi propri e interruttore *Impostazioni → Privacy → Condividi statistiche d'uso* (solo iPhone), § 3.6 notifiche push (cosa conserva il servizio `notify` per installazione, APNs, pulizia a 90 giorni; i tipi di notifica descritti in modo generico, scelta dell'utente: un tipo nuovo non richiede di modificare il testo), § 4 legittimo interesse e come opporsi, § 6 Apple APNs, § 8–10; eliminazione account: le registrazioni push vengono scollegate, non cancellate. Android: niente push e niente interruttore, il testo lo dice
+- [ ] Privacy per Android, quando l'app Android avrà l'interruttore Analytics e le notifiche push: § 3.3 e § 10 (interruttore, oggi "Nell'app per Android l'interruttore non c'è ancora"), § 3.6 (push, oggi "l'app per Android non usa le notifiche push"), § 6 (Google FCM tra i destinatari), pagina eliminazione account (IT/EN). Lo stesso promemoria è nel triage di parità Android lato iOS
 - [ ] DNS: record A/AAAA/CNAME al registrar (a cura dell'utente, vedi §5), poi "Enforce HTTPS" in Settings → Pages e verifica post-deploy (§6 punto 5)
 - [ ] Quando arrivano: icona definitiva (favicon/OG), testi legali IT/EN (`placeholder: false`), percorso in-app eliminazione account, tempi `[n]`

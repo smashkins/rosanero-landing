@@ -2,7 +2,7 @@
 title: Informativa sulla privacy
 description: Quali dati personali tratta l'app Rosanero, perché, e quali diritti hai.
 eyebrow: Legale · Privacy
-updated: 2026-10-27
+updated: 2026-10-29
 placeholder: false
 toc:
   - { id: sez-1, label: "1. Titolare del trattamento" }
@@ -70,13 +70,15 @@ In *Impostazioni → Suggerimenti e segnalazioni* puoi inviare suggerimenti e se
 
 Le richieste sono moderate prima della pubblicazione: nessun altro le vede finché non le approviamo. Una richiesta approvata, con titolo e testo, diventa **pubblica** sulla bacheca dell'app, su iPhone e su Android, senza il tuo nome. Per questo non scrivere nel titolo o nel testo dati personali, tuoi o di altri.
 
+**Risposte private.** Su una richiesta che hai inviato dall'app possiamo risponderti in privato, e tu puoi risponderci: la conversazione la leggiamo solo tu e noi, e non diventa mai pubblica. Per riconoscere il tuo dispositivo, FeedbackThread gli assegna un'identità anonima, un identificativo con la sua chiave di accesso conservati sul dispositivo, e conserva i messaggi della conversazione e il punto fino a cui li hai letti. Quando esci dall'account o lo elimini, l'app chiude quell'identità e ne crea una nuova: da quel dispositivo le conversazioni precedenti non sono più raggiungibili.
+
 ### 3.5 Iscrizione alla beta dal sito
 
 Se ti iscrivi alla beta pubblica dalla pagina [Beta pubblica](/beta/) del sito, trattiamo l'**indirizzo email** che inserisci, la **piattaforma** che scegli (iPhone o Android), il **modello del telefono**, la lingua della pagina e il momento dell'iscrizione. Il modello ci serve a verificare che l'app si possa installare e a provarla su dispositivi diversi. Questi dati ci arrivano per email all'indirizzo support@rosanero.app, tramite **Resend**, e li usiamo solo per invitarti al test e per scriverti durante la beta: mai per newsletter o pubblicità. La beta è su invito: se la tua richiesta non viene accolta, la cancelliamo subito dopo averla valutata. Per invitarti inseriamo il tuo indirizzo email in **TestFlight** (Apple), per iPhone; per Android, in **Firebase App Distribution** (Google) o nell'elenco dei tester di **Google Play** (Google). Questi servizi ricevono il tuo indirizzo email e ti mandano l'invito. Firebase App Distribution conserva i dati del tester (l'email e i dati del dispositivo su cui installi la build di test) finché non ti rimuoviamo dai tester. Per prevenire abusi il server usa anche l'**indirizzo IP** della richiesta, solo per il tempo necessario a limitare gli invii ripetuti.
 
 ### 3.6 Notifiche push
 
-Su iPhone l'app può inviarti **notifiche push**, per esempio sulle partite. Scegli tu quali tipi ricevere. Per consegnarle usiamo il nostro servizio di notifiche, sul nostro server, e **Apple Push Notification service** (APNs), il servizio di Apple che porta le notifiche sull'iPhone.
+Su iPhone l'app può inviarti **notifiche push**, per esempio sulle partite. Scegli tu quali tipi ricevere. Per consegnarle usiamo il nostro servizio di notifiche, sul nostro server, e **Apple Push Notification service** (APNs), il servizio di Apple che porta le notifiche sull'iPhone; le notifiche delle risposte private ai tuoi suggerimenti le invia invece FeedbackThread (vedi sotto).
 
 A ogni apertura, anche se non hai ancora attivato le notifiche, l'app registra la sua installazione sul nostro server. Per ogni installazione conserviamo:
 
@@ -93,6 +95,8 @@ A ogni apertura, anche se non hai ancora attivato le notifiche, l'app registra l
 Per ogni notifica inviata registriamo anche l'esito della consegna (per esempio inviata, scaduta o rifiutata da Apple). Per prevenire abusi il server usa l'**indirizzo IP** della richiesta solo in memoria, per il tempo necessario a limitare le richieste ripetute.
 
 Usiamo questi dati solo per le notifiche, e te le inviamo solo se hai concesso il permesso e hai lasciato attivo quel tipo. Apple riceve il token e il contenuto della notifica, non il tuo nome né la tua email. Su iPhone le notifiche non passano da Firebase.
+
+Le notifiche delle **risposte private** (§ 3.4) le invia **FeedbackThread**, sempre attraverso APNs. Se hai concesso il permesso e lasci attivo *Risposte ai tuoi suggerimenti* in *Impostazioni → Notifiche*, l'app comunica a FeedbackThread il token per le notifiche dell'iPhone, collegato alla sua identità anonima. La notifica dice solo che è arrivata una risposta, mai il suo testo, che leggi nell'app. Se spegni quell'interruttore, esci dall'account o lo elimini, l'app chiede a FeedbackThread di cancellare il token.
 
 Puoi spegnerle tutte nell'app Impostazioni dell'iPhone (*Notifiche → Rosanero*), oppure per tipo nell'app, in *Impostazioni → Notifiche*. Da spente non ti inviamo nulla, ma l'app continua a registrare l'installazione con il nuovo stato, così le notifiche ripartono se le riattivi. Per ora l'app per Android non usa le notifiche push e non registra nulla di tutto questo.
 
@@ -130,7 +134,7 @@ Non vendiamo i tuoi dati e non li cediamo per finalità di marketing di terzi. L
 - **Apple (TestFlight)** e **Google (Firebase App Distribution e Google Play)**, quando ti invitiamo alla beta;
 - **Google (Firebase)**, per diagnostica e analisi di utilizzo;
 - **Apple (Apple Push Notification service)**, per consegnare le notifiche push sull'iPhone;
-- **FeedbackThread**, per la bacheca dei suggerimenti;
+- **FeedbackThread**, per la bacheca dei suggerimenti, le risposte private e, su iPhone, le loro notifiche;
 - il **fornitore di hosting** dell'infrastruttura su cui gira il servizio.
 
 Gli altri utenti dell'app vedono le richieste che approviamo sulla bacheca (§ 3.4).
@@ -148,7 +152,7 @@ Alcuni dei fornitori sopra elencati hanno sede negli Stati Uniti. Quando ciò co
 - **Codici di verifica**: 10 minuti, il tempo della loro validità.
 - **Dati diagnostici**: le segnalazioni di crash 90 giorni; gli eventi di utilizzo 2 mesi, dopo i quali restano solo report aggregati, che non identificano nessuno.
 - **Notifiche push**: cancelliamo la registrazione di un'installazione dopo 90 giorni in cui l'app non si registra di nuovo, per esempio perché l'hai disinstallata, o prima, se Apple ci segnala che il token non è più valido; l'esito delle consegne, 30 giorni. Dai backup notturni del database spariscono entro 10 giorni, come i dati dell'account.
-- **Bacheca dei suggerimenti**: le richieste approvate restano pubbliche finché la bacheca è attiva, anche dopo l'eliminazione dell'account, e le rimuoviamo se ce lo chiedi (vedi § 9); le altre richieste, per il tempo necessario a gestirle.
+- **Bacheca dei suggerimenti**: le richieste approvate restano pubbliche finché la bacheca è attiva, anche dopo l'eliminazione dell'account, e le rimuoviamo se ce lo chiedi (vedi § 9); le altre richieste, per il tempo necessario a gestirle; le conversazioni private restano con la richiesta a cui si riferiscono; il token per le notifiche delle risposte, finché non spegni l'interruttore o esci dall'account.
 - **Email al supporto** (comprese le richieste di cancellazione): 12 mesi dall'ultimo messaggio.
 - **Iscrizioni alla beta**: se la richiesta viene accolta, fino alla fine del programma di test, o prima se revochi il consenso o ci chiedi di cancellarle; se non viene accolta, la cancelliamo subito dopo averla valutata.
 

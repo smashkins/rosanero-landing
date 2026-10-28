@@ -2,7 +2,7 @@
 title: Privacy Policy
 description: What personal data the Rosanero app processes, why, and what rights you have.
 eyebrow: Legal · Privacy
-updated: 2026-10-27
+updated: 2026-10-29
 placeholder: false
 toc:
   - { id: sez-1, label: "1. Data controller" }
@@ -72,13 +72,15 @@ In *Settings → Suggestions & reports* you can send suggestions and bug reports
 
 Requests are moderated before publication: nobody else sees them until we approve them. An approved request, title and text, becomes **public** on the app's board, on iPhone and on Android, without your name. So do not put personal data, yours or anyone else's, in the title or text.
 
+**Private replies.** On a request you sent from the app we can reply to you privately, and you can reply to us: only you and we can read the conversation, and it never becomes public. To recognise your device, FeedbackThread gives it an anonymous identity, an identifier with its access key kept on the device, and keeps the messages of the conversation and how far you have read them. When you sign out or delete your account, the app closes that identity and creates a new one: the earlier conversations can no longer be reached from that device.
+
 ### 3.5 Signing up for the beta on the website
 
 If you sign up for the public beta on the website's [Public beta](/en/beta/) page, we process the **email address** you enter, the **platform** you pick (iPhone or Android), your **phone model**, the page language and the time of sign-up. We need the model to check that the app can be installed and to test it on a range of devices. This data reaches us by email at support@rosanero.app, through **Resend**, and we only use it to invite you to the test and to write to you during the beta: never for newsletters or ads. The beta is invite-only: if your request is not accepted, we delete it right after reviewing it. To invite you we add your email address to **TestFlight** (Apple), for iPhone; for Android, to **Firebase App Distribution** (Google) or to the **Google Play** tester list (Google). These services receive your email address and send you the invite. Firebase App Distribution keeps tester data (the email and data about the device you install the test build on) until we remove you from the testers. To prevent abuse the server also uses the **IP address** of the request, only for as long as it takes to limit repeated submissions.
 
 ### 3.6 Push notifications
 
-On iPhone the app can send you **push notifications**, for example about matches. You choose which types you get. To deliver them we use our own notification service, on our server, and **Apple Push Notification service** (APNs), Apple's service that brings notifications to the iPhone.
+On iPhone the app can send you **push notifications**, for example about matches. You choose which types you get. To deliver them we use our own notification service, on our server, and **Apple Push Notification service** (APNs), Apple's service that brings notifications to the iPhone; notifications of private replies to your suggestions are sent by FeedbackThread instead (see below).
 
 Every time it opens, even if you have not turned notifications on yet, the app registers its installation on our server. For each installation we keep:
 
@@ -95,6 +97,8 @@ Every time it opens, even if you have not turned notifications on yet, the app r
 For every notification sent we also record the delivery outcome (for example sent, expired or refused by Apple). To prevent abuse the server uses the request's **IP address** in memory only, for as long as it takes to limit repeated requests.
 
 We use this data only for notifications, and we send them to you only if you have granted the permission and left that type on. Apple receives the token and the content of the notification, not your name or your email. On iPhone, notifications do not go through Firebase.
+
+Notifications of **private replies** (§ 3.4) are sent by **FeedbackThread**, also through APNs. If you have granted the permission and leave *Replies to your feedback* on under *Settings → Notifications*, the app gives FeedbackThread the iPhone's notification token, linked to its anonymous identity. The notification only says that a reply has arrived, never its text, which you read in the app. If you turn that switch off, sign out or delete your account, the app asks FeedbackThread to delete the token.
 
 You can turn them all off in the iPhone's Settings app (*Notifications → Rosanero*), or per type in the app, under *Settings → Notifications*. While they are off we send you nothing, but the app keeps registering the installation with its new status, so notifications resume if you turn them back on. For now the Android app does not use push notifications and registers none of this.
 
@@ -132,7 +136,7 @@ We do not sell your data and do not share it for third-party marketing. The foll
 - **Apple (TestFlight)** and **Google (Firebase App Distribution and Google Play)**, when we invite you to the beta;
 - **Google (Firebase)**, for diagnostics and usage analytics;
 - **Apple (Apple Push Notification service)**, for delivering push notifications to the iPhone;
-- **FeedbackThread**, for the suggestions board;
+- **FeedbackThread**, for the suggestions board, private replies and, on iPhone, their notifications;
 - the **hosting provider** of the infrastructure the service runs on.
 
 Other users of the app see the requests we approve on the board (§ 3.4).
@@ -150,7 +154,7 @@ Some of the providers listed above are based in the United States. Where this in
 - **Verification codes**: 10 minutes, as long as they are valid.
 - **Diagnostic data**: crash reports 90 days; usage events 2 months, after which only aggregated reports remain, which do not identify anyone.
 - **Push notifications**: we delete an installation's registration after 90 days in which the app does not register again, for example because you uninstalled it, or earlier if Apple tells us the token is no longer valid; delivery outcomes, 30 days. They are gone from the nightly database backups within 10 days, as account data is.
-- **Suggestions board**: approved requests stay public for as long as the board is active, even after the account is deleted, and we remove them if you ask us to (see § 9); other requests, for as long as it takes to handle them.
+- **Suggestions board**: approved requests stay public for as long as the board is active, even after the account is deleted, and we remove them if you ask us to (see § 9); other requests, for as long as it takes to handle them; private conversations stay with the request they belong to; the token for reply notifications, until you turn the switch off or sign out.
 - **Support emails** (including deletion requests): 12 months from the last message.
 - **Beta sign-ups**: if the request is accepted, until the end of the test programme, or earlier if you withdraw your consent or ask us to delete them; if it is not accepted, we delete it right after reviewing it.
 

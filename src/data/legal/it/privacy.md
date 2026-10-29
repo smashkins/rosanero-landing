@@ -58,11 +58,11 @@ Le versioni distribuite dell'app includono **Firebase Crashlytics** e **Firebase
 
 **Crashlytics** raccoglie le segnalazioni di crash (lo stack trace e lo stato dell'app al momento dell'errore), il modello del dispositivo, la versione del sistema, la versione dell'app e un identificativo dell'installazione.
 
-**Analytics** raccoglie gli eventi di utilizzo automatici, per esempio le sessioni, la prima apertura e il tempo di utilizzo. Su iPhone l'app registra anche eventi propri, che descrivono come la usi: per esempio le schermate che apri e i comandi principali che tocchi. Questi eventi indicano solo la schermata, il comando o l'opzione scelta, mai dati personali, e l'app non collega Analytics al tuo account. Analytics usa un identificativo dell'istanza dell'app generato dalla libreria; Google ricava dall'indirizzo IP una posizione approssimativa, a livello di paese o città.
+**Analytics** raccoglie gli eventi di utilizzo automatici, per esempio le sessioni, la prima apertura e il tempo di utilizzo. Su iPhone l'app registra anche eventi propri, che descrivono come la usi: per esempio le schermate che apri e i comandi principali che tocchi. Questi eventi indicano solo la schermata, il comando o l'opzione scelta, mai dati personali, e l'app non collega Analytics al tuo account. Su iPhone Analytics registra anche se hai attivato *Novità dall'app* (§ 3.6), per inviare alcuni annunci a gruppi di utenti scelti in base a come usano l'app. Analytics usa un identificativo dell'istanza dell'app generato dalla libreria; Google ricava dall'indirizzo IP una posizione approssimativa, a livello di paese o città.
 
 Analytics è attivo dall'installazione. Su iPhone puoi spegnerlo quando vuoi in *Impostazioni → Privacy → Condividi statistiche d'uso*: da spento l'app non invia più nulla ad Analytics e l'identificativo salvato sul dispositivo viene azzerato, quindi se lo riaccendi riparte con uno nuovo, non collegato al precedente. Nell'app per Android l'interruttore non c'è ancora: puoi opporti scrivendoci (§ 10). Crashlytics non ha un interruttore: anche alle segnalazioni di crash puoi opporti scrivendoci.
 
-Non raccogliamo l'identificativo pubblicitario: su Android è disattivato, su iPhone l'app non chiede il permesso di tracciamento. Non usiamo questi dati per pubblicità o profilazione e non li incrociamo con i dati del tuo account. Le build di sviluppo interne non configurano Firebase e non inviano nulla.
+Non raccogliamo l'identificativo pubblicitario: su Android è disattivato, su iPhone l'app non chiede il permesso di tracciamento. Non usiamo questi dati per pubblicità e non li incrociamo con i dati del tuo account. Li usiamo per scegliere a chi inviare alcuni annunci solo se hai attivato *Novità dall'app* e lasciato attivo *Condividi statistiche d'uso* (§ 3.6). Le build di sviluppo interne non configurano Firebase e non inviano nulla.
 
 ### 3.4 Bacheca dei suggerimenti
 
@@ -94,9 +94,11 @@ A ogni apertura, anche se non hai ancora attivato le notifiche, l'app registra l
 
 Per ogni notifica inviata registriamo anche l'esito della consegna (per esempio inviata, scaduta o rifiutata da Apple). Per prevenire abusi il server usa l'**indirizzo IP** della richiesta solo in memoria, per il tempo necessario a limitare le richieste ripetute.
 
-Usiamo questi dati solo per le notifiche, e te le inviamo solo se hai concesso il permesso e hai lasciato attivo quel tipo. Apple riceve il token e il contenuto della notifica, non il tuo nome né la tua email. Su iPhone le notifiche non passano da Firebase.
+Usiamo questi dati solo per le notifiche, e te le inviamo solo se hai concesso il permesso e hai lasciato attivo quel tipo. Apple riceve il token e il contenuto della notifica, non il tuo nome né la tua email. Su iPhone le notifiche passano da Firebase solo per alcuni annunci (vedi sotto).
 
 Le notifiche delle **risposte private** (§ 3.4) le invia **FeedbackThread**, sempre attraverso APNs. Se hai concesso il permesso e lasci attivo *Risposte ai tuoi suggerimenti* in *Impostazioni → Notifiche*, l'app comunica a FeedbackThread il token per le notifiche dell'iPhone, collegato alla sua identità anonima. La notifica dice solo che è arrivata una risposta, mai il suo testo, che leggi nell'app. Se spegni quell'interruttore, esci dall'account o lo elimini, l'app chiede a FeedbackThread di cancellare il token.
+
+Alcuni **annunci** di *Novità dall'app* possono invece arrivare da **Firebase Cloud Messaging** (FCM), il servizio di notifiche di Google, sempre attraverso APNs. Ci serve per scrivere a un gruppo di utenti scelto in base a come usano l'app (per esempio chi apre spesso le classifiche), con i dati di Analytics (§ 3.3). Solo mentre *Novità dall'app* è attivo, l'app registra l'iPhone presso FCM: Firebase riceve il token per le notifiche dell'iPhone e gli associa un proprio identificativo. Se spegni *Novità dall'app*, l'app chiede a Firebase di cancellare quella registrazione. Se spegni *Condividi statistiche d'uso*, non fai più parte dei gruppi a cui questi annunci sono destinati.
 
 Puoi spegnerle tutte nell'app Impostazioni dell'iPhone (*Notifiche → Rosanero*), oppure per tipo nell'app, in *Impostazioni → Notifiche*. Da spente non ti inviamo nulla, ma l'app continua a registrare l'installazione con il nuovo stato, così le notifiche ripartono se le riattivi. Per ora l'app per Android non usa le notifiche push e non registra nulla di tutto questo.
 
@@ -114,10 +116,11 @@ Puoi spegnerle tutte nell'app Impostazioni dell'iPhone (*Notifiche → Rosanero*
 | Gestire suggerimenti e segnalazioni, rispondere e pubblicare sulla bacheca quelli approvati | § 3.4 | Legittimo interesse — lett. f) |
 | Invitarti alla beta e scriverti durante il test | § 3.5 | Consenso — lett. a) |
 | Inviarti le notifiche push che hai attivato | § 3.6 | Legittimo interesse — lett. f) |
+| Scegliere, in base all'uso dell'app, a chi inviare alcuni annunci | § 3.3, § 3.6 | Legittimo interesse — lett. f) |
 
 </div>
 
-Ai trattamenti basati sul legittimo interesse puoi opporti (§ 10): alle statistiche d'uso con l'interruttore *Condividi statistiche d'uso* (su iPhone) o scrivendoci, alle segnalazioni di crash scrivendoci, alle notifiche spegnendole.
+Ai trattamenti basati sul legittimo interesse puoi opporti (§ 10): alle statistiche d'uso con l'interruttore *Condividi statistiche d'uso* (su iPhone) o scrivendoci, alle segnalazioni di crash scrivendoci, alle notifiche spegnendole, alla scelta dei destinatari di alcuni annunci spegnendo *Novità dall'app* o *Condividi statistiche d'uso*.
 
 Non trattiamo dati appartenenti alle categorie particolari dell'art. 9 GDPR e non prendiamo decisioni automatizzate che producano effetti giuridici nei tuoi confronti.
 
@@ -132,7 +135,7 @@ Non vendiamo i tuoi dati e non li cediamo per finalità di marketing di terzi. L
 - **Apple** (su iPhone) e **Google**, come provider di identità, per l'accesso;
 - **Resend**, per l'invio delle email di verifica e di recupero password e per inoltrarci le iscrizioni alla beta;
 - **Apple (TestFlight)** e **Google (Firebase App Distribution e Google Play)**, quando ti invitiamo alla beta;
-- **Google (Firebase)**, per diagnostica e analisi di utilizzo;
+- **Google (Firebase)**, per diagnostica, analisi di utilizzo e, su iPhone, l'invio di alcuni annunci (Firebase Cloud Messaging);
 - **Apple (Apple Push Notification service)**, per consegnare le notifiche push sull'iPhone;
 - **FeedbackThread**, per la bacheca dei suggerimenti, le risposte private e, su iPhone, le loro notifiche;
 - il **fornitore di hosting** dell'infrastruttura su cui gira il servizio.
@@ -151,7 +154,7 @@ Alcuni dei fornitori sopra elencati hanno sede negli Stati Uniti. Quando ciò co
 - **Sessioni**: fino alla scadenza o alla disconnessione.
 - **Codici di verifica**: 10 minuti, il tempo della loro validità.
 - **Dati diagnostici**: le segnalazioni di crash 90 giorni; gli eventi di utilizzo 2 mesi, dopo i quali restano solo report aggregati, che non identificano nessuno.
-- **Notifiche push**: cancelliamo la registrazione di un'installazione dopo 90 giorni in cui l'app non si registra di nuovo, per esempio perché l'hai disinstallata, o prima, se Apple ci segnala che il token non è più valido; l'esito delle consegne, 30 giorni. Dai backup notturni del database spariscono entro 10 giorni, come i dati dell'account.
+- **Notifiche push**: cancelliamo la registrazione di un'installazione dopo 90 giorni in cui l'app non si registra di nuovo, per esempio perché l'hai disinstallata, o prima, se Apple ci segnala che il token non è più valido; l'esito delle consegne, 30 giorni. Dai backup notturni del database spariscono entro 10 giorni, come i dati dell'account. La registrazione presso Firebase Cloud Messaging (§ 3.6) resta finché non spegni *Novità dall'app*.
 - **Bacheca dei suggerimenti**: le richieste approvate restano pubbliche finché la bacheca è attiva, anche dopo l'eliminazione dell'account, e le rimuoviamo se ce lo chiedi (vedi § 9); le altre richieste, per il tempo necessario a gestirle; le conversazioni private restano con la richiesta a cui si riferiscono; il token per le notifiche delle risposte, finché non spegni l'interruttore o esci dall'account.
 - **Email al supporto** (comprese le richieste di cancellazione): 12 mesi dall'ultimo messaggio.
 - **Iscrizioni alla beta**: se la richiesta viene accolta, fino alla fine del programma di test, o prima se revochi il consenso o ci chiedi di cancellarle; se non viene accolta, la cancelliamo subito dopo averla valutata.

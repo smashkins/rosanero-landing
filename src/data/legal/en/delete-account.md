@@ -53,7 +53,7 @@ If you signed in with Google, Rosanero may remain listed among the third-party a
 
 - **Suggestions and reports.** The requests we approved stay public on the board, no longer tied to any account. We remove them on request within 30 days, even if you do not delete your account: write to [support@rosanero.app](mailto:support@rosanero.app) giving their titles.
 - **Firebase data.** The crash and usage data collected by Firebase is not linked to the account. Crash reports are kept for 90 days, usage events for 2 months; after that only aggregated reports remain, which do not identify anyone.
-- **Push notifications.** Your iPhones' registrations stay, no longer tied to any account, so you keep getting the notifications you turned on. To stop getting them, turn them off in the iPhone's settings. We delete a registration after 90 days in which the app is not opened, for example if you uninstall it.
+- **Push notifications.** Your devices' registrations, iPhone and Android, stay, no longer tied to any account, so you keep getting the notifications you turned on. To stop getting them, turn them off in the phone's settings or in the app, under *Settings → Notifications*. We delete a registration after 90 days in which the app is not opened, for example if you uninstall it.
 - **Support emails.** The emails you send us, including the deletion request, are kept for 12 months from the last message.
 - **Backups.** Every night we save a copy of the database on the same server and delete the copies older than 7 days: within 10 days of deletion, nothing of your account remains in the backups. There are no other copies.
 - **Beta.** A beta sign-up is separate from the account. To leave the test, write to us at [support@rosanero.app](mailto:support@rosanero.app).

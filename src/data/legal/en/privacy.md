@@ -2,7 +2,7 @@
 title: Privacy Policy
 description: What personal data the Rosanero app processes, why, and what rights you have.
 eyebrow: Legal · Privacy
-updated: 2026-10-29
+updated: 2026-10-31
 placeholder: false
 toc:
   - { id: sez-1, label: "1. Data controller" }
@@ -72,7 +72,7 @@ In *Settings → Suggestions & reports* you can send suggestions and bug reports
 
 Requests are moderated before publication: nobody else sees them until we approve them. An approved request, title and text, becomes **public** on the app's board, on iPhone and on Android, without your name. So do not put personal data, yours or anyone else's, in the title or text.
 
-**Private replies.** On a request you sent from the app we can reply to you privately, and you can reply to us: only you and we can read the conversation, and it never becomes public. To recognise your device, FeedbackThread gives it an anonymous identity, an identifier with its access key kept on the device, and keeps the messages of the conversation and how far you have read them. When you sign out or delete your account, the app closes that identity and creates a new one: the earlier conversations can no longer be reached from that device.
+**Private replies.** On a request you sent from the app we can reply to you privately, and you can reply to us: only you and we can read the conversation, and it never becomes public. To recognise your device, FeedbackThread gives it an anonymous identity, an identifier with its access key kept on the device, and keeps the messages of the conversation and how far you have read them. On iPhone, when you sign out or delete your account, the app closes that identity and creates a new one: the earlier conversations can no longer be reached from that device. On Android the identity belongs to the installation: it stays the same if you sign out, sign in with another account or delete yours, and the conversations stay reachable from that phone until you uninstall the app or clear its data.
 
 ### 3.5 Signing up for the beta on the website
 
@@ -80,7 +80,7 @@ If you sign up for the public beta on the website's [Public beta](/en/beta/) pag
 
 ### 3.6 Push notifications
 
-The app can send you **push notifications**, for example about matches. You choose which types you get. To deliver them we use our own notification service, on our server, and the service that brings notifications to the phone: on iPhone **Apple Push Notification service** (APNs), Apple's; on Android **Firebase Cloud Messaging** (FCM), Google's. On iPhone, notifications of private replies to your suggestions are sent by FeedbackThread instead (see below).
+The app can send you **push notifications**, for example about matches. You choose which types you get. To deliver them we use our own notification service, on our server, and the service that brings notifications to the phone: on iPhone **Apple Push Notification service** (APNs), Apple's; on Android **Firebase Cloud Messaging** (FCM), Google's. Notifications of private replies to your suggestions are sent by FeedbackThread instead (see below).
 
 Every time it opens, even if you have not turned notifications on yet, the app registers its installation on our server. For each installation we keep:
 
@@ -98,7 +98,7 @@ For every notification sent we also record the delivery outcome (for example sen
 
 We use this data only for notifications, and we send them to you only if you have granted the permission and left that type on. Apple, on iPhone, and Google, on Android, receive the token and the content of the notification, not your name or your email. On Android every notification goes through Firebase Cloud Messaging; on iPhone only some announcements do (see below).
 
-Notifications of **private replies** (§ 3.4) are sent by **FeedbackThread**, also through APNs. If you have granted the permission and leave *Replies to your feedback* on under *Settings → Notifications*, the app gives FeedbackThread the iPhone's notification token, linked to its anonymous identity. The notification only says that a reply has arrived, never its text, which you read in the app. If you turn that switch off, sign out or delete your account, the app asks FeedbackThread to delete the token. On Android, for now, private replies do not arrive as notifications: you find them in the app.
+Notifications of **private replies** (§ 3.4) are sent by **FeedbackThread**: through APNs on iPhone, through Firebase Cloud Messaging on Android. If you have granted the permission and leave *Replies to your feedback* on under *Settings → Notifications*, the app gives FeedbackThread the phone's notification token, linked to its anonymous identity; on Android it does so only after you have opened the suggestions board at least once. The notification only says that a reply has arrived, never its text, which you read in the app. If you turn that switch off, the app asks FeedbackThread to delete the token; on iPhone it also asks when you sign out or delete your account, while on Android the token stays tied to the installation (§ 3.4) and stops working if you uninstall the app.
 
 On iPhone some *App news* **announcements** may instead come from **Firebase Cloud Messaging** (FCM), Google's notification service, also through APNs. We use it to write to a group of users picked by how they use the app (for example those who often open the standings), with Analytics data (§ 3.3). Only while *App news* is on does the app register the iPhone with FCM: Firebase receives the iPhone's notification token and links it to an identifier of its own. If you turn *App news* off, the app asks Firebase to delete that registration. If you turn *Share usage statistics* off, you are no longer part of the groups these announcements are meant for.
 
@@ -141,7 +141,7 @@ We do not sell your data and do not share it for third-party marketing. The foll
 - **Apple (TestFlight)** and **Google (Firebase App Distribution and Google Play)**, when we invite you to the beta;
 - **Google (Firebase)**, for diagnostics, usage analytics and sending push notifications with Firebase Cloud Messaging: all of them on Android, including some announcements sent from the Firebase console, and only those announcements on iPhone;
 - **Apple (Apple Push Notification service)**, for delivering push notifications to the iPhone;
-- **FeedbackThread**, for the suggestions board, private replies and, on iPhone, their notifications;
+- **FeedbackThread**, for the suggestions board, private replies and their notifications;
 - the **hosting provider** of the infrastructure the service runs on.
 
 Other users of the app see the requests we approve on the board (§ 3.4).
@@ -159,7 +159,7 @@ Some of the providers listed above are based in the United States. Where this in
 - **Verification codes**: 10 minutes, as long as they are valid.
 - **Diagnostic data**: crash reports 90 days; usage events 2 months, after which only aggregated reports remain, which do not identify anyone.
 - **Push notifications**: we delete an installation's registration after 90 days in which the app does not register again, for example because you uninstalled it, or earlier if Apple or Google tells us the token is no longer valid; delivery outcomes, 30 days. They are gone from the nightly database backups within 10 days, as account data is. The registration with Firebase Cloud Messaging (§ 3.6) stays, on iPhone, until you turn *App news* off; on Android, as long as the app is installed.
-- **Suggestions board**: approved requests stay public for as long as the board is active, even after the account is deleted, and we remove them if you ask us to (see § 9); other requests, for as long as it takes to handle them; private conversations stay with the request they belong to; the token for reply notifications, until you turn the switch off or sign out.
+- **Suggestions board**: approved requests stay public for as long as the board is active, even after the account is deleted, and we remove them if you ask us to (see § 9); other requests, for as long as it takes to handle them; private conversations stay with the request they belong to; the token for reply notifications, until you turn the switch off or, on iPhone, sign out; on Android it stops working if you uninstall the app.
 - **Support emails** (including deletion requests): 12 months from the last message.
 - **Beta sign-ups**: if the request is accepted, until the end of the test programme, or earlier if you withdraw your consent or ask us to delete them; if it is not accepted, we delete it right after reviewing it.
 

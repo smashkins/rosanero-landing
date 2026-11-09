@@ -2,7 +2,7 @@
 title: Terms of Service
 description: The terms of use of the Rosanero app.
 eyebrow: Legal · Terms
-updated: 2026-10-16
+updated: 2026-11-10
 placeholder: false
 toc:
   - { id: sez-1, label: "1. Who we are, and what we are not" }
@@ -11,12 +11,13 @@ toc:
   - { id: sez-4, label: "4. Your account" }
   - { id: sez-5, label: "5. Acceptable use" }
   - { id: sez-6, label: "6. Content" }
-  - { id: sez-7, label: "7. Suggestions board" }
-  - { id: sez-8, label: "8. Availability" }
-  - { id: sez-9, label: "9. Liability" }
-  - { id: sez-10, label: "10. Changes to these terms" }
-  - { id: sez-11, label: "11. Governing law and jurisdiction" }
-  - { id: sez-12, label: "12. Contact" }
+  - { id: sez-7, label: "7. YouTube videos" }
+  - { id: sez-8, label: "8. Suggestions board" }
+  - { id: sez-9, label: "9. Availability" }
+  - { id: sez-10, label: "10. Liability" }
+  - { id: sez-11, label: "11. Changes to these terms" }
+  - { id: sez-12, label: "12. Governing law and jurisdiction" }
+  - { id: sez-13, label: "13. Contact" }
 ---
 
 The [Italian version](/terms/) of these terms prevails in case of any discrepancy.
@@ -58,7 +59,17 @@ The code, the original artwork, the text and the name "Rosanero" as used in the 
 
 If you believe content in the app infringes a right of yours, write to [support@rosanero.app](mailto:support@rosanero.app): we will look into it and remove it where appropriate.
 
-<h2 id="sez-7">7. Suggestions board</h2>
+<h2 id="sez-7">7. YouTube videos</h2>
+
+In the *Community* tab the app shows public YouTube videos, picked from the channels we follow, and plays them in YouTube's official player. This feature uses **YouTube API Services**. **By using the Community's videos you agree to be bound by the [YouTube Terms of Service](https://www.youtube.com/t/terms).** The [Google Privacy Policy](https://policies.google.com/privacy) applies to the data the player collects, along with our [Privacy Policy](/en/privacy/) (§ 3.7).
+
+The videos, titles, thumbnails and channel names belong to their respective owners, and we show them as YouTube publishes them: we neither host nor change them. YouTube decides whether and where a video can be watched, and a video may disappear or become unavailable at any time.
+
+Rosanero is not affiliated with YouTube or Google. A channel appearing in the app does not mean that the channel endorses Rosanero, nor the other way round; the club's official channel appearing in it does not change what § 1 says.
+
+If you believe a video infringes a right of yours, report it to YouTube, which hosts it. If you want it out of the app, or you own one of the channels we follow and want to leave, write to [support@rosanero.app](mailto:support@rosanero.app): we take it out of the app.
+
+<h2 id="sez-8">8. Suggestions board</h2>
 
 In *Settings → Suggestions & reports* there is a board where you can send requests and vote on other people's, with or without an account.
 
@@ -82,24 +93,24 @@ If you see something inappropriate on the board, write to [support@rosanero.app]
 
 You can ask us at any time to remove your requests, even after deleting your account. The details are on the [Account deletion](/en/delete-account/) page.
 
-<h2 id="sez-8">8. Availability</h2>
+<h2 id="sez-9">9. Availability</h2>
 
-The app is provided **"as is"**. We do not guarantee that it will always be available, error-free or compatible with every device, and we may change, suspend or discontinue features — or the service as a whole — including without notice, informing you where possible. Some features depend on third-party services (Apple, Google, FeedbackThread, the hosting provider) and may be affected by them.
+The app is provided **"as is"**. We do not guarantee that it will always be available, error-free or compatible with every device, and we may change, suspend or discontinue features — or the service as a whole — including without notice, informing you where possible. Some features depend on third-party services (Apple, Google, YouTube, FeedbackThread, the hosting provider) and may be affected by them.
 
-<h2 id="sez-9">9. Liability</h2>
+<h2 id="sez-10">10. Liability</h2>
 
 To the extent permitted by law, we are not liable for indirect or consequential damages arising from your use of, or inability to use, the app, nor for the inaccuracy of sporting data.
 
 Nothing in these terms excludes or limits our liability for wilful misconduct or gross negligence, for personal injury, or your **mandatory rights as a consumer** under the Italian Consumer Code (Legislative Decree 206/2005) and other applicable law.
 
-<h2 id="sez-10">10. Changes to these terms</h2>
+<h2 id="sez-11">11. Changes to these terms</h2>
 
 We may update these terms. The date at the top identifies the current version; if changes are substantial we will tell you in the app. Continuing to use the app after an update means you accept it.
 
-<h2 id="sez-11">11. Governing law and jurisdiction</h2>
+<h2 id="sez-12">12. Governing law and jurisdiction</h2>
 
 These terms are governed by **Italian law**. If you are a consumer, the courts of the place where you live or are domiciled remain competent, and the more favourable rules of your EU country of residence continue to apply. Otherwise, the courts of Palermo have jurisdiction.
 
-<h2 id="sez-12">12. Contact</h2>
+<h2 id="sez-13">13. Contact</h2>
 
 [support@rosanero.app](mailto:support@rosanero.app)

@@ -2,7 +2,7 @@
 title: Privacy Policy
 description: What personal data the Rosanero app processes, why, and what rights you have.
 eyebrow: Legal · Privacy
-updated: 2026-10-31
+updated: 2026-11-10
 placeholder: false
 toc:
   - { id: sez-1, label: "1. Data controller" }
@@ -31,7 +31,7 @@ No Data Protection Officer has been appointed, as the conditions requiring one d
 
 <h2 id="sez-2">2. You can use Rosanero without an account</h2>
 
-Matches, results and standings are browsable **without signing up**, and the suggestions board works without an account too. If you do not create an account we process no identifying data: only the technical and diagnostic data described in § 3.3, the push notification registration (§ 3.6), the technical information needed to deliver content to you and, if you use the board, what you send us there (§ 3.4).
+Matches, results, standings and the Community's videos are browsable **without signing up**, and the suggestions board works without an account too. If you do not create an account we process no identifying data: only the technical and diagnostic data described in § 3.3, the push notification registration (§ 3.6), the technical information needed to deliver content to you, what you send us on the board if you use it (§ 3.4) and, if you watch the Community's videos, the data YouTube collects (§ 3.7).
 
 <h2 id="sez-3">3. What we process</h2>
 
@@ -106,6 +106,17 @@ On Android too, some **announcements** may come from the Firebase console instea
 
 You can turn them all off in the phone's settings (on iPhone *Settings → Notifications → Rosanero*, on Android *Settings → Apps → Rosanero → Notifications*), or per type in the app, under *Settings → Notifications*. While they are off we send you nothing, but the app keeps registering the installation with its new status, so notifications resume if you turn them back on. On Android the phone's settings also list each type: turning one off there hides its notifications, but to stop getting them at all, turn it off in the app.
 
+### 3.7 Community videos (YouTube)
+
+In the *Community* tab, on iPhone for now, you find public YouTube videos picked from the channels we follow. For this section the app uses Google's **YouTube API Services**. You do not need an account to watch the videos.
+
+- **What our server reads.** Only public data about the videos of the channels we follow: title, thumbnail, duration, publication date, the channel's name and picture. We keep it for 30 days at most, then refresh it from YouTube or delete it. We do not ask you to sign in to YouTube, we do not access your YouTube or Google account, and we receive no data about you from YouTube.
+- **Thumbnails and channel pictures.** The app downloads them directly from YouTube's servers, which receive, as for any image downloaded from the internet, the IP address and the technical information of the request.
+- **The player is YouTube's.** Videos are watched only in YouTube's official player, which the app opens inside itself, in a web view. Before the first video the app asks you, only once, to accept the [YouTube Terms of Service](https://www.youtube.com/t/terms) and the [Google Privacy Policy](https://policies.google.com/privacy): your choice stays on the device and, until you accept, the player is not loaded. When you watch a video, the data is collected and processed by **Google, as an independent controller**, under its policy: for example the IP address and information about the device and how you use the player.
+- **YouTube's cookies and ads.** The player may store and read **cookies and similar technologies** on the device, in the space the app keeps for web pages, where they stay until you delete the app. YouTube may show **content and advertisements** of its choosing in the player: they are not ours. The app shows no advertising and earns nothing from the videos.
+- **What we know.** We do not record which videos you watch or for how long. With Analytics (§ 3.3), unless you turned it off, the app records only that you opened a video, with its category and channel, and whether you opened it on YouTube or shared it: never the title, nor which video.
+- **Outside the app.** If you open a video on YouTube you move to the YouTube app or the browser, where YouTube's rules apply.
+
 <h2 id="sez-4">4. Why we process it, and on what legal basis</h2>
 
 <div class="table-wrap">
@@ -115,7 +126,7 @@ You can turn them all off in the phone's settings (on iPhone *Settings → Notif
 | Creating and running your account, keeping you signed in | § 3.1, § 3.2 | Performance of a contract — (b) |
 | Verifying your email and allowing password recovery | § 3.1 | Performance of a contract — (b) |
 | Security: preventing abuse and unauthorised access, rate-limiting | § 3.2 | Legitimate interest — (f) |
-| Usage statistics: understanding which screens and features are used | § 3.3 (Analytics) | Legitimate interest — (f) |
+| Usage statistics: understanding which screens and features are used | § 3.3 (Analytics), § 3.7 | Legitimate interest — (f) |
 | Diagnosing crashes and faults | § 3.3 (Crashlytics) | Legitimate interest — (f) |
 | Handling suggestions and reports, replying, and publishing the approved ones on the board | § 3.4 | Legitimate interest — (f) |
 | Inviting you to the beta and writing to you during the test | § 3.5 | Consent — (a) |
@@ -142,6 +153,7 @@ We do not sell your data and do not share it for third-party marketing. The foll
 - **Google (Firebase)**, for diagnostics, usage analytics and sending push notifications with Firebase Cloud Messaging: all of them on Android, including some announcements sent from the Firebase console, and only those announcements on iPhone;
 - **Apple (Apple Push Notification service)**, for delivering push notifications to the iPhone;
 - **FeedbackThread**, for the suggestions board, private replies and their notifications;
+- **Google (YouTube)**, for the Community's videos: our server uses its API Services for the videos' public data, while the player and the pictures come straight from YouTube, which processes the data it collects as an independent controller (§ 3.7);
 - the **hosting provider** of the infrastructure the service runs on.
 
 Other users of the app see the requests we approve on the board (§ 3.4).
@@ -160,6 +172,7 @@ Some of the providers listed above are based in the United States. Where this in
 - **Diagnostic data**: crash reports 90 days; usage events 2 months, after which only aggregated reports remain, which do not identify anyone.
 - **Push notifications**: we delete an installation's registration after 90 days in which the app does not register again, for example because you uninstalled it, or earlier if Apple or Google tells us the token is no longer valid; delivery outcomes, 30 days. They are gone from the nightly database backups within 10 days, as account data is. The registration with Firebase Cloud Messaging (§ 3.6) stays, on iPhone, until you turn *App news* off; on Android, as long as the app is installed.
 - **Suggestions board**: approved requests stay public for as long as the board is active, even after the account is deleted, and we remove them if you ask us to (see § 9); other requests, for as long as it takes to handle them; private conversations stay with the request they belong to; the token for reply notifications, until you turn the switch off or, on iPhone, sign out; on Android it stops working if you uninstall the app.
+- **Community videos**: the public data about videos and channels, on our server, for 30 days at most, then we refresh or delete it; your choice about YouTube's player and its cookies stay on the device until you delete the app. The data YouTube collects is kept by Google, under its policy.
 - **Support emails** (including deletion requests): 12 months from the last message.
 - **Beta sign-ups**: if the request is accepted, until the end of the test programme, or earlier if you withdraw your consent or ask us to delete them; if it is not accepted, we delete it right after reviewing it.
 
@@ -172,6 +185,8 @@ It does not delete: the requests approved on the board, which we remove if you a
 <h2 id="sez-10">10. Your rights</h2>
 
 Under GDPR arts. 15–22 you have the right to **access** your data, to have it **rectified** or **erased**, to **restrict** processing, to **data portability**, and to **object** to processing based on legitimate interest. Write to [support@rosanero.app](mailto:support@rosanero.app) to exercise them; we will reply within one month. To object to usage statistics you do not need to write: just turn off *Settings → Privacy → Share usage statistics*, at any time. To stop getting push notifications, turn them off in the phone's settings or, per type, under *Settings → Notifications*. If you signed up for the beta you can also **withdraw your consent** at any time, at the same address: withdrawal does not affect processing carried out before it.
+
+For the data YouTube collects when you watch a video (§ 3.7), contact Google as its [policy](https://policies.google.com/privacy) explains.
 
 You also have the right to lodge a **complaint with the Italian Data Protection Authority** (Garante per la protezione dei dati personali, [www.garanteprivacy.it](https://www.garanteprivacy.it)) or with the supervisory authority of the country where you live.
 

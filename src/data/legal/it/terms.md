@@ -2,7 +2,7 @@
 title: Termini di servizio
 description: Le condizioni d'uso dell'app Rosanero.
 eyebrow: Legale · Termini
-updated: 2026-10-16
+updated: 2026-11-10
 placeholder: false
 toc:
   - { id: sez-1, label: "1. Chi siamo, e cosa non siamo" }
@@ -11,12 +11,13 @@ toc:
   - { id: sez-4, label: "4. L'account" }
   - { id: sez-5, label: "5. Uso corretto" }
   - { id: sez-6, label: "6. I contenuti" }
-  - { id: sez-7, label: "7. Suggerimenti e segnalazioni" }
-  - { id: sez-8, label: "8. Disponibilità del servizio" }
-  - { id: sez-9, label: "9. Responsabilità" }
-  - { id: sez-10, label: "10. Modifiche ai termini" }
-  - { id: sez-11, label: "11. Legge applicabile e foro" }
-  - { id: sez-12, label: "12. Contatti" }
+  - { id: sez-7, label: "7. I video di YouTube" }
+  - { id: sez-8, label: "8. Suggerimenti e segnalazioni" }
+  - { id: sez-9, label: "9. Disponibilità del servizio" }
+  - { id: sez-10, label: "10. Responsabilità" }
+  - { id: sez-11, label: "11. Modifiche ai termini" }
+  - { id: sez-12, label: "12. Legge applicabile e foro" }
+  - { id: sez-13, label: "13. Contatti" }
 ---
 
 <h2 id="sez-1">1. Chi siamo, e cosa non siamo</h2>
@@ -56,7 +57,17 @@ Il codice, la grafica originale, i testi e il nome "Rosanero" così come usato n
 
 Se ritieni che un contenuto pubblicato nell'app violi un tuo diritto, scrivi a [support@rosanero.app](mailto:support@rosanero.app): lo esamineremo e, se del caso, lo rimuoveremo.
 
-<h2 id="sez-7">7. Suggerimenti e segnalazioni</h2>
+<h2 id="sez-7">7. I video di YouTube</h2>
+
+Nella scheda *Community* l'app mostra video pubblici di YouTube, scelti tra i canali che seguiamo, e li riproduce con il player ufficiale di YouTube. Questa funzione usa i **servizi API di YouTube** (YouTube API Services). **Usando i video della Community accetti di essere vincolato dai [Termini di servizio di YouTube](https://www.youtube.com/t/terms).** Ai dati che raccoglie il player si applica l'[Informativa sulla privacy di Google](https://policies.google.com/privacy), oltre alla nostra [Informativa sulla privacy](/privacy/) (§ 3.7).
+
+I video, i titoli, le miniature e i nomi dei canali appartengono ai rispettivi titolari e li mostriamo così come li pubblica YouTube: non li ospitiamo e non li modifichiamo. È YouTube a decidere se e dove un video si può guardare, e un video può sparire o non essere disponibile in qualsiasi momento.
+
+Rosanero non è affiliata a YouTube né a Google. La presenza di un canale nell'app non significa che il canale sostenga Rosanero, né il contrario; la presenza del canale ufficiale del club non cambia quanto detto al § 1.
+
+Se ritieni che un video violi un tuo diritto, segnalalo a YouTube, che lo ospita. Se vuoi che non compaia più nell'app, o se sei il titolare di un canale che seguiamo e vuoi uscirne, scrivi a [support@rosanero.app](mailto:support@rosanero.app): lo togliamo dall'app.
+
+<h2 id="sez-8">8. Suggerimenti e segnalazioni</h2>
 
 In *Impostazioni → Suggerimenti e segnalazioni* c'è una bacheca dove puoi inviare richieste e votare quelle degli altri, con o senza account.
 
@@ -80,24 +91,24 @@ Se vedi sulla bacheca qualcosa di inappropriato, scrivi a [support@rosanero.app]
 
 Puoi chiederci in qualsiasi momento di rimuovere le tue richieste, anche dopo aver eliminato l'account. I dettagli sono nella pagina [Eliminazione account](/delete-account/).
 
-<h2 id="sez-8">8. Disponibilità del servizio</h2>
+<h2 id="sez-9">9. Disponibilità del servizio</h2>
 
-L'app è offerta **"così com'è"**. Non garantiamo che sia sempre disponibile, priva di errori o compatibile con ogni dispositivo, e possiamo modificarne, sospenderne o interromperne funzioni — o il servizio nel suo complesso — anche senza preavviso, dandone informazione quando possibile. Alcune funzioni dipendono da servizi di terzi (Apple, Google, FeedbackThread, il fornitore di hosting) e possono risentirne.
+L'app è offerta **"così com'è"**. Non garantiamo che sia sempre disponibile, priva di errori o compatibile con ogni dispositivo, e possiamo modificarne, sospenderne o interromperne funzioni — o il servizio nel suo complesso — anche senza preavviso, dandone informazione quando possibile. Alcune funzioni dipendono da servizi di terzi (Apple, Google, YouTube, FeedbackThread, il fornitore di hosting) e possono risentirne.
 
-<h2 id="sez-9">9. Responsabilità</h2>
+<h2 id="sez-10">10. Responsabilità</h2>
 
 Nei limiti consentiti dalla legge, non rispondiamo dei danni indiretti o consequenziali derivanti dall'uso o dal mancato uso dell'app, né dell'inesattezza dei dati sportivi.
 
 Nulla in questi termini esclude o limita la nostra responsabilità per dolo o colpa grave, per danni alla persona, né i **diritti inderogabili che ti spettano come consumatore** ai sensi del Codice del consumo (d.lgs. 206/2005) e delle altre norme applicabili.
 
-<h2 id="sez-10">10. Modifiche ai termini</h2>
+<h2 id="sez-11">11. Modifiche ai termini</h2>
 
 Possiamo aggiornare questi termini. La data in cima indica l'ultima versione; se le modifiche saranno sostanziali te lo segnaleremo nell'app. Continuare a usare l'app dopo l'aggiornamento significa accettarlo.
 
-<h2 id="sez-11">11. Legge applicabile e foro</h2>
+<h2 id="sez-12">12. Legge applicabile e foro</h2>
 
 Questi termini sono regolati dalla **legge italiana**. Se sei un consumatore, resta ferma la competenza del foro del luogo in cui risiedi o hai il domicilio e l'applicazione delle norme più favorevoli previste dall'ordinamento del tuo paese di residenza nell'Unione europea. In ogni altro caso il foro competente è quello di Palermo.
 
-<h2 id="sez-12">12. Contatti</h2>
+<h2 id="sez-13">13. Contatti</h2>
 
 [support@rosanero.app](mailto:support@rosanero.app)

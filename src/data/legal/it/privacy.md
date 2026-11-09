@@ -2,7 +2,7 @@
 title: Informativa sulla privacy
 description: Quali dati personali tratta l'app Rosanero, perché, e quali diritti hai.
 eyebrow: Legale · Privacy
-updated: 2026-10-31
+updated: 2026-11-10
 placeholder: false
 toc:
   - { id: sez-1, label: "1. Titolare del trattamento" }
@@ -29,7 +29,7 @@ Non è stato nominato un responsabile della protezione dei dati (DPO), non ricor
 
 <h2 id="sez-2">2. Puoi usare Rosanero senza account</h2>
 
-Partite, risultati e classifiche sono consultabili **senza registrarsi**, e anche la bacheca dei suggerimenti funziona senza account. Se non crei un account non trattiamo alcun dato identificativo: restano solo i dati tecnici e diagnostici descritti al § 3.3, la registrazione per le notifiche push (§ 3.6), le informazioni tecniche necessarie a consegnarti i contenuti e, se usi la bacheca, ciò che ci invii lì (§ 3.4).
+Partite, risultati, classifiche e i video della Community sono consultabili **senza registrarsi**, e anche la bacheca dei suggerimenti funziona senza account. Se non crei un account non trattiamo alcun dato identificativo: restano solo i dati tecnici e diagnostici descritti al § 3.3, la registrazione per le notifiche push (§ 3.6), le informazioni tecniche necessarie a consegnarti i contenuti, se usi la bacheca ciò che ci invii lì (§ 3.4) e, se guardi i video della Community, i dati che raccoglie YouTube (§ 3.7).
 
 <h2 id="sez-3">3. Quali dati trattiamo</h2>
 
@@ -104,6 +104,17 @@ Anche su Android alcuni **annunci** possono arrivare dalla console di Firebase i
 
 Puoi spegnerle tutte nelle impostazioni del telefono (su iPhone *Impostazioni → Notifiche → Rosanero*, su Android *Impostazioni → App → Rosanero → Notifiche*), oppure per tipo nell'app, in *Impostazioni → Notifiche*. Da spente non ti inviamo nulla, ma l'app continua a registrare l'installazione con il nuovo stato, così le notifiche ripartono se le riattivi. Su Android le impostazioni del telefono elencano anche i singoli tipi: spegnerne uno lì nasconde le sue notifiche, ma per non riceverle affatto spegnilo nell'app.
 
+### 3.7 I video della Community (YouTube)
+
+Nella scheda *Community*, per ora solo su iPhone, trovi video pubblici di YouTube scelti tra i canali che seguiamo. Per questa sezione l'app usa i **servizi API di YouTube** (YouTube API Services), di Google. Per guardare i video non serve un account.
+
+- **Cosa legge il nostro server.** Solo dati pubblici sui video dei canali che seguiamo: titolo, miniatura, durata, data di pubblicazione, nome e immagine del canale. Li conserviamo al massimo 30 giorni, poi li aggiorniamo da YouTube o li cancelliamo. Non ti chiediamo di accedere a YouTube, non accediamo al tuo account YouTube o Google e non riceviamo da YouTube alcun dato che ti riguardi.
+- **Miniature e immagini dei canali.** L'app le scarica direttamente dai server di YouTube, che ricevono, come per qualsiasi immagine scaricata da internet, l'indirizzo IP e le informazioni tecniche della richiesta.
+- **Il player è quello di YouTube.** I video si guardano solo nel player ufficiale di YouTube, che l'app apre al suo interno, in una vista web. Prima del primo video l'app ti chiede, una volta sola, di accettare i [Termini di servizio di YouTube](https://www.youtube.com/t/terms) e l'[Informativa sulla privacy di Google](https://policies.google.com/privacy): la tua scelta resta sul dispositivo e, finché non accetti, il player non viene caricato. Quando guardi un video, i dati li raccoglie e li tratta **Google, come titolare autonomo**, secondo la sua informativa: per esempio l'indirizzo IP, le informazioni sul dispositivo e su come usi il player.
+- **Cookie e annunci di YouTube.** Il player può salvare e leggere **cookie e tecnologie simili** sul dispositivo, nello spazio che l'app riserva alle pagine web, dove restano finché non elimini l'app. Nel player YouTube può mostrare **contenuti e annunci pubblicitari** scelti da YouTube: non sono nostri. L'app non mostra pubblicità e non guadagna dai video.
+- **Cosa sappiamo noi.** Non registriamo quali video guardi né per quanto tempo. Con Analytics (§ 3.3), se non l'hai spento, l'app registra solo che hai aperto un video, con la sua categoria e il canale, e se l'hai aperto su YouTube o condiviso: mai il titolo, né quale video.
+- **Fuori dall'app.** Se apri un video su YouTube passi all'app di YouTube o al browser, dove valgono le regole di YouTube.
+
 <h2 id="sez-4">4. Perché trattiamo questi dati e su quale base giuridica</h2>
 
 <div class="table-wrap">
@@ -113,7 +124,7 @@ Puoi spegnerle tutte nelle impostazioni del telefono (su iPhone *Impostazioni �
 | Creare e gestire il tuo account, tenerti connesso | § 3.1, § 3.2 | Esecuzione del contratto — lett. b) |
 | Verificare l'email e consentire il recupero della password | § 3.1 | Esecuzione del contratto — lett. b) |
 | Sicurezza: prevenire abusi, accessi non autorizzati e limitare le richieste ripetute | § 3.2 | Legittimo interesse — lett. f) |
-| Statistiche d'uso: capire quali schermate e funzioni si usano | § 3.3 (Analytics) | Legittimo interesse — lett. f) |
+| Statistiche d'uso: capire quali schermate e funzioni si usano | § 3.3 (Analytics), § 3.7 | Legittimo interesse — lett. f) |
 | Diagnosticare crash e malfunzionamenti | § 3.3 (Crashlytics) | Legittimo interesse — lett. f) |
 | Gestire suggerimenti e segnalazioni, rispondere e pubblicare sulla bacheca quelli approvati | § 3.4 | Legittimo interesse — lett. f) |
 | Invitarti alla beta e scriverti durante il test | § 3.5 | Consenso — lett. a) |
@@ -140,6 +151,7 @@ Non vendiamo i tuoi dati e non li cediamo per finalità di marketing di terzi. L
 - **Google (Firebase)**, per diagnostica, analisi di utilizzo e l'invio di notifiche push con Firebase Cloud Messaging: su Android tutte, compresi alcuni annunci inviati dalla console di Firebase, su iPhone solo questi annunci;
 - **Apple (Apple Push Notification service)**, per consegnare le notifiche push sull'iPhone;
 - **FeedbackThread**, per la bacheca dei suggerimenti, le risposte private e le loro notifiche;
+- **Google (YouTube)**, per i video della Community: il nostro server ne usa i servizi API per i dati pubblici dei video, mentre il player e le immagini arrivano direttamente da YouTube, che tratta come titolare autonomo i dati che raccoglie (§ 3.7);
 - il **fornitore di hosting** dell'infrastruttura su cui gira il servizio.
 
 Gli altri utenti dell'app vedono le richieste che approviamo sulla bacheca (§ 3.4).
@@ -158,6 +170,7 @@ Alcuni dei fornitori sopra elencati hanno sede negli Stati Uniti. Quando ciò co
 - **Dati diagnostici**: le segnalazioni di crash 90 giorni; gli eventi di utilizzo 2 mesi, dopo i quali restano solo report aggregati, che non identificano nessuno.
 - **Notifiche push**: cancelliamo la registrazione di un'installazione dopo 90 giorni in cui l'app non si registra di nuovo, per esempio perché l'hai disinstallata, o prima, se Apple o Google ci segnalano che il token non è più valido; l'esito delle consegne, 30 giorni. Dai backup notturni del database spariscono entro 10 giorni, come i dati dell'account. La registrazione presso Firebase Cloud Messaging (§ 3.6) resta, su iPhone, finché non spegni *Novità dall'app*; su Android, finché l'app resta installata.
 - **Bacheca dei suggerimenti**: le richieste approvate restano pubbliche finché la bacheca è attiva, anche dopo l'eliminazione dell'account, e le rimuoviamo se ce lo chiedi (vedi § 9); le altre richieste, per il tempo necessario a gestirle; le conversazioni private restano con la richiesta a cui si riferiscono; il token per le notifiche delle risposte, finché non spegni l'interruttore o, su iPhone, esci dall'account; su Android smette di funzionare se disinstalli l'app.
+- **Video della Community**: i dati pubblici dei video e dei canali, sul nostro server, al massimo 30 giorni, poi li aggiorniamo o li cancelliamo; la tua scelta sul player di YouTube e i suoi cookie restano sul dispositivo finché non elimini l'app. I dati che raccoglie YouTube li conserva Google, secondo la sua informativa.
 - **Email al supporto** (comprese le richieste di cancellazione): 12 mesi dall'ultimo messaggio.
 - **Iscrizioni alla beta**: se la richiesta viene accolta, fino alla fine del programma di test, o prima se revochi il consenso o ci chiedi di cancellarle; se non viene accolta, la cancelliamo subito dopo averla valutata.
 
@@ -170,6 +183,8 @@ Non vengono cancellati: le richieste approvate sulla bacheca, che rimuoviamo se 
 <h2 id="sez-10">10. I tuoi diritti</h2>
 
 Ai sensi degli artt. 15–22 del GDPR hai diritto di ottenere l'**accesso** ai tuoi dati, la loro **rettifica** o **cancellazione**, la **limitazione** del trattamento, la **portabilità**, e di **opporti** ai trattamenti fondati sul legittimo interesse. Puoi esercitarli scrivendo a [support@rosanero.app](mailto:support@rosanero.app); ti risponderemo entro un mese. Per opporti alle statistiche d'uso non serve scriverci: basta spegnere, in qualsiasi momento, *Impostazioni → Privacy → Condividi statistiche d'uso*. Per non ricevere più le notifiche push, spegnile nelle impostazioni del telefono o, per tipo, in *Impostazioni → Notifiche*. Se ti sei iscritto alla beta puoi anche **revocare il consenso** in qualsiasi momento, allo stesso indirizzo: la revoca non tocca il trattamento fatto prima.
+
+Per i dati che raccoglie YouTube quando guardi un video (§ 3.7), rivolgiti a Google, come indicato nella sua [informativa](https://policies.google.com/privacy).
 
 Hai inoltre diritto di proporre **reclamo al Garante per la protezione dei dati personali** ([www.garanteprivacy.it](https://www.garanteprivacy.it)) o all'autorità di controllo dello Stato in cui risiedi.
 

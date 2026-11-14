@@ -108,7 +108,7 @@ You can turn them all off in the phone's settings (on iPhone *Settings → Notif
 
 ### 3.7 Community videos (YouTube)
 
-In the *Community* tab, on iPhone for now, you find public YouTube videos picked from the channels we follow. For this section the app uses Google's **YouTube API Services**. You do not need an account to watch the videos.
+In the *Community* tab you find public YouTube videos picked from the channels we follow. For this section the app uses Google's **YouTube API Services**. You do not need an account to watch the videos.
 
 - **What our server reads.** Only public data about the videos of the channels we follow: title, thumbnail, duration, publication date, the channel's name and picture. We keep it for 30 days at most, then refresh it from YouTube or delete it. We do not ask you to sign in to YouTube, we do not access your YouTube or Google account, and we receive no data about you from YouTube.
 - **Thumbnails and channel pictures.** The app downloads them directly from YouTube's servers, which receive, as for any image downloaded from the internet, the IP address and the technical information of the request.

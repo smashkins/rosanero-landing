@@ -106,7 +106,7 @@ Puoi spegnerle tutte nelle impostazioni del telefono (su iPhone *Impostazioni â†
 
 ### 3.7 I video della Community (YouTube)
 
-Nella scheda *Community*, per ora solo su iPhone, trovi video pubblici di YouTube scelti tra i canali che seguiamo. Per questa sezione l'app usa i **servizi API di YouTube** (YouTube API Services), di Google. Per guardare i video non serve un account.
+Nella scheda *Community* trovi video pubblici di YouTube scelti tra i canali che seguiamo. Per questa sezione l'app usa i **servizi API di YouTube** (YouTube API Services), di Google. Per guardare i video non serve un account.
 
 - **Cosa legge il nostro server.** Solo dati pubblici sui video dei canali che seguiamo: titolo, miniatura, durata, data di pubblicazione, nome e immagine del canale. Li conserviamo al massimo 30 giorni, poi li aggiorniamo da YouTube o li cancelliamo. Non ti chiediamo di accedere a YouTube, non accediamo al tuo account YouTube o Google e non riceviamo da YouTube alcun dato che ti riguardi.
 - **Miniature e immagini dei canali.** L'app le scarica direttamente dai server di YouTube, che ricevono, come per qualsiasi immagine scaricata da internet, l'indirizzo IP e le informazioni tecniche della richiesta.

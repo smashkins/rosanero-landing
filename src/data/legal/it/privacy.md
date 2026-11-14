@@ -2,7 +2,7 @@
 title: Informativa sulla privacy
 description: Quali dati personali tratta l'app Rosanero, perché, e quali diritti hai.
 eyebrow: Legale · Privacy
-updated: 2026-11-10
+updated: 2026-11-14
 placeholder: false
 toc:
   - { id: sez-1, label: "1. Titolare del trattamento" }
@@ -58,11 +58,11 @@ Le versioni distribuite dell'app includono **Firebase Crashlytics** e **Firebase
 
 **Crashlytics** raccoglie le segnalazioni di crash (lo stack trace e lo stato dell'app al momento dell'errore), il modello del dispositivo, la versione del sistema, la versione dell'app e un identificativo dell'installazione.
 
-**Analytics** raccoglie gli eventi di utilizzo automatici, per esempio le sessioni, la prima apertura e il tempo di utilizzo. L'app registra anche eventi propri, che descrivono come la usi: per esempio le schermate che apri e i comandi principali che tocchi. Questi eventi indicano solo la schermata, il comando o l'opzione scelta, mai dati personali, e l'app non collega Analytics al tuo account. Su iPhone Analytics registra anche se hai attivato *Novità dall'app* (§ 3.6), per inviare alcuni annunci a gruppi di utenti scelti in base a come usano l'app. Analytics usa un identificativo dell'istanza dell'app generato dalla libreria; Google ricava dall'indirizzo IP una posizione approssimativa, a livello di paese o città.
+**Analytics** raccoglie gli eventi di utilizzo automatici, per esempio le sessioni, la prima apertura e il tempo di utilizzo. L'app registra anche eventi propri, che descrivono come la usi: per esempio le schermate che apri e i comandi principali che tocchi. Questi eventi indicano solo la schermata, il comando o l'opzione scelta, mai dati personali, e l'app non collega Analytics al tuo account. Analytics registra anche se hai attivato *Novità dall'app* (§ 3.6), per inviare alcuni annunci a gruppi di utenti scelti in base a come usano l'app. Analytics usa un identificativo dell'istanza dell'app generato dalla libreria; Google ricava dall'indirizzo IP una posizione approssimativa, a livello di paese o città.
 
 Analytics è attivo dall'installazione. Puoi spegnerlo quando vuoi, su iPhone e su Android, in *Impostazioni → Privacy → Condividi statistiche d'uso*: da spento l'app non invia più nulla ad Analytics e l'identificativo salvato sul dispositivo viene azzerato, quindi se lo riaccendi riparte con uno nuovo, non collegato al precedente. Crashlytics non ha un interruttore: anche alle segnalazioni di crash puoi opporti scrivendoci.
 
-Non raccogliamo l'identificativo pubblicitario: su Android è disattivato, su iPhone l'app non chiede il permesso di tracciamento. Non usiamo questi dati per pubblicità e non li incrociamo con i dati del tuo account. Li usiamo anche per scegliere a chi inviare alcuni annunci (§ 3.6), solo se hai lasciato attivo *Condividi statistiche d'uso* e, su iPhone, attivato *Novità dall'app*. Le build di sviluppo interne non configurano Firebase e non inviano nulla.
+Non raccogliamo l'identificativo pubblicitario: su Android è disattivato, su iPhone l'app non chiede il permesso di tracciamento. Non usiamo questi dati per pubblicità e non li incrociamo con i dati del tuo account. Li usiamo anche per scegliere a chi inviare alcuni annunci (§ 3.6), solo se hai lasciato attivo *Condividi statistiche d'uso* e attivato *Novità dall'app*. Le build di sviluppo interne non configurano Firebase e non inviano nulla.
 
 ### 3.4 Bacheca dei suggerimenti
 
@@ -100,7 +100,7 @@ Le notifiche delle **risposte private** (§ 3.4) le invia **FeedbackThread**: su
 
 Su iPhone alcuni **annunci** di *Novità dall'app* possono invece arrivare da **Firebase Cloud Messaging** (FCM), il servizio di notifiche di Google, sempre attraverso APNs. Ci serve per scrivere a un gruppo di utenti scelto in base a come usano l'app (per esempio chi apre spesso le classifiche), con i dati di Analytics (§ 3.3). Solo mentre *Novità dall'app* è attivo, l'app registra l'iPhone presso FCM: Firebase riceve il token per le notifiche dell'iPhone e gli associa un proprio identificativo. Se spegni *Novità dall'app*, l'app chiede a Firebase di cancellare quella registrazione. Se spegni *Condividi statistiche d'uso*, non fai più parte dei gruppi a cui questi annunci sono destinati.
 
-Anche su Android alcuni **annunci** possono arrivare dalla console di Firebase invece che dal nostro server, a un gruppo di utenti scelto allo stesso modo, con i dati di Analytics (§ 3.3). Firebase usa la registrazione presso FCM che l'app ha già per tutte le notifiche, senza altri dati. Su Android questi annunci non dipendono dall'interruttore *Novità dall'app* dell'app: se spegni *Condividi statistiche d'uso* non fai più parte dei gruppi a cui sono destinati, e puoi bloccarli spegnendo *Novità dall'app* nelle impostazioni del telefono (*Impostazioni → App → Rosanero → Notifiche*).
+Anche su Android alcuni **annunci** possono arrivare dalla console di Firebase invece che dal nostro server, a un gruppo di utenti scelto allo stesso modo, con i dati di Analytics (§ 3.3). Firebase usa la registrazione presso FCM che l'app ha già per tutte le notifiche, senza altri dati. Come su iPhone, questi annunci arrivano solo se *Novità dall'app* è attivo nell'app: se lo spegni, o se spegni *Condividi statistiche d'uso*, non fai più parte dei gruppi a cui sono destinati. A differenza dell'iPhone, spegnendo *Novità dall'app* la registrazione presso FCM resta, perché serve alle altre notifiche. Il cambiamento non è immediato: per qualche giorno potresti ricevere ancora un annuncio.
 
 Puoi spegnerle tutte nelle impostazioni del telefono (su iPhone *Impostazioni → Notifiche → Rosanero*, su Android *Impostazioni → App → Rosanero → Notifiche*), oppure per tipo nell'app, in *Impostazioni → Notifiche*. Da spente non ti inviamo nulla, ma l'app continua a registrare l'installazione con il nuovo stato, così le notifiche ripartono se le riattivi. Su Android le impostazioni del telefono elencano anche i singoli tipi: spegnerne uno lì nasconde le sue notifiche, ma per non riceverle affatto spegnilo nell'app.
 
@@ -133,7 +133,7 @@ Nella scheda *Community*, per ora solo su iPhone, trovi video pubblici di YouTub
 
 </div>
 
-Ai trattamenti basati sul legittimo interesse puoi opporti (§ 10): alle statistiche d'uso con l'interruttore *Condividi statistiche d'uso* o scrivendoci, alle segnalazioni di crash scrivendoci, alle notifiche spegnendole, alla scelta dei destinatari di alcuni annunci spegnendo *Condividi statistiche d'uso* o, su iPhone, *Novità dall'app*.
+Ai trattamenti basati sul legittimo interesse puoi opporti (§ 10): alle statistiche d'uso con l'interruttore *Condividi statistiche d'uso* o scrivendoci, alle segnalazioni di crash scrivendoci, alle notifiche spegnendole, alla scelta dei destinatari di alcuni annunci spegnendo *Condividi statistiche d'uso* o *Novità dall'app*.
 
 Non trattiamo dati appartenenti alle categorie particolari dell'art. 9 GDPR e non prendiamo decisioni automatizzate che producano effetti giuridici nei tuoi confronti.
 

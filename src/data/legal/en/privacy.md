@@ -2,7 +2,7 @@
 title: Privacy Policy
 description: What personal data the Rosanero app processes, why, and what rights you have.
 eyebrow: Legal · Privacy
-updated: 2026-11-14
+updated: 2026-11-25
 placeholder: false
 toc:
   - { id: sez-1, label: "1. Data controller" }
@@ -76,7 +76,7 @@ Requests are moderated before publication: nobody else sees them until we approv
 
 ### 3.5 Signing up for the beta on the website
 
-If you sign up for the public beta on the website's [Public beta](/en/beta/) page, we process the **email address** you enter, the **platform** you pick (iPhone or Android), your **phone model**, the page language and the time of sign-up. We need the model to check that the app can be installed and to test it on a range of devices. This data reaches us by email at support@rosanero.app, through **Resend**, and we only use it to invite you to the test and to write to you during the beta: never for newsletters or ads. The beta is invite-only: if your request is not accepted, we delete it right after reviewing it. To invite you we add your email address to **TestFlight** (Apple), for iPhone; for Android, to **Firebase App Distribution** (Google) or to the **Google Play** tester list (Google). These services receive your email address and send you the invite. Firebase App Distribution keeps tester data (the email and data about the device you install the test build on) until we remove you from the testers. To prevent abuse the server also uses the **IP address** of the request, only for as long as it takes to limit repeated submissions.
+If you sign up for the public beta on the website's [Public beta](/en/beta/) page, we process the **email address** you enter, the **platform** you pick (iPhone or Android), your **phone model**, the page language and the time of sign-up. We need the model to check that the app can be installed and to test it on a range of devices. This data reaches us by email at support@rosanero.app, through **Resend**, and we only use it to invite you to the test and to write to you during the beta: never for newsletters or ads. The beta is invite-only: if your request is not accepted, we delete it right after reviewing it. To invite you we add your email address to **TestFlight** (Apple), for iPhone, which sends you the invite; for Android, to the tester list of the **Google Play** closed test (Google), and we email you the link to join the test ourselves. These services receive your email address. To prevent abuse the server also uses the **IP address** of the request, only for as long as it takes to limit repeated submissions.
 
 ### 3.6 Push notifications
 
@@ -149,7 +149,7 @@ We do not sell your data and do not share it for third-party marketing. The foll
 
 - **Apple** (on iPhone) and **Google**, as identity providers, for sign-in;
 - **Resend**, for sending verification and password-recovery emails and for forwarding beta sign-ups to us;
-- **Apple (TestFlight)** and **Google (Firebase App Distribution and Google Play)**, when we invite you to the beta;
+- **Apple (TestFlight)** and **Google (Google Play)**, when we invite you to the beta;
 - **Google (Firebase)**, for diagnostics, usage analytics and sending push notifications with Firebase Cloud Messaging: all of them on Android, including some announcements sent from the Firebase console, and only those announcements on iPhone;
 - **Apple (Apple Push Notification service)**, for delivering push notifications to the iPhone;
 - **FeedbackThread**, for the suggestions board, private replies and their notifications;

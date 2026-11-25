@@ -2,7 +2,7 @@
 title: Informativa sulla privacy
 description: Quali dati personali tratta l'app Rosanero, perché, e quali diritti hai.
 eyebrow: Legale · Privacy
-updated: 2026-11-14
+updated: 2026-11-25
 placeholder: false
 toc:
   - { id: sez-1, label: "1. Titolare del trattamento" }
@@ -74,7 +74,7 @@ Le richieste sono moderate prima della pubblicazione: nessun altro le vede finch
 
 ### 3.5 Iscrizione alla beta dal sito
 
-Se ti iscrivi alla beta pubblica dalla pagina [Beta pubblica](/beta/) del sito, trattiamo l'**indirizzo email** che inserisci, la **piattaforma** che scegli (iPhone o Android), il **modello del telefono**, la lingua della pagina e il momento dell'iscrizione. Il modello ci serve a verificare che l'app si possa installare e a provarla su dispositivi diversi. Questi dati ci arrivano per email all'indirizzo support@rosanero.app, tramite **Resend**, e li usiamo solo per invitarti al test e per scriverti durante la beta: mai per newsletter o pubblicità. La beta è su invito: se la tua richiesta non viene accolta, la cancelliamo subito dopo averla valutata. Per invitarti inseriamo il tuo indirizzo email in **TestFlight** (Apple), per iPhone; per Android, in **Firebase App Distribution** (Google) o nell'elenco dei tester di **Google Play** (Google). Questi servizi ricevono il tuo indirizzo email e ti mandano l'invito. Firebase App Distribution conserva i dati del tester (l'email e i dati del dispositivo su cui installi la build di test) finché non ti rimuoviamo dai tester. Per prevenire abusi il server usa anche l'**indirizzo IP** della richiesta, solo per il tempo necessario a limitare gli invii ripetuti.
+Se ti iscrivi alla beta pubblica dalla pagina [Beta pubblica](/beta/) del sito, trattiamo l'**indirizzo email** che inserisci, la **piattaforma** che scegli (iPhone o Android), il **modello del telefono**, la lingua della pagina e il momento dell'iscrizione. Il modello ci serve a verificare che l'app si possa installare e a provarla su dispositivi diversi. Questi dati ci arrivano per email all'indirizzo support@rosanero.app, tramite **Resend**, e li usiamo solo per invitarti al test e per scriverti durante la beta: mai per newsletter o pubblicità. La beta è su invito: se la tua richiesta non viene accolta, la cancelliamo subito dopo averla valutata. Per invitarti inseriamo il tuo indirizzo email in **TestFlight** (Apple), per iPhone, che ti manda l'invito; per Android, nell'elenco dei tester del test chiuso di **Google Play** (Google), e il link per entrare nel test te lo mandiamo noi per email. Questi servizi ricevono il tuo indirizzo email. Per prevenire abusi il server usa anche l'**indirizzo IP** della richiesta, solo per il tempo necessario a limitare gli invii ripetuti.
 
 ### 3.6 Notifiche push
 
@@ -147,7 +147,7 @@ Non vendiamo i tuoi dati e non li cediamo per finalità di marketing di terzi. L
 
 - **Apple** (su iPhone) e **Google**, come provider di identità, per l'accesso;
 - **Resend**, per l'invio delle email di verifica e di recupero password e per inoltrarci le iscrizioni alla beta;
-- **Apple (TestFlight)** e **Google (Firebase App Distribution e Google Play)**, quando ti invitiamo alla beta;
+- **Apple (TestFlight)** e **Google (Google Play)**, quando ti invitiamo alla beta;
 - **Google (Firebase)**, per diagnostica, analisi di utilizzo e l'invio di notifiche push con Firebase Cloud Messaging: su Android tutte, compresi alcuni annunci inviati dalla console di Firebase, su iPhone solo questi annunci;
 - **Apple (Apple Push Notification service)**, per consegnare le notifiche push sull'iPhone;
 - **FeedbackThread**, per la bacheca dei suggerimenti, le risposte private e le loro notifiche;

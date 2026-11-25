@@ -19,8 +19,8 @@ on:
       android:
         description: "Android (Google Play)"
         type: choice
-        options: [chiusa, aperta]
-        default: chiusa
+        options: [aperta, chiusa]
+        default: aperta
 
 concurrency:
   group: beta-toggle

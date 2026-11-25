@@ -403,11 +403,11 @@ const it = {
       emailPlaceholder: 'nome@email.it',
       hintJoin: {
         ios: "Usa la mail che leggi dall'iPhone: l'invito di Apple si apre da lì.",
-        android: 'Serve la mail del tuo account Google, di solito Gmail.',
+        android: "Serve la mail dell'account Google che usi sul Play Store, di solito Gmail.",
       },
       hintNotify: {
         ios: 'La beta iPhone è al completo per ora: lascia la mail e ti avvisiamo alla prossima apertura.',
-        android: 'La beta Android non è ancora partita: lascia la mail e ti avvisiamo appena apre.',
+        android: 'La beta Android è al completo per ora: lascia la mail e ti avvisiamo alla prossima apertura.',
       },
       submitJoin: 'Voglio entrare',
       submitNotify: 'Avvisami',
@@ -432,12 +432,12 @@ const it = {
       joinTitle: 'Richiesta ricevuta.',
       joinText: {
         ios: "La beta è su invito e aggiungiamo i tester a mano, pochi alla volta. Se c'è posto per te, ti arriva l'invito di Apple da TestFlight: controlla anche lo spam.",
-        android: "La beta è su invito e aggiungiamo i tester a mano, pochi alla volta. Se c'è posto per te, ti scriviamo con il link per installare l'app.",
+        android: "La beta è su invito e aggiungiamo i tester a mano, pochi alla volta. Se c'è posto per te, ti scriviamo con il link al test di Google Play: aprilo con quell'account Google, accetta e installa l'app dal Play Store.",
       },
       notifyTitle: 'Ti teniamo il posto.',
       notifyText: {
         ios: 'Appena la beta iPhone riapre ti scriviamo. Una mail, niente di più.',
-        android: 'Appena la beta Android parte ti scriviamo. Una mail, niente di più.',
+        android: 'Appena la beta Android riapre ti scriviamo. Una mail, niente di più.',
       },
       again: 'Iscrivi un altro indirizzo',
     },
@@ -508,10 +508,10 @@ const it = {
       sub: 'Le risposte veloci. Per tutto il resto scrivici a support@rosanero.app.',
       items: [
         { q: 'È gratis?', a: 'Sì. La beta è gratuita, e lo è anche TestFlight. Nessun pagamento, nessun abbonamento.' },
-        { q: "Come arriva l'invito?", a: "La beta è su invito: leggiamo le richieste a mano e aggiungiamo i tester a piccoli gruppi. Se c'è posto per te, su iPhone la mail arriva da TestFlight (Apple); se non la vedi, controlla lo spam." },
+        { q: "Come arriva l'invito?", a: "La beta è su invito: leggiamo le richieste a mano e aggiungiamo i tester a piccoli gruppi. Se c'è posto per te, su iPhone la mail arriva da TestFlight (Apple), su Android te la mandiamo noi con il link al test di Google Play. Se non la vedi, controlla lo spam." },
         { q: "Che cos'è TestFlight?", a: "È l'app di Apple per provare le app prima dell'uscita sull'App Store. La scarichi gratis dall'App Store e l'invito la apre da solo." },
         { q: 'Posso uscire quando voglio?', a: 'Sì. Su iPhone apri TestFlight, scegli Rosanero e interrompi il test. Oppure scrivici e ti togliamo dalla lista.' },
-        { q: 'E su Android?', a: 'La beta Android passa dal test chiuso di Google Play. Scegli Android nel modulo: se c\'è posto per te, ti aggiungiamo e ti mandiamo il link per installare l\'app.', aClosed: 'La beta Android parte più avanti, con il test chiuso di Google Play. Scegli Android nel modulo e ti avvisiamo appena apre.' },
+        { q: 'E su Android?', a: "Sì, la beta c'è anche su Android, con il test chiuso di Google Play. Scegli Android nel modulo e usa la mail del tuo account Google: se c'è posto per te, ti mandiamo il link al test. Aprilo con quell'account, accetta l'invito e installa Rosanero dal Play Store.", aClosed: 'La beta Android, con il test chiuso di Google Play, è al completo per ora. Scegli Android nel modulo e ti avvisiamo alla prossima apertura.' },
         { q: 'Cosa fate con la mia email?', a: "La usiamo solo per invitarti alla beta e scriverti durante il test: mai newsletter, mai pubblicità. Se la richiesta non viene accolta la cancelliamo subito; altrimenti puoi chiederci di cancellarla quando vuoi.", more: "I dettagli sono nell'" },
       ],
     },
@@ -916,11 +916,11 @@ const en: UIStrings = {
       emailPlaceholder: 'name@email.com',
       hintJoin: {
         ios: 'Use the address you read on your iPhone: the Apple invite opens from there.',
-        android: 'Use the email of your Google account, usually Gmail.',
+        android: 'Use the email of the Google account you use on the Play Store, usually Gmail.',
       },
       hintNotify: {
         ios: 'The iPhone beta is full for now: leave your email and we will tell you when it reopens.',
-        android: 'The Android beta has not started yet: leave your email and we will tell you when it opens.',
+        android: 'The Android beta is full for now: leave your email and we will tell you when it reopens.',
       },
       submitJoin: 'Count me in',
       submitNotify: 'Notify me',
@@ -945,12 +945,12 @@ const en: UIStrings = {
       joinTitle: 'Request received.',
       joinText: {
         ios: "The beta is invite-only and we add testers by hand, a few at a time. If there is a place for you, Apple's TestFlight invite will reach you: check your spam folder too.",
-        android: 'The beta is invite-only and we add testers by hand, a few at a time. If there is a place for you, we will email you the link to install the app.',
+        android: 'The beta is invite-only and we add testers by hand, a few at a time. If there is a place for you, we will email you the link to the Google Play test: open it with that Google account, accept and install the app from the Play Store.',
       },
       notifyTitle: 'We saved you a seat.',
       notifyText: {
         ios: 'We will email you as soon as the iPhone beta reopens. One email, nothing more.',
-        android: 'We will email you as soon as the Android beta starts. One email, nothing more.',
+        android: 'We will email you as soon as the Android beta reopens. One email, nothing more.',
       },
       again: 'Sign up another address',
     },
@@ -1021,10 +1021,10 @@ const en: UIStrings = {
       sub: 'The quick answers. For anything else, email support@rosanero.app.',
       items: [
         { q: 'Is it free?', a: 'Yes. The beta is free, and so is TestFlight. No payment, no subscription.' },
-        { q: 'How does the invite arrive?', a: 'The beta is invite-only: we read requests by hand and add testers in small batches. If there is a place for you, on iPhone the email comes from TestFlight (Apple); if you cannot see it, check your spam folder.' },
+        { q: 'How does the invite arrive?', a: 'The beta is invite-only: we read requests by hand and add testers in small batches. If there is a place for you, on iPhone the email comes from TestFlight (Apple), on Android we send it ourselves with the link to the Google Play test. If you cannot see it, check your spam folder.' },
         { q: 'What is TestFlight?', a: 'It is the Apple app for trying apps before they reach the App Store. Download it for free from the App Store and the invite opens it for you.' },
         { q: 'Can I leave whenever I want?', a: 'Yes. On iPhone open TestFlight, pick Rosanero and stop testing. Or email us and we will take you off the list.' },
-        { q: 'What about Android?', a: 'The Android beta runs on the Google Play closed test. Pick Android in the form: if there is a place for you, we will add you and email you the install link.', aClosed: 'The Android beta starts later, on the Google Play closed test. Pick Android in the form and we will tell you when it opens.' },
+        { q: 'What about Android?', a: 'Yes, the beta is on Android too, on the Google Play closed test. Pick Android in the form and use the email of your Google account: if there is a place for you, we will email you the link to the test. Open it with that account, accept the invite and install Rosanero from the Play Store.', aClosed: 'The Android beta, on the Google Play closed test, is full for now. Pick Android in the form and we will tell you when it reopens.' },
         { q: 'What do you do with my email?', a: 'We only use it to invite you to the beta and to write to you during the test: never newsletters, never ads. If your request is not accepted we delete it right away; otherwise you can ask us to delete it at any time.', more: 'The details are in the ' },
       ],
     },
